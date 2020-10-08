@@ -77,7 +77,6 @@ namespace Auvik.Api.Test
 				.WithMessage("Missing ApiKey");
 		}
 
-
 		[Fact]
 		public async void GoodConfig_Works()
 			=> await AuvikClient
