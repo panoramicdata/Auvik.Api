@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30503.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auvik.Api", "Auvik.Api\Auvik.Api.csproj", "{50DDE91C-C7B3-4517-848E-1EC556960796}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4AED21D6-9076-48D5-8774-9DDA9F59185E}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		LICENSE = LICENSE
+		README.md = README.md
+		version.json = version.json
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auvik.Api.Test", "Auvik.Api.Test\Auvik.Api.Test.csproj", "{CE0A6257-64C6-425A-9F36-B8A384CE8AD4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{50DDE91C-C7B3-4517-848E-1EC556960796}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50DDE91C-C7B3-4517-848E-1EC556960796}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50DDE91C-C7B3-4517-848E-1EC556960796}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50DDE91C-C7B3-4517-848E-1EC556960796}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE0A6257-64C6-425A-9F36-B8A384CE8AD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE0A6257-64C6-425A-9F36-B8A384CE8AD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE0A6257-64C6-425A-9F36-B8A384CE8AD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE0A6257-64C6-425A-9F36-B8A384CE8AD4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {792C6CAC-E001-4F28-A72F-94EAA485D7DB}
+	EndGlobalSection
+EndGlobal
