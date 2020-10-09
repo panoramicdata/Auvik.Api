@@ -18,7 +18,7 @@ namespace Auvik.Api.Interfaces
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <returns>Task of UserTenantsReadMultiple</returns>
-		[Get("/tenants")]
+		[Get("/v1/tenants")]
 		Task<UserTenantsReadMultiple> ReadMultipleTenants(
 			CancellationToken? cancellationToken = null
 		);
@@ -33,7 +33,7 @@ namespace Auvik.Api.Interfaces
 		/// <param name="tenantDomainPrefix">Domain prefix of your main Auvik account (tenant).</param>
 		/// <param name="filter_availableTenants">Filter whether or not a tenant is available, i.e. data can be gotten from them via the API. (optional)</param>
 		/// <returns>Task of TenantsDetailReadMultiple</returns>
-		[Get("/tenants/detail")]
+		[Get("/v1/tenants/detail")]
 		Task<TenantsDetailReadMultiple> ReadMultipleTenantsDetail(
 			[AliasAs("tenantDomainPrefix")] string tenantDomainPrefix,
 			[AliasAs("filter_availableTenants")] bool? filter_availableTenants = null,
@@ -50,7 +50,7 @@ namespace Auvik.Api.Interfaces
 		/// <param name="tenantDomainPrefix">Domain prefix of your main Auvik account (tenant).</param>
 		/// <param name="id">ID of tenant</param>
 		/// <returns>Task of TenantsDetailReadSingle</returns>
-		[Get("/tenants/detail/{id}")]
+		[Get("/v1/tenants/detail/{id}")]
 		Task<TenantsDetailReadSingle> ReadSingleTenantsDetail(
 			[AliasAs("tenantDomainPrefix")] string tenantDomainPrefix,
 			[AliasAs("id")] string id,

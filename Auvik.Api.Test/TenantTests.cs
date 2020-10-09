@@ -13,12 +13,22 @@ namespace Auvik.Api.Test
 		[Fact]
 		public async void ReadMultipleNetworkInfo_Succeeds()
 		{
-			var userTenantsReadMultiple = await AuvikClient
+			var tenants = await AuvikClient
 				.Tenants
 				.ReadMultipleTenants()
 				.ConfigureAwait(false);
 
-			userTenantsReadMultiple.Should().NotBeNull();
+			tenants.Should().NotBeNull();
+
+			foreach(var tenant in tenants.Data)
+			{
+				var tenantDetail = await AuvikClient
+					.Tenants
+					.ReadSingleTenantsDetail(tenant.Attributes.DomainPrefix, tenant.Id)
+					.ConfigureAwait(false);
+
+				tenantDetail.Should().NotBeNull();
+			}
 		}
 	}
 }
