@@ -17,7 +17,7 @@ namespace Auvik.Api.Interfaces
 		/// </remarks>
 		/// <param name="id">ID of alert</param>
 		/// <returns>Task of void</returns>
-		[Post("/alert/dismiss/{id}")]
+		[Post("/v1/alert/dismiss/{id}")]
 		public Task AlertDismissSingle(
 			[AliasAs("id")] string id,
 			CancellationToken cancellationToken);

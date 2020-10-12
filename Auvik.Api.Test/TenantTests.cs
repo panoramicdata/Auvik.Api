@@ -11,7 +11,28 @@ namespace Auvik.Api.Test
 		}
 
 		[Fact]
-		public async void ReadMultipleNetworkInfo_Succeeds()
+		public async void ReadMultipleTenantsDetail_Succeeds()
+		{
+			var tenants = await AuvikClient
+				.Tenants
+				.ReadMultipleTenantsDetail("warps")
+				.ConfigureAwait(false);
+
+			tenants.Should().NotBeNull();
+		}
+
+		[Fact]
+		public async void ReadMultipleTenants_Succeeds()
+		{
+			var tenants = await AuvikClient
+				.Tenants
+				.ReadMultipleTenants()
+				.ConfigureAwait(false);
+
+			tenants.Should().NotBeNull();
+		}
+		[Fact]
+		public async void ReadSingleTenantsDetail_Succeeds()
 		{
 			var tenants = await AuvikClient
 				.Tenants
@@ -20,11 +41,11 @@ namespace Auvik.Api.Test
 
 			tenants.Should().NotBeNull();
 
-			foreach(var tenant in tenants.Data)
+			foreach (var tenant in tenants.Data)
 			{
 				var tenantDetail = await AuvikClient
 					.Tenants
-					.ReadSingleTenantsDetail(tenant.Attributes.DomainPrefix, tenant.Id)
+					.ReadSingleTenantDetail(tenant.Attributes.DomainPrefix, tenant.Id)
 					.ConfigureAwait(false);
 
 				tenantDetail.Should().NotBeNull();

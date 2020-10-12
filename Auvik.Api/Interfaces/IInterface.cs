@@ -28,7 +28,7 @@ namespace Auvik.Api.Interfaces
 		/// <param name="page_last">For paginated responses, the last N services will be returned. Used in combination with &lt;code&gt;page[before]&lt;/code&gt;. (optional, default to 100)</param>
 		/// <param name="page_before">Cursor before which elements will be returned as a page. The page size is provided by &lt;code&gt;page[last]&lt;/code&gt;. (optional)</param>
 		/// <returns>Task of InterfaceInfoReadMultiple</returns>
-		[Get("/inventory/interface/info")]
+		[Get("/v1/inventory/interface/info")]
 		Task<InterfaceInfoReadMultiple> ReadMultipleInterfaceInfo(
 			[AliasAs("filter_interfaceType")] string filter_interfaceType = null,
 			[AliasAs("filter_parentDevice")] string filter_parentDevice = null,
@@ -52,7 +52,7 @@ namespace Auvik.Api.Interfaces
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="id">ID of interface</param>
 		/// <returns>Task of InterfaceInfoReadSingle</returns>
-		[Get("/inventory/interface/info/{id}")]
+		[Get("/v1/inventory/interface/info/{id}")]
 		Task<InterfaceInfoReadSingle> ReadSingleInterfaceInfo(
 			[AliasAs("id")] string id,
 			CancellationToken? cancellationToken = null

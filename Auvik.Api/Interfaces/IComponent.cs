@@ -28,7 +28,7 @@ namespace Auvik.Api.Interfaces
 		/// <param name="page_last">For paginated responses, the last N services will be returned. Used in combination with &lt;code&gt;page[before]&lt;/code&gt;. (optional, default to 100)</param>
 		/// <param name="page_before">Cursor before which elements will be returned as a page. The page size is provided by &lt;code&gt;page[last]&lt;/code&gt;. (optional)</param>
 		/// <returns>Task of ComponentInfoReadMultiple</returns>
-		[Get("/inventory/component/info")]
+		[Get("/v1/inventory/component/info")]
 		Task<ComponentInfoReadMultiple> ReadMultipleComponentInfo(
 			[Header("UserAgent")] string userAgent,
 			[AliasAs("filter_modifiedAfter")] string filter_modifiedAfter = null,
@@ -51,7 +51,7 @@ namespace Auvik.Api.Interfaces
 		/// </remarks>
 		/// <param name="id">ID of component</param>
 		/// <returns>Task of ComponentInfoReadSingle</returns>
-		[Get("/inventory/component/info/{id}")]
+		[Get("/v1/inventory/component/info/{id}")]
 		Task<ComponentInfoReadSingle> ReadSingleComponentInfo(
 			[AliasAs("id")] string id,
 			CancellationToken? cancellationToken = null

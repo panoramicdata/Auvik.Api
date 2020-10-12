@@ -1,6 +1,7 @@
 using Auvik.Api.Interfaces;
 using Refit;
 using System;
+using System.Net;
 using System.Net.Http;
 
 namespace Auvik.Api
@@ -20,6 +21,7 @@ namespace Auvik.Api
 		/// <param name="auvikClientOptions"></param>
 		public AuvikClient(AuvikClientOptions auvikClientOptions)
 		{
+			ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 			if (auvikClientOptions == null)
 			{
 				throw new ArgumentNullException(nameof(auvikClientOptions));
@@ -36,7 +38,7 @@ namespace Auvik.Api
 			AlertHistories = RestService.For<IAlertHistory>(_httpClient);
 			Components = RestService.For<IComponent>(_httpClient);
 			Configurations = RestService.For<IConfiguration>(_httpClient);
-			Credentials = RestService.For<ICredentials>(_httpClient);
+			Credentials = RestService.For<Interfaces.ICredentials>(_httpClient);
 			Devices = RestService.For<IDevice>(_httpClient);
 			Entities = RestService.For<IEntity>(_httpClient);
 			Interfaces = RestService.For<IInterface>(_httpClient);
@@ -59,7 +61,7 @@ namespace Auvik.Api
 		public IConfiguration Configurations { get; }
 
 		/// <inheritdoc />
-		public ICredentials Credentials { get; }
+		public Interfaces.ICredentials Credentials { get; }
 
 		/// <inheritdoc />
 		public IDevice Devices { get; }

@@ -51,7 +51,7 @@ namespace Auvik.Api.Interfaces
 		/// <param name="id">ID of tenant</param>
 		/// <returns>Task of TenantsDetailReadSingle</returns>
 		[Get("/v1/tenants/detail/{id}")]
-		Task<TenantsDetailReadSingle> ReadSingleTenantsDetail(
+		Task<TenantsDetailReadSingle> ReadSingleTenantDetail(
 			[AliasAs("tenantDomainPrefix")] string tenantDomainPrefix,
 			[AliasAs("id")] string id,
 			CancellationToken? cancellationToken = null

@@ -28,7 +28,7 @@ namespace Auvik.Api.Interfaces
 		/// <param name="page_last">For paginated responses, the last N services will be returned. Used in combination with &lt;code&gt;page[before]&lt;/code&gt;. (optional, default to 100)</param>
 		/// <param name="page_before">Cursor before which elements will be returned as a page. The page size is provided by &lt;code&gt;page[last]&lt;/code&gt;. (optional)</param>
 		/// <returns>Task of NetworkDetailsReadMultiple</returns>
-		[Get("/inventory/network/detail")]
+		[Get("/v1/inventory/network/detail")]
 		Task<NetworkDetailsReadMultiple> ReadMultipleNetworkDetails(
 			[AliasAs("filter_networkType")] string filter_networkType = null,
 			[AliasAs("filter_scanStatus")] string filter_scanStatus = null,
@@ -62,7 +62,7 @@ namespace Auvik.Api.Interfaces
 		/// <param name="include">Use to include the full resource objects of any of the network's relationships. (optional)</param>
 		/// <param name="fields_networkDetail">Use to limit the attributes that will be returned in the included detail object to only what is specified by this query parameter. Requires &lt;code&gt;include&#x3D;networkDetail&lt;/code&gt; (optional)</param>
 		/// <returns>Task of NetworkInfoReadMultiple</returns>
-		[Get("/inventory/network/info")]
+		[Get("/v1/inventory/network/info")]
 		Task<NetworkInfoReadMultiple> ReadMultipleNetworkInfo(
 			[AliasAs("filter_networkType")] string filter_networkType = null,
 			[AliasAs("filter_scanStatus")] string filter_scanStatus = null,
@@ -87,7 +87,7 @@ namespace Auvik.Api.Interfaces
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="id">ID of network</param>
 		/// <returns>Task of NetworkDetailsReadSingle</returns>
-		[Get("/inventory/network/detail/{id}")]
+		[Get("/v1/inventory/network/detail/{id}")]
 		Task<NetworkDetailsReadSingle> ReadSingleNetworkDetails(
 			[AliasAs("id")] string id,
 			CancellationToken? cancellationToken = null
@@ -104,7 +104,7 @@ namespace Auvik.Api.Interfaces
 		/// <param name="include">Use to include the full resource objects of any of the network's relationships. (optional)</param>
 		/// <param name="fields_networkDetail">Use to limit the attributes that will be returned in the included detail object to only what is specified by this query parameter. Requires &lt;code&gt;include&#x3D;networkDetail&lt;/code&gt; (optional)</param>
 		/// <returns>Task of NetworkInfoReadSingle</returns>
-		[Get("/inventory/network/info/{id}")]
+		[Get("/v1/inventory/network/info/{id}")]
 		Task<NetworkInfoReadSingle> ReadSingleNetworkInfo(
 			[AliasAs("id")] string id,
 			[AliasAs("include")] string include = null,

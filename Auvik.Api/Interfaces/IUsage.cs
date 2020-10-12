@@ -21,7 +21,7 @@ namespace Auvik.Api.Interfaces
 		/// <param name="filter_thruDate">Date to which you want to query</param>
 		/// <param name="tenants">Comma delimited list of tenant IDs to request info from. (optional)</param>
 		/// <returns>Task of ClientUsageRead</returns>
-		[Get("/billing/usage/client")]
+		[Get("/v1/billing/usage/client")]
 		Task<ClientUsageRead> ReadClientUsage(
 			[AliasAs("filter_fromDate")] string filter_fromDate,
 			[AliasAs("filter_thruDate")] string filter_thruDate,
@@ -40,7 +40,7 @@ namespace Auvik.Api.Interfaces
 		/// <param name="filter_fromDate">Date from which you want to query</param>
 		/// <param name="filter_thruDate">Date to which you want to query</param>
 		/// <returns>Task of DeviceUsageRead</returns>
-		[Get("/billing/usage/device/{id}")]
+		[Get("/v1/billing/usage/device/{id}")]
 		Task<DeviceUsageRead> ReadDeviceUsage(
 			[AliasAs("id")] string id,
 			[AliasAs("filter_fromDate")] string filter_fromDate,

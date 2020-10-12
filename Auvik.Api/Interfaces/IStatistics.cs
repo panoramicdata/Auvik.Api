@@ -30,7 +30,7 @@ namespace Auvik.Api.Interfaces
 		/// <param name="page_last">For paginated responses, the last N services will be returned. Used in combination with &lt;code&gt;page[before]&lt;/code&gt;. (optional, default to 100)</param>
 		/// <param name="page_before">Cursor before which elements will be returned as a page. The page size is provided by &lt;code&gt;page[last]&lt;/code&gt;. (optional)</param>
 		/// <returns>Task of ComponentStatisticsRead</returns>
-		[Get("/stat/component/{componentType}/{statId}")]
+		[Get("/v1/stat/component/{componentType}/{statId}")]
 		Task<ComponentStatisticsRead> ReadComponentStatistics(
 			[Header("UserAgent")] string userAgent,
 			[AliasAs("componentType")] string componentType,
@@ -67,7 +67,7 @@ namespace Auvik.Api.Interfaces
 		/// <param name="page_last">For paginated responses, the last N services will be returned. Used in combination with &lt;code&gt;page[before]&lt;/code&gt;. (optional, default to 100)</param>
 		/// <param name="page_before">Cursor before which elements will be returned as a page. The page size is provided by &lt;code&gt;page[last]&lt;/code&gt;. (optional)</param>
 		/// <returns>Task of DeviceAvailabilityStatisticsRead</returns>
-		[Get("/stat/deviceAvailability/{statId}")]
+		[Get("/v1/stat/deviceAvailability/{statId}")]
 		Task<DeviceAvailabilityStatisticsRead> ReadDeviceAvailabilityStatistics(
 			[AliasAs("statId")] string statId,
 			[AliasAs("filter_fromTime")] string filter_fromTime,
@@ -102,7 +102,7 @@ namespace Auvik.Api.Interfaces
 		/// <param name="page_last">For paginated responses, the last N services will be returned. Used in combination with &lt;code&gt;page[before]&lt;/code&gt;. (optional, default to 100)</param>
 		/// <param name="page_before">Cursor before which elements will be returned as a page. The page size is provided by &lt;code&gt;page[last]&lt;/code&gt;. (optional)</param>
 		/// <returns>Task of DeviceStatisticsRead</returns>
-		[Get("/stat/device/{statId}")]
+		[Get("/v1/stat/device/{statId}")]
 		Task<DeviceStatisticsRead> ReadDeviceStatistics(
 			[AliasAs("statId")] string statId,
 			[AliasAs("filter_fromTime")] string filter_fromTime,
@@ -138,7 +138,7 @@ namespace Auvik.Api.Interfaces
 		/// <param name="page_last">For paginated responses, the last N services will be returned. Used in combination with &lt;code&gt;page[before]&lt;/code&gt;. (optional, default to 100)</param>
 		/// <param name="page_before">Cursor before which elements will be returned as a page. The page size is provided by &lt;code&gt;page[last]&lt;/code&gt;. (optional)</param>
 		/// <returns>Task of InterfaceStatisticsRead</returns>
-		[Get("/stat/interface/{statId}")]
+		[Get("/v1/stat/interface/{statId}")]
 		Task<InterfaceStatisticsRead> ReadInterfaceStatistics(
 			[AliasAs("statId")] string statId,
 			[AliasAs("filter_fromTime")] string filter_fromTime,
@@ -172,7 +172,7 @@ namespace Auvik.Api.Interfaces
 		/// <param name="page_last">For paginated responses, the last N services will be returned. Used in combination with &lt;code&gt;page[before]&lt;/code&gt;. (optional, default to 100)</param>
 		/// <param name="page_before">Cursor before which elements will be returned as a page. The page size is provided by &lt;code&gt;page[last]&lt;/code&gt;. (optional)</param>
 		/// <returns>Task of DeviceOidMonitorRead</returns>
-		[Get("/stat/oid/{statId}")]
+		[Get("/v1/stat/oid/{statId}")]
 		Task<DeviceOidMonitorRead> ReadOidStatistics(
 			[AliasAs("statId")] string statId,
 			[AliasAs("filter_deviceId")] string filter_deviceId = null,
@@ -204,7 +204,7 @@ namespace Auvik.Api.Interfaces
 		/// <param name="page_last">For paginated responses, the last N services will be returned. Used in combination with &lt;code&gt;page[before]&lt;/code&gt;. (optional, default to 100)</param>
 		/// <param name="page_before">Cursor before which elements will be returned as a page. The page size is provided by &lt;code&gt;page[last]&lt;/code&gt;. (optional)</param>
 		/// <returns>Task of ServiceStatisticsRead</returns>
-		[Get("/stat/service/{statId}")]
+		[Get("/v1/stat/service/{statId}")]
 		Task<ServiceStatisticsRead> ReadServiceStatistics(
 			[Header("UserAgent")] string userAgent,
 			[AliasAs("statId")] string statId,

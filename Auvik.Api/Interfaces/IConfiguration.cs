@@ -27,7 +27,7 @@ namespace Auvik.Api.Interfaces
 		/// <param name="page_last">For paginated responses, the last N services will be returned. Used in combination with &lt;code&gt;page[before]&lt;/code&gt;. (optional, default to 100)</param>
 		/// <param name="page_before">Cursor before which elements will be returned as a page. The page size is provided by &lt;code&gt;page[last]&lt;/code&gt;. (optional)</param>
 		/// <returns>Task of ConfigReadMultiple</returns>
-		[Get("/inventory/configuration")]
+		[Get("/v1/inventory/configuration")]
 		Task<ConfigReadMultiple> ReadMultipleConfigurations(
 			[AliasAs("filter_deviceId")] string filter_deviceId = null,
 			[AliasAs("filter_backupTimeAfter")] string filter_backupTimeAfter = null,
@@ -50,7 +50,7 @@ namespace Auvik.Api.Interfaces
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="id">ID of configuration</param>
 		/// <returns>Task of ConfigReadSingle</returns>
-		[Get("/inventory/configuration/{id}")]
+		[Get("/v1/inventory/configuration/{id}")]
 		Task<ConfigReadSingle> ReadSingleConfiguration(
 			[AliasAs("id")] string id,
 			CancellationToken? cancellationToken = null

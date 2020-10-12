@@ -27,7 +27,7 @@ namespace Auvik.Api.Interfaces
 		/// <param name="page_last">For paginated responses, the last N services will be returned. Used in combination with &lt;code&gt;page[before]&lt;/code&gt;. (optional, default to 100)</param>
 		/// <param name="page_before">Cursor before which elements will be returned as a page. The page size is provided by &lt;code&gt;page[last]&lt;/code&gt;. (optional)</param>
 		/// <returns>Task of EntityAuditReadMultiple</returns>
-		[Get("/inventory/entity/audit")]
+		[Get("/v1/inventory/entity/audit")]
 		Task<EntityAuditReadMultiple> ReadMultipleEntityAudit(
 			[AliasAs("filter_user")] string filter_user = null,
 			[AliasAs("filter_category")] string filter_category = null,
@@ -59,7 +59,7 @@ namespace Auvik.Api.Interfaces
 		/// <param name="page_last">For paginated responses, the last N services will be returned. Used in combination with &lt;code&gt;page[before]&lt;/code&gt;. (optional, default to 100)</param>
 		/// <param name="page_before">Cursor before which elements will be returned as a page. The page size is provided by &lt;code&gt;page[last]&lt;/code&gt;. (optional)</param>
 		/// <returns>Task of EntityNotesReadMultiple</returns>
-		[Get("/inventory/entity/note")]
+		[Get("/v1/inventory/entity/note")]
 		Task<EntityNotesReadMultiple> ReadMultipleEntityNote(
 			[AliasAs("filter_entityId")] string filter_entityId = null,
 			[AliasAs("filter_entityType")] string filter_entityType = null,
@@ -83,7 +83,7 @@ namespace Auvik.Api.Interfaces
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="id">ID of entity audit</param>
 		/// <returns>Task of EntityAuditReadSingle</returns>
-		[Get("/inventory/entity/audit/{id}")]
+		[Get("/v1/inventory/entity/audit/{id}")]
 		Task<EntityAuditReadSingle> ReadSingleEntityAudit(
 			[AliasAs("id")] string id,
 			CancellationToken? cancellationToken = null
@@ -98,7 +98,7 @@ namespace Auvik.Api.Interfaces
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="id">ID of entity note</param>
 		/// <returns>Task of EntityNotesReadSingle</returns>
-		[Get("/inventory/entity/note/{id}")]
+		[Get("/v1/inventory/entity/note/{id}")]
 		Task<EntityNotesReadSingle> ReadSingleEntityNote(
 			[AliasAs("id")] string id,
 			CancellationToken? cancellationToken = null

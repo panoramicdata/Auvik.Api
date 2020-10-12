@@ -31,7 +31,7 @@ namespace Auvik.Api.Interfaces
 		/// <param name="page_last">For paginated responses, the last N services will be returned. Used in combination with &lt;code&gt;page[before]&lt;/code&gt;. (optional, default to 100)</param>
 		/// <param name="page_before">Cursor before which elements will be returned as a page. The page size is provided by &lt;code&gt;page[last]&lt;/code&gt;. (optional)</param>
 		/// <returns>Task of AlertHistoryInfoReadMultiple</returns>
-		[Get("/alert/history/info")]
+		[Get("/v1/alert/history/info")]
 		Task<AlertHistoryInfoReadMultiple> ReadMultipleAlertInfo(
 			[AliasAs("filter_alertSpecificationId")] string filter_alertSpecificationId = null,
 			[AliasAs("filter_severity")] string filter_severity = null,
@@ -57,7 +57,7 @@ namespace Auvik.Api.Interfaces
 		/// </remarks>
 		/// <param name="id">ID of alert</param>
 		/// <returns>Task of AlertHistoryInfoReadSingle</returns>
-		[Get("/alert/history/info/{id}")]
+		[Get("/v1/alert/history/info/{id}")]
 		Task<AlertHistoryInfoReadSingle> ReadSingleAlertInfo(
 			[AliasAs("id")] string id,
 			CancellationToken? cancellationToken

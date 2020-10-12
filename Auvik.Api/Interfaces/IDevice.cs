@@ -29,7 +29,7 @@ namespace Auvik.Api.Interfaces
 		/// <param name="page_last">For paginated responses, the last N services will be returned. Used in combination with &lt;code&gt;page[before]&lt;/code&gt;. (optional, default to 100)</param>
 		/// <param name="page_before">Cursor before which elements will be returned as a page. The page size is provided by &lt;code&gt;page[last]&lt;/code&gt;. (optional)</param>
 		/// <returns>Task of DeviceDetailsReadMultiple</returns>
-		[Get("/inventory/device/detail")]
+		[Get("/v1/inventory/device/detail")]
 		Task<DeviceDetailsReadMultiple> ReadMultipleDeviceDetails(
 			[AliasAs("filter_manageStatus")] bool? filter_manageStatus = null,
 			[AliasAs("filter_discoverySNMP")] string filter_discoverySNMP = null,
@@ -61,7 +61,7 @@ namespace Auvik.Api.Interfaces
 		/// <param name="page_last">For paginated responses, the last N services will be returned. Used in combination with &lt;code&gt;page[before]&lt;/code&gt;. (optional, default to 100)</param>
 		/// <param name="page_before">Cursor before which elements will be returned as a page. The page size is provided by &lt;code&gt;page[last]&lt;/code&gt;. (optional)</param>
 		/// <returns>Task of DeviceDetailsExtendedReadMultiple</returns>
-		[Get("/inventory/device/detail/extended")]
+		[Get("/v1/inventory/device/detail/extended")]
 		Task<DeviceDetailsExtendedReadMultiple> ReadMultipleDeviceExtendedDetail(
 			[AliasAs("filter_deviceType")] string filter_deviceType,
 			[AliasAs("filter_modifiedAfter")] string filter_modifiedAfter = null,
@@ -96,7 +96,7 @@ namespace Auvik.Api.Interfaces
 		/// <param name="include">Use to include the full resource objects of the list device relationships. (optional)</param>
 		/// <param name="fields_deviceDetail">Use to limit the attributes that will be returned in the included detail object to only what is specified by this query parameter. Requires &lt;code&gt;include&#x3D;deviceDetail&lt;/code&gt; (optional)</param>
 		/// <returns>Task of DeviceInfoReadMultiple</returns>
-		[Get("/inventory/device/info")]
+		[Get("/v1/inventory/device/info")]
 		Task<DeviceInfoReadMultiple> ReadMultipleDeviceInfo(
 			[AliasAs("filter_networks")] string filter_networks = null,
 			[AliasAs("filter_deviceType")] string filter_deviceType = null,
@@ -132,7 +132,7 @@ namespace Auvik.Api.Interfaces
 		/// <param name="page_last">For paginated responses, the last N services will be returned. Used in combination with &lt;code&gt;page[before]&lt;/code&gt;. (optional, default to 100)</param>
 		/// <param name="page_before">Cursor before which elements will be returned as a page. The page size is provided by &lt;code&gt;page[last]&lt;/code&gt;. (optional)</param>
 		/// <returns>Task of DeviceLifecycleReadMultiple</returns>
-		[Get("/inventory/device/lifecycle")]
+		[Get("/v1/inventory/device/lifecycle")]
 		Task<DeviceLifecycleReadMultiple> ReadMultipleDeviceLifecycle(
 			[AliasAs("filter_salesAvailability")] string filter_salesAvailability = null,
 			[AliasAs("filter_softwareMaintenanceStatus")] string filter_softwareMaintenanceStatus = null,
@@ -161,7 +161,7 @@ namespace Auvik.Api.Interfaces
 		/// <param name="page_last">For paginated responses, the last N services will be returned. Used in combination with &lt;code&gt;page[before]&lt;/code&gt;. (optional, default to 100)</param>
 		/// <param name="page_before">Cursor before which elements will be returned as a page. The page size is provided by &lt;code&gt;page[last]&lt;/code&gt;. (optional)</param>
 		/// <returns>Task of DeviceWarrantyReadMultiple</returns>
-		[Get("/inventory/device/warranty")]
+		[Get("/v1/inventory/device/warranty")]
 		Task<DeviceWarrantyReadMultiple> ReadMultipleDeviceWarranty(
 			[AliasAs("filter_coveredUnderWarranty")] bool? filter_coveredUnderWarranty = null,
 			[AliasAs("filter_coveredUnderService")] bool? filter_coveredUnderService = null,
@@ -182,7 +182,7 @@ namespace Auvik.Api.Interfaces
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="id">ID of device</param>
 		/// <returns>Task of DeviceDetailsReadSingle</returns>
-		[Get("/inventory/device/detail/{id}")]
+		[Get("/v1/inventory/device/detail/{id}")]
 		Task<DeviceDetailsReadSingle> ReadSingleDeviceDetails(
 			[AliasAs("id")] string id,
 			CancellationToken? cancellationToken = null
@@ -197,7 +197,7 @@ namespace Auvik.Api.Interfaces
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="id">ID of device</param>
 		/// <returns>Task of DeviceDetailsExtendedReadSingle</returns>
-		[Get("/inventory/device/detail/extended/{id}")]
+		[Get("/v1/inventory/device/detail/extended/{id}")]
 		Task<DeviceDetailsExtendedReadSingle> ReadSingleDeviceExtendedDetail(
 			[AliasAs("id")] string id,
 			CancellationToken? cancellationToken = null
@@ -214,7 +214,7 @@ namespace Auvik.Api.Interfaces
 		/// <param name="include">Use to include the full resource objects of the list device relationships. (optional)</param>
 		/// <param name="fields_deviceDetail">Use to limit the attributes that will be returned in the included detail object to only what is specified by this query parameter. Requires &lt;code&gt;include&#x3D;deviceDetail&lt;/code&gt; (optional)</param>
 		/// <returns>Task of DeviceInfoReadSingle</returns>
-		[Get("/inventory/device/info/{id}")]
+		[Get("/v1/inventory/device/info/{id}")]
 		Task<DeviceInfoReadSingle> ReadSingleDeviceInfo(
 			[AliasAs("id")] string id,
 			[AliasAs("include")] string include = null,
@@ -231,7 +231,7 @@ namespace Auvik.Api.Interfaces
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="id">ID of device</param>
 		/// <returns>Task of DeviceLifecycleReadSingle</returns>
-		[Get("/inventory/device/lifecycle/{id}")]
+		[Get("/v1/inventory/device/lifecycle/{id}")]
 		Task<DeviceLifecycleReadSingle> ReadSingleDeviceLifecycle(
 			[AliasAs("id")] string id,
 			CancellationToken? cancellationToken = null
@@ -246,7 +246,7 @@ namespace Auvik.Api.Interfaces
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="id">ID of device</param>
 		/// <returns>Task of DeviceWarrantyReadSingle</returns>
-		[Get("/inventory/device/warranty/{id}")]
+		[Get("/v1/inventory/device/warranty/{id}")]
 		Task<DeviceWarrantyReadSingle> ReadSingleDeviceWarranty(
 			[AliasAs("id")] string id,
 			CancellationToken? cancellationToken = null
