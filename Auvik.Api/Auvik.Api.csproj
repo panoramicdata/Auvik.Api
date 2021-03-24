@@ -14,7 +14,10 @@
 		<PackageProjectUrl>https://github.com/panoramicdata/Auvik.Api</PackageProjectUrl>
 		<ApplicationIcon>Icon.ico</ApplicationIcon>
 		<LangVersion>latest</LangVersion>
-	<PackageReleaseNotes>Initial release</PackageReleaseNotes>
+		<PackageReleaseNotes>
+			Updated nuget packages.
+			Pull request from Bryan Slatner for an enum update merged - thanks Brian!
+		</PackageReleaseNotes>
 	</PropertyGroup>
 
 	<ItemGroup>
