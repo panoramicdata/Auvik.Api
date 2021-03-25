@@ -29,15 +29,15 @@ namespace Auvik.Api.Interfaces
 		/// <returns>Task of EntityAuditReadMultiple</returns>
 		[Get("/v1/inventory/entity/audit")]
 		Task<EntityAuditReadMultiple> ReadMultipleEntityAudit(
-			[AliasAs("filter_user")] string filter_user = null,
-			[AliasAs("filter_category")] string filter_category = null,
-			[AliasAs("filter_status")] string filter_status = null,
-			[AliasAs("filter_modifiedAfter")] string filter_modifiedAfter = null,
+			[AliasAs("filter[user]")] string filter_user = null,
+			[AliasAs("filter[category]")] string filter_category = null,
+			[AliasAs("filter[status]")] string filter_status = null,
+			[AliasAs("filter[modifiedAfter]")] string filter_modifiedAfter = null,
 			[AliasAs("tenants")] string tenants = null,
-			[AliasAs("page_first")] decimal? page_first = null,
-			[AliasAs("page_after")] string page_after = null,
-			[AliasAs("page_last")] decimal? page_last = null,
-			[AliasAs("page_before")] string page_before = null,
+			[AliasAs("page[first]")] decimal? page_first = null,
+			[AliasAs("page[after]")] string page_after = null,
+			[AliasAs("page[last]")] decimal? page_last = null,
+			[AliasAs("page[before]")] string page_before = null,
 			CancellationToken? cancellationToken = null
 		);
 
@@ -61,16 +61,16 @@ namespace Auvik.Api.Interfaces
 		/// <returns>Task of EntityNotesReadMultiple</returns>
 		[Get("/v1/inventory/entity/note")]
 		Task<EntityNotesReadMultiple> ReadMultipleEntityNote(
-			[AliasAs("filter_entityId")] string filter_entityId = null,
-			[AliasAs("filter_entityType")] string filter_entityType = null,
-			[AliasAs("filter_entityName")] string filter_entityName = null,
-			[AliasAs("filter_lastModifiedBy")] string filter_lastModifiedBy = null,
-			[AliasAs("filter_modifiedAfter")] string filter_modifiedAfter = null,
+			[AliasAs("filter[entityId]")] string filter_entityId = null,
+			[AliasAs("filter[entityType]")] string filter_entityType = null,
+			[AliasAs("filter[entityName]")] string filter_entityName = null,
+			[AliasAs("filter[lastModifiedBy]")] string filter_lastModifiedBy = null,
+			[AliasAs("filter[modifiedAfter]")] string filter_modifiedAfter = null,
 			[AliasAs("tenants")] string tenants = null,
-			[AliasAs("page_first")] decimal? page_first = null,
-			[AliasAs("page_after")] string page_after = null,
-			[AliasAs("page_last")] decimal? page_last = null,
-			[AliasAs("page_before")] string page_before = null,
+			[AliasAs("page[first]")] decimal? page_first = null,
+			[AliasAs("page[after]")] string page_after = null,
+			[AliasAs("page[last]")] decimal? page_last = null,
+			[AliasAs("page[before]")] string page_before = null,
 			CancellationToken? cancellationToken = null
 		);
 

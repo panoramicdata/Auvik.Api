@@ -30,16 +30,16 @@ namespace Auvik.Api.Interfaces
 		/// <returns>Task of InterfaceInfoReadMultiple</returns>
 		[Get("/v1/inventory/interface/info")]
 		Task<InterfaceInfoReadMultiple> ReadMultipleInterfaceInfo(
-			[AliasAs("filter_interfaceType")] string filter_interfaceType = null,
-			[AliasAs("filter_parentDevice")] string filter_parentDevice = null,
-			[AliasAs("filter_adminStatus")] bool? filter_adminStatus = null,
-			[AliasAs("filter_operationalStatus")] string filter_operationalStatus = null,
-			[AliasAs("filter_modifiedAfter")] string filter_modifiedAfter = null,
+			[AliasAs("filter[interfaceType]")] string filter_interfaceType = null,
+			[AliasAs("filter[parentDevice]")] string filter_parentDevice = null,
+			[AliasAs("filter[adminStatus]")] bool? filter_adminStatus = null,
+			[AliasAs("filter[operationalStatus]")] string filter_operationalStatus = null,
+			[AliasAs("filter[modifiedAfter]")] string filter_modifiedAfter = null,
 			[AliasAs("tenants")] string tenants = null,
-			[AliasAs("page_first")] decimal? page_first = null,
-			[AliasAs("page_after")] string page_after = null,
-			[AliasAs("page_last")] decimal? page_last = null,
-			[AliasAs("page_before")] string page_before = null,
+			[AliasAs("page[first]")] decimal? page_first = null,
+			[AliasAs("page[after]")] string page_after = null,
+			[AliasAs("page[last]")] decimal? page_last = null,
+			[AliasAs("page[before]")] string page_before = null,
 			CancellationToken? cancellationToken = null
 		);
 

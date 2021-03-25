@@ -31,17 +31,17 @@ namespace Auvik.Api.Interfaces
 		/// <returns>Task of DeviceDetailsReadMultiple</returns>
 		[Get("/v1/inventory/device/detail")]
 		Task<DeviceDetailsReadMultiple> ReadMultipleDeviceDetails(
-			[AliasAs("filter_manageStatus")] bool? filter_manageStatus = null,
-			[AliasAs("filter_discoverySNMP")] string filter_discoverySNMP = null,
-			[AliasAs("filter_discoveryWMI")] string filter_discoveryWMI = null,
-			[AliasAs("filter_discoveryLogin")] string filter_discoveryLogin = null,
-			[AliasAs("filter_discoveryVMware")] string filter_discoveryVMware = null,
-			[AliasAs("filter_trafficInsightsStatus")] string filter_trafficInsightsStatus = null,
+			[AliasAs("filter[manageStatus]")] bool? filter_manageStatus = null,
+			[AliasAs("filter[discoverySNMP]")] string filter_discoverySNMP = null,
+			[AliasAs("filter[discoveryWMI]")] string filter_discoveryWMI = null,
+			[AliasAs("filter[discoveryLogin]")] string filter_discoveryLogin = null,
+			[AliasAs("filter[discoveryVMware]")] string filter_discoveryVMware = null,
+			[AliasAs("filter[trafficInsightsStatus]")] string filter_trafficInsightsStatus = null,
 			[AliasAs("tenants")] string tenants = null,
-			[AliasAs("page_first")] decimal? page_first = null,
-			[AliasAs("page_after")] string page_after = null,
-			[AliasAs("page_last")] decimal? page_last = null,
-			[AliasAs("page_before")] string page_before = null,
+			[AliasAs("page[first]")] decimal? page_first = null,
+			[AliasAs("page[after]")] string page_after = null,
+			[AliasAs("page[last]")] decimal? page_last = null,
+			[AliasAs("page[before]")] string page_before = null,
 			CancellationToken? cancellationToken = null
 		);
 
@@ -63,14 +63,14 @@ namespace Auvik.Api.Interfaces
 		/// <returns>Task of DeviceDetailsExtendedReadMultiple</returns>
 		[Get("/v1/inventory/device/detail/extended")]
 		Task<DeviceDetailsExtendedReadMultiple> ReadMultipleDeviceExtendedDetail(
-			[AliasAs("filter_deviceType")] string filter_deviceType,
-			[AliasAs("filter_modifiedAfter")] string filter_modifiedAfter = null,
-			[AliasAs("filter_notSeenSince")] string filter_notSeenSince = null,
+			[AliasAs("filter[deviceType]")] string filter_deviceType,
+			[AliasAs("filter[modifiedAfter]")] string filter_modifiedAfter = null,
+			[AliasAs("filter[notSeenSince]")] string filter_notSeenSince = null,
 			[AliasAs("tenants")] string tenants = null,
-			[AliasAs("page_first")] decimal? page_first = null,
-			[AliasAs("page_after")] string page_after = null,
-			[AliasAs("page_last")] decimal? page_last = null,
-			[AliasAs("page_before")] string page_before = null,
+			[AliasAs("page[first]")] decimal? page_first = null,
+			[AliasAs("page[after]")] string page_after = null,
+			[AliasAs("page[last]")] decimal? page_last = null,
+			[AliasAs("page[before]")] string page_before = null,
 			CancellationToken? cancellationToken = null
 		);
 
@@ -98,20 +98,20 @@ namespace Auvik.Api.Interfaces
 		/// <returns>Task of DeviceInfoReadMultiple</returns>
 		[Get("/v1/inventory/device/info")]
 		Task<DeviceInfoReadMultiple> ReadMultipleDeviceInfo(
-			[AliasAs("filter_networks")] string filter_networks = null,
-			[AliasAs("filter_deviceType")] string filter_deviceType = null,
-			[AliasAs("filter_makeModel")] string filter_makeModel = null,
-			[AliasAs("filter_vendorName")] string filter_vendorName = null,
-			[AliasAs("filter_onlineStatus")] string filter_onlineStatus = null,
-			[AliasAs("filter_modifiedAfter")] string filter_modifiedAfter = null,
-			[AliasAs("filter_notSeenSince")] string filter_notSeenSince = null,
+			[AliasAs("filter[networks]")] string filter_networks = null,
+			[AliasAs("filter[deviceType]")] string filter_deviceType = null,
+			[AliasAs("filter[makeModel]")] string filter_makeModel = null,
+			[AliasAs("filter[vendorName]")] string filter_vendorName = null,
+			[AliasAs("filter[onlineStatus]")] string filter_onlineStatus = null,
+			[AliasAs("filter[modifiedAfter]")] string filter_modifiedAfter = null,
+			[AliasAs("filter[notSeenSince]")] string filter_notSeenSince = null,
 			[AliasAs("tenants")] string tenants = null,
-			[AliasAs("page_first")] decimal? page_first = null,
-			[AliasAs("page_after")] string page_after = null,
-			[AliasAs("page_last")] decimal? page_last = null,
-			[AliasAs("page_before")] string page_before = null,
+			[AliasAs("page[first]")] decimal? page_first = null,
+			[AliasAs("page[after]")] string page_after = null,
+			[AliasAs("page[last]")] decimal? page_last = null,
+			[AliasAs("page[before]")] string page_before = null,
 			[AliasAs("include")] string include = null,
-			[AliasAs("fields_deviceDetail")] string fields_deviceDetail = null,
+			[AliasAs("fields[deviceDetail]")] string fields_deviceDetail = null,
 			CancellationToken? cancellationToken = null
 		);
 
@@ -134,15 +134,15 @@ namespace Auvik.Api.Interfaces
 		/// <returns>Task of DeviceLifecycleReadMultiple</returns>
 		[Get("/v1/inventory/device/lifecycle")]
 		Task<DeviceLifecycleReadMultiple> ReadMultipleDeviceLifecycle(
-			[AliasAs("filter_salesAvailability")] string filter_salesAvailability = null,
-			[AliasAs("filter_softwareMaintenanceStatus")] string filter_softwareMaintenanceStatus = null,
-			[AliasAs("filter_securitySoftwareMaintenanceStatus")] string filter_securitySoftwareMaintenanceStatus = null,
-			[AliasAs("filter_lastSupportStatus")] string filter_lastSupportStatus = null,
+			[AliasAs("filter[salesAvailability]")] string filter_salesAvailability = null,
+			[AliasAs("filter[softwareMaintenanceStatus]")] string filter_softwareMaintenanceStatus = null,
+			[AliasAs("filter[securitySoftwareMaintenanceStatus]")] string filter_securitySoftwareMaintenanceStatus = null,
+			[AliasAs("filter[lastSupportStatus]")] string filter_lastSupportStatus = null,
 			[AliasAs("tenants")] string tenants = null,
-			[AliasAs("page_first")] decimal? page_first = null,
-			[AliasAs("page_after")] string page_after = null,
-			[AliasAs("page_last")] decimal? page_last = null,
-			[AliasAs("page_before")] string page_before = null,
+			[AliasAs("page[first]")] decimal? page_first = null,
+			[AliasAs("page[after]")] string page_after = null,
+			[AliasAs("page[last]")] decimal? page_last = null,
+			[AliasAs("page[before]")] string page_before = null,
 			CancellationToken? cancellationToken = null
 		);
 
@@ -163,13 +163,13 @@ namespace Auvik.Api.Interfaces
 		/// <returns>Task of DeviceWarrantyReadMultiple</returns>
 		[Get("/v1/inventory/device/warranty")]
 		Task<DeviceWarrantyReadMultiple> ReadMultipleDeviceWarranty(
-			[AliasAs("filter_coveredUnderWarranty")] bool? filter_coveredUnderWarranty = null,
-			[AliasAs("filter_coveredUnderService")] bool? filter_coveredUnderService = null,
+			[AliasAs("filter[coveredUnderWarranty]")] bool? filter_coveredUnderWarranty = null,
+			[AliasAs("filter[coveredUnderService]")] bool? filter_coveredUnderService = null,
 			[AliasAs("tenants")] string tenants = null,
-			[AliasAs("page_first")] decimal? page_first = null,
-			[AliasAs("page_after")] string page_after = null,
-			[AliasAs("page_last")] decimal? page_last = null,
-			[AliasAs("page_before")] string page_before = null,
+			[AliasAs("page[first]")] decimal? page_first = null,
+			[AliasAs("page[after]")] string page_after = null,
+			[AliasAs("page[last]")] decimal? page_last = null,
+			[AliasAs("page[before]")] string page_before = null,
 			CancellationToken? cancellationToken = null
 		);
 
@@ -218,7 +218,7 @@ namespace Auvik.Api.Interfaces
 		Task<DeviceInfoReadSingle> ReadSingleDeviceInfo(
 			[AliasAs("id")] string id,
 			[AliasAs("include")] string include = null,
-			[AliasAs("fields_deviceDetail")] string fields_deviceDetail = null,
+			[AliasAs("fields[deviceDetail]")] string fields_deviceDetail = null,
 			CancellationToken? cancellationToken = null
 		);
 

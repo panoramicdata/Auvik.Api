@@ -36,7 +36,7 @@ namespace Auvik.Api.Interfaces
 		[Get("/v1/tenants/detail")]
 		Task<TenantsDetailReadMultiple> ReadMultipleTenantsDetail(
 			[AliasAs("tenantDomainPrefix")] string tenantDomainPrefix,
-			[AliasAs("filter_availableTenants")] bool? filter_availableTenants = null,
+			[AliasAs("filter[availableTenants]")] bool? filter_availableTenants = null,
 			CancellationToken? cancellationToken = null
 		);
 

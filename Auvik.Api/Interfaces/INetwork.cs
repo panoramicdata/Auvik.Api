@@ -30,16 +30,16 @@ namespace Auvik.Api.Interfaces
 		/// <returns>Task of NetworkDetailsReadMultiple</returns>
 		[Get("/v1/inventory/network/detail")]
 		Task<NetworkDetailsReadMultiple> ReadMultipleNetworkDetails(
-			[AliasAs("filter_networkType")] string filter_networkType = null,
-			[AliasAs("filter_scanStatus")] string filter_scanStatus = null,
-			[AliasAs("filter_devices")] string filter_devices = null,
-			[AliasAs("filter_modifiedAfter")] string filter_modifiedAfter = null,
-			[AliasAs("filter_scope")] string filter_scope = null,
+			[AliasAs("filter[networkType]")] string filter_networkType = null,
+			[AliasAs("filter[scanStatus]")] string filter_scanStatus = null,
+			[AliasAs("filter[devices]")] string filter_devices = null,
+			[AliasAs("filter[modifiedAfter]")] string filter_modifiedAfter = null,
+			[AliasAs("filter[scope]")] string filter_scope = null,
 			[AliasAs("tenants")] string tenants = null,
-			[AliasAs("page_first")] decimal? page_first = null,
-			[AliasAs("page_after")] string page_after = null,
-			[AliasAs("page_last")] decimal? page_last = null,
-			[AliasAs("page_before")] string page_before = null,
+			[AliasAs("page[first]")] decimal? page_first = null,
+			[AliasAs("page[after]")] string page_after = null,
+			[AliasAs("page[last]")] decimal? page_last = null,
+			[AliasAs("page[before]")] string page_before = null,
 			CancellationToken? cancellationToken = null
 		);
 
@@ -64,17 +64,17 @@ namespace Auvik.Api.Interfaces
 		/// <returns>Task of NetworkInfoReadMultiple</returns>
 		[Get("/v1/inventory/network/info")]
 		Task<NetworkInfoReadMultiple> ReadMultipleNetworkInfo(
-			[AliasAs("filter_networkType")] string filter_networkType = null,
-			[AliasAs("filter_scanStatus")] string filter_scanStatus = null,
-			[AliasAs("filter_devices")] string filter_devices = null,
-			[AliasAs("filter_modifiedAfter")] string filter_modifiedAfter = null,
+			[AliasAs("filter[networkType]")] string filter_networkType = null,
+			[AliasAs("filter[scanStatus]")] string filter_scanStatus = null,
+			[AliasAs("filter[devices]")] string filter_devices = null,
+			[AliasAs("filter[modifiedAfter]")] string filter_modifiedAfter = null,
 			[AliasAs("tenants")] string tenants = null,
-			[AliasAs("page_first")] decimal? page_first = null,
-			[AliasAs("page_after")] string page_after = null,
-			[AliasAs("page_last")] decimal? page_last = null,
-			[AliasAs("page_before")] string page_before = null,
+			[AliasAs("page[first]")] decimal? page_first = null,
+			[AliasAs("page[after]")] string page_after = null,
+			[AliasAs("page[last]")] decimal? page_last = null,
+			[AliasAs("page[before]")] string page_before = null,
 			[AliasAs("include")] string include = null,
-			[AliasAs("fields_networkDetail")] string fields_networkDetail = null,
+			[AliasAs("fields[networkDetail]")] string fields_networkDetail = null,
 			CancellationToken? cancellationToken = null
 		);
 
@@ -108,7 +108,7 @@ namespace Auvik.Api.Interfaces
 		Task<NetworkInfoReadSingle> ReadSingleNetworkInfo(
 			[AliasAs("id")] string id,
 			[AliasAs("include")] string include = null,
-			[AliasAs("fields_networkDetail")] string fields_networkDetail = null,
+			[AliasAs("fields[networkDetail]")] string fields_networkDetail = null,
 			CancellationToken? cancellationToken = null
 		);
 	}
