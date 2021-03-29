@@ -35,16 +35,16 @@ namespace Auvik.Api.Interfaces
 			[Header("UserAgent")] string userAgent,
 			[AliasAs("componentType")] string componentType,
 			[AliasAs("statId")] string statId,
-			[AliasAs("filter_fromTime")] string filter_fromTime,
-			[AliasAs("filter_interval")] string filter_interval,
-			[AliasAs("filter_thruTime")] string filter_thruTime = null,
-			[AliasAs("filter_componentId")] string filter_componentId = null,
-			[AliasAs("filter_parentDevice")] string filter_parentDevice = null,
+			[AliasAs("filter[fromTime]")] string filter_fromTime,
+			[AliasAs("filter[interval]")] string filter_interval,
+			[AliasAs("filter[thruTime]")] string filter_thruTime = null,
+			[AliasAs("filter[componentId]")] string filter_componentId = null,
+			[AliasAs("filter[parentDevice]")] string filter_parentDevice = null,
 			[AliasAs("tenants")] string tenants = null,
-			[AliasAs("page_first")] decimal? page_first = null,
-			[AliasAs("page_after")] string page_after = null,
-			[AliasAs("page_last")] decimal? page_last = null,
-			[AliasAs("page_before")] string page_before = null,
+			[AliasAs("page[first]")] decimal? page_first = null,
+			[AliasAs("page[after]")] string page_after = null,
+			[AliasAs("page[last]")] decimal? page_last = null,
+			[AliasAs("page[before]")] string page_before = null,
 			CancellationToken? cancellationToken = null
 		);
 
@@ -70,16 +70,16 @@ namespace Auvik.Api.Interfaces
 		[Get("/v1/stat/deviceAvailability/{statId}")]
 		Task<DeviceAvailabilityStatisticsRead> ReadDeviceAvailabilityStatistics(
 			[AliasAs("statId")] string statId,
-			[AliasAs("filter_fromTime")] string filter_fromTime,
-			[AliasAs("filter_interval")] string filter_interval,
-			[AliasAs("filter_thruTime")] string filter_thruTime = null,
-			[AliasAs("filter_deviceType")] string filter_deviceType = null,
-			[AliasAs("filter_deviceId")] string filter_deviceId = null,
+			[AliasAs("filter[fromTime]")] string filter_fromTime,
+			[AliasAs("filter[interval]")] string filter_interval,
+			[AliasAs("filter[thruTime]")] string filter_thruTime = null,
+			[AliasAs("filter[deviceType]")] string filter_deviceType = null,
+			[AliasAs("filter[deviceId]")] string filter_deviceId = null,
 			[AliasAs("tenants")] string tenants = null,
-			[AliasAs("page_first")] decimal? page_first = null,
-			[AliasAs("page_after")] string page_after = null,
-			[AliasAs("page_last")] decimal? page_last = null,
-			[AliasAs("page_before")] string page_before = null,
+			[AliasAs("page[first]")] decimal? page_first = null,
+			[AliasAs("page[after]")] string page_after = null,
+			[AliasAs("page[last]")] decimal? page_last = null,
+			[AliasAs("page[before]")] string page_before = null,
 			CancellationToken? cancellationToken = null
 		);
 
@@ -105,16 +105,16 @@ namespace Auvik.Api.Interfaces
 		[Get("/v1/stat/device/{statId}")]
 		Task<DeviceStatisticsRead> ReadDeviceStatistics(
 			[AliasAs("statId")] string statId,
-			[AliasAs("filter_fromTime")] string filter_fromTime,
-			[AliasAs("filter_interval")] string filter_interval,
-			[AliasAs("filter_thruTime")] string filter_thruTime = null,
-			[AliasAs("filter_deviceType")] string filter_deviceType = null,
-			[AliasAs("filter_deviceId")] string filter_deviceId = null,
+			[AliasAs("filter[fromTime]")] string filter_fromTime,
+			[AliasAs("filter[interval]")] string filter_interval,
+			[AliasAs("filter[thruTime]")] string filter_thruTime = null,
+			[AliasAs("filter[deviceType]")] string filter_deviceType = null,
+			[AliasAs("filter[deviceId]")] string filter_deviceId = null,
 			[AliasAs("tenants")] string tenants = null,
-			[AliasAs("page_first")] decimal? page_first = null,
-			[AliasAs("page_after")] string page_after = null,
-			[AliasAs("page_last")] decimal? page_last = null,
-			[AliasAs("page_before")] string page_before = null,
+			[AliasAs("page[first]")] decimal? page_first = null,
+			[AliasAs("page[after]")] string page_after = null,
+			[AliasAs("page[last]")] decimal? page_last = null,
+			[AliasAs("page[before]")] string page_before = null,
 			CancellationToken? cancellationToken = null
 		);
 
@@ -141,17 +141,17 @@ namespace Auvik.Api.Interfaces
 		[Get("/v1/stat/interface/{statId}")]
 		Task<InterfaceStatisticsRead> ReadInterfaceStatistics(
 			[AliasAs("statId")] string statId,
-			[AliasAs("filter_fromTime")] string filter_fromTime,
-			[AliasAs("filter_interval")] string filter_interval,
-			[AliasAs("filter_thruTime")] string filter_thruTime = null,
-			[AliasAs("filter_interfaceType")] string filter_interfaceType = null,
-			[AliasAs("filter_interfaceId")] string filter_interfaceId = null,
-			[AliasAs("filter_parentDevice")] string filter_parentDevice = null,
+			[AliasAs("filter[fromTime]")] string filter_fromTime,
+			[AliasAs("filter[interval]")] string filter_interval,
+			[AliasAs("filter[thruTime]")] string filter_thruTime = null,
+			[AliasAs("filter[interfaceType]")] string filter_interfaceType = null,
+			[AliasAs("filter[interfaceId]")] string filter_interfaceId = null,
+			[AliasAs("filter[parentDevice]")] string filter_parentDevice = null,
 			[AliasAs("tenants")] string tenants = null,
-			[AliasAs("page_first")] decimal? page_first = null,
-			[AliasAs("page_after")] string page_after = null,
-			[AliasAs("page_last")] decimal? page_last = null,
-			[AliasAs("page_before")] string page_before = null,
+			[AliasAs("page[first]")] decimal? page_first = null,
+			[AliasAs("page[after]")] string page_after = null,
+			[AliasAs("page[last]")] decimal? page_last = null,
+			[AliasAs("page[before]")] string page_before = null,
 			CancellationToken? cancellationToken = null
 		);
 
@@ -175,14 +175,14 @@ namespace Auvik.Api.Interfaces
 		[Get("/v1/stat/oid/{statId}")]
 		Task<DeviceOidMonitorRead> ReadOidStatistics(
 			[AliasAs("statId")] string statId,
-			[AliasAs("filter_deviceId")] string filter_deviceId = null,
-			[AliasAs("filter_deviceType")] string filter_deviceType = null,
-			[AliasAs("filter_oid")] string filter_oid = null,
+			[AliasAs("filter[deviceId]")] string filter_deviceId = null,
+			[AliasAs("filter[deviceType]")] string filter_deviceType = null,
+			[AliasAs("filter[oid]")] string filter_oid = null,
 			[AliasAs("tenants")] string tenants = null,
-			[AliasAs("page_first")] decimal? page_first = null,
-			[AliasAs("page_after")] string page_after = null,
-			[AliasAs("page_last")] decimal? page_last = null,
-			[AliasAs("page_before")] string page_before = null,
+			[AliasAs("page[first]")] decimal? page_first = null,
+			[AliasAs("page[after]")] string page_after = null,
+			[AliasAs("page[last]")] decimal? page_last = null,
+			[AliasAs("page[before]")] string page_before = null,
 			CancellationToken? cancellationToken = null
 		);
 
@@ -208,15 +208,15 @@ namespace Auvik.Api.Interfaces
 		Task<ServiceStatisticsRead> ReadServiceStatistics(
 			[Header("UserAgent")] string userAgent,
 			[AliasAs("statId")] string statId,
-			[AliasAs("filter_fromTime")] string filter_fromTime,
-			[AliasAs("filter_interval")] string filter_interval,
-			[AliasAs("filter_thruTime")] string filter_thruTime = null,
-			[AliasAs("filter_serviceId")] string filter_serviceId = null,
+			[AliasAs("filter[fromTime]")] string filter_fromTime,
+			[AliasAs("filter[interval]")] string filter_interval,
+			[AliasAs("filter[thruTime]")] string filter_thruTime = null,
+			[AliasAs("filter[serviceId]")] string filter_serviceId = null,
 			[AliasAs("tenants")] string tenants = null,
-			[AliasAs("page_first")] decimal? page_first = null,
-			[AliasAs("page_after")] string page_after = null,
-			[AliasAs("page_last")] decimal? page_last = null,
-			[AliasAs("page_before")] string page_before = null,
+			[AliasAs("page[first]")] decimal? page_first = null,
+			[AliasAs("page[after]")] string page_after = null,
+			[AliasAs("page[last]")] decimal? page_last = null,
+			[AliasAs("page[before]")] string page_before = null,
 			CancellationToken? cancellationToken = null
 		);
 	}

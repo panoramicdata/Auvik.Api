@@ -23,8 +23,8 @@ namespace Auvik.Api.Interfaces
 		/// <returns>Task of ClientUsageRead</returns>
 		[Get("/v1/billing/usage/client")]
 		Task<ClientUsageRead> ReadClientUsage(
-			[AliasAs("filter_fromDate")] string filter_fromDate,
-			[AliasAs("filter_thruDate")] string filter_thruDate,
+			[AliasAs("filter[fromDate]")] string filter_fromDate,
+			[AliasAs("filter[thruDate]")] string filter_thruDate,
 			[AliasAs("tenants")] string tenants = null,
 			CancellationToken? cancellationToken = null
 		);
@@ -43,8 +43,8 @@ namespace Auvik.Api.Interfaces
 		[Get("/v1/billing/usage/device/{id}")]
 		Task<DeviceUsageRead> ReadDeviceUsage(
 			[AliasAs("id")] string id,
-			[AliasAs("filter_fromDate")] string filter_fromDate,
-			[AliasAs("filter_thruDate")] string filter_thruDate,
+			[AliasAs("filter[fromDate]")] string filter_fromDate,
+			[AliasAs("filter[thruDate]")] string filter_thruDate,
 			CancellationToken? cancellationToken = null
 		);
 	}

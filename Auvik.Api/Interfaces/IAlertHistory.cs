@@ -33,19 +33,19 @@ namespace Auvik.Api.Interfaces
 		/// <returns>Task of AlertHistoryInfoReadMultiple</returns>
 		[Get("/v1/alert/history/info")]
 		Task<AlertHistoryInfoReadMultiple> ReadMultipleAlertInfo(
-			[AliasAs("filter_alertSpecificationId")] string filter_alertSpecificationId = null,
-			[AliasAs("filter_severity")] string filter_severity = null,
-			[AliasAs("filter_status")] string filter_status = null,
-			[AliasAs("filter_entityId")] string filter_entityId = null,
-			[AliasAs("filter_dismissed")] bool? filter_dismissed = null,
-			[AliasAs("filter_dispatched")] bool? filter_dispatched = null,
-			[AliasAs("filter_detectedTimeAfter")] bool? filter_detectedTimeAfter = null,
-			[AliasAs("filter_detectedTimeBefore")] bool? filter_detectedTimeBefore = null,
+			[AliasAs("filter[alertSpecificationId]")] string filter_alertSpecificationId = null,
+			[AliasAs("filter[severity]")] string filter_severity = null,
+			[AliasAs("filter[status]")] string filter_status = null,
+			[AliasAs("filter[entityId]")] string filter_entityId = null,
+			[AliasAs("filter[dismissed]")] bool? filter_dismissed = null,
+			[AliasAs("filter[dispatched]")] bool? filter_dispatched = null,
+			[AliasAs("filter[detectedTimeAfter]")] bool? filter_detectedTimeAfter = null,
+			[AliasAs("filter[detectedTimeBefore]")] bool? filter_detectedTimeBefore = null,
 			[AliasAs("tenants")] string tenants = null,
-			[AliasAs("page_first")] decimal? page_first = null,
-			[AliasAs("page_after")] string page_after = null,
-			[AliasAs("page_last")] decimal? page_last = null,
-			[AliasAs("page_before")] string page_before = null,
+			[AliasAs("page[first]")] decimal? page_first = null,
+			[AliasAs("page[after]")] string page_after = null,
+			[AliasAs("page[last]")] decimal? page_last = null,
+			[AliasAs("page[before]")] string page_before = null,
 			CancellationToken? cancellationToken = null
 			);
 

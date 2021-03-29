@@ -31,15 +31,15 @@ namespace Auvik.Api.Interfaces
 		[Get("/v1/inventory/component/info")]
 		Task<ComponentInfoReadMultiple> ReadMultipleComponentInfo(
 			[Header("UserAgent")] string userAgent,
-			[AliasAs("filter_modifiedAfter")] string filter_modifiedAfter = null,
-			[AliasAs("filter_deviceId")] string filter_deviceId = null,
-			[AliasAs("filter_deviceName")] string filter_deviceName = null,
-			[AliasAs("filter_currentStatus")] string filter_currentStatus = null,
+			[AliasAs("filter[modifiedAfter]")] string filter_modifiedAfter = null,
+			[AliasAs("filter[deviceId]")] string filter_deviceId = null,
+			[AliasAs("filter[deviceName]")] string filter_deviceName = null,
+			[AliasAs("filter[currentStatus]")] string filter_currentStatus = null,
 			[AliasAs("tenants")] string tenants = null,
-			[AliasAs("page_first")] decimal? page_first = null,
-			[AliasAs("page_after")] string page_after = null,
-			[AliasAs("page_last")] decimal? page_last = null,
-			[AliasAs("page_before")] string page_before = null,
+			[AliasAs("page[first]")] decimal? page_first = null,
+			[AliasAs("page[after]")] string page_after = null,
+			[AliasAs("page[last]")] decimal? page_last = null,
+			[AliasAs("page[before]")] string page_before = null,
 			CancellationToken? cancellationToken = null
 		);
 

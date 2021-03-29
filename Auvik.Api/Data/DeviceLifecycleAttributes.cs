@@ -150,7 +150,13 @@ namespace Auvik.Api.Data
 			/// Enum Empty for "empty"
 			/// </summary>
 			[EnumMember(Value = "empty")]
-			Empty
+			Empty,
+
+            /// <summary>
+            /// Enum Empty for "unknown"
+            /// </summary>
+            [EnumMember(Value = "unknown")]
+            Unknown,
 		}
 
 		/// <summary>
@@ -195,7 +201,13 @@ namespace Auvik.Api.Data
 			/// Enum Empty for "empty"
 			/// </summary>
 			[EnumMember(Value = "empty")]
-			Empty
+			Empty,
+
+            /// <summary>
+            /// Enum Empty for "unknown"
+            /// </summary>
+            [EnumMember(Value = "unknown")]
+            Unknown,
 		}
 
 		/// <summary>

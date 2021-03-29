@@ -29,15 +29,15 @@ namespace Auvik.Api.Interfaces
 		/// <returns>Task of ConfigReadMultiple</returns>
 		[Get("/v1/inventory/configuration")]
 		Task<ConfigReadMultiple> ReadMultipleConfigurations(
-			[AliasAs("filter_deviceId")] string filter_deviceId = null,
-			[AliasAs("filter_backupTimeAfter")] string filter_backupTimeAfter = null,
-			[AliasAs("filter_backupTimeBefore")] string filter_backupTimeBefore = null,
-			[AliasAs("filter_isRunning")] bool? filter_isRunning = null,
+			[AliasAs("filter[deviceId]")] string filter_deviceId = null,
+			[AliasAs("filter[backupTimeAfter]")] string filter_backupTimeAfter = null,
+			[AliasAs("filter[backupTimeBefore]")] string filter_backupTimeBefore = null,
+			[AliasAs("filter[isRunning]")] bool? filter_isRunning = null,
 			[AliasAs("tenants")] string tenants = null,
-			[AliasAs("page_first")] decimal? page_first = null,
-			[AliasAs("page_after")] string page_after = null,
-			[AliasAs("page_last")] decimal? page_last = null,
-			[AliasAs("page_before")] string page_before = null,
+			[AliasAs("page[first]")] decimal? page_first = null,
+			[AliasAs("page[after]")] string page_after = null,
+			[AliasAs("page[last]")] decimal? page_last = null,
+			[AliasAs("page[before]")] string page_before = null,
 			CancellationToken? cancellationToken = null
 		);
 
