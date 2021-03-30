@@ -5,7 +5,7 @@
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<Authors>Panoramic Data Limited</Authors>
 		<Description>Auvik.Api nuget package</Description>
-		<Copyright>Panoramic Data Limited 2020</Copyright>
+		<Copyright>Panoramic Data Limited 2021</Copyright>
 		<PackageProjectUrl>https://github.com/panoramicdata/Auvik.Api</PackageProjectUrl>
 		<PackageIcon>Icon.png</PackageIcon>
 		<RepositoryUrl>https://github.com/panoramicdata/Auvik.Api</RepositoryUrl>
