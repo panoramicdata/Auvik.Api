@@ -15,8 +15,7 @@
 		<ApplicationIcon>Icon.ico</ApplicationIcon>
 		<LangVersion>latest</LangVersion>
 		<PackageReleaseNotes>
-			Pull request from Bryan Slatner for filters - thanks Brian!
-			Version updated to 1.3
+			Another pull request from Bryan Slatner for an errant enum - thanks Brian!
 		</PackageReleaseNotes>
 	</PropertyGroup>
 
