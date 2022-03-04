@@ -1,5 +1,7 @@
 # Auvik.Api
 
+[![Nuget](https://img.shields.io/nuget/v/Auvik.Api)](https://www.nuget.org/packages/Auvik.Api/)
+
 To use the Auvik nuget package:
 
 ## Visual Studio
