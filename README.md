@@ -6,13 +6,13 @@ To use the Auvik nuget package:
 
 ## Visual Studio
 
-1. Open your project in Visual Studio
-1. Right-click on the project and click "Manage Nuget packages"
-1. Find the package "Auvik.Api" - install the latest version
-1. Create an API key in your User Profile in Auvik
-1. Note your URL domain, username and API key.
+1.	Open your project in Visual Studio
+2.  Right-click on the project and click "Manage Nuget packages"
+3.  Find the package "Auvik.Api" - install the latest version
+4.  Create an API key in your User Profile in Auvik
+5.  Note your URL domain, username and API key.
 
-## Example code (C# 8.0):
+## Example code (C# 8.0)
 
 ``` C#
 using Auvik.Api;
@@ -50,4 +50,4 @@ namespace My.Project
 
 The Auvik API documentation can be found here:
 
-- [Auvik API documentation](https://auvikapi.us1.my.auvik.com/docs)
+-	[Auvik API documentation](https://auvikapi.us1.my.auvik.com/docs)
