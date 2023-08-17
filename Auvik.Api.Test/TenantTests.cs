@@ -1,6 +1,7 @@
 ﻿using FluentAssertions;
 using Xunit;
 using Xunit.Abstractions;
+using System.Threading.Tasks;
 
 namespace Auvik.Api.Test
 {
@@ -11,7 +12,7 @@ namespace Auvik.Api.Test
 		}
 
 		[Fact]
-		public async void ReadMultipleTenantsDetail_Succeeds()
+		public async Task ReadMultipleTenantsDetail_Succeeds()
 		{
 			var tenants = await AuvikClient
 				.Tenants
@@ -22,7 +23,7 @@ namespace Auvik.Api.Test
 		}
 
 		[Fact]
-		public async void ReadMultipleTenants_Succeeds()
+		public async Task ReadMultipleTenants_Succeeds()
 		{
 			var tenants = await AuvikClient
 				.Tenants
@@ -32,7 +33,7 @@ namespace Auvik.Api.Test
 			tenants.Should().NotBeNull();
 		}
 		[Fact]
-		public async void ReadSingleTenantsDetail_Succeeds()
+		public async Task ReadSingleTenantsDetail_Succeeds()
 		{
 			var tenants = await AuvikClient
 				.Tenants

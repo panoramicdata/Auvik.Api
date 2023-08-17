@@ -1,6 +1,7 @@
 using FluentAssertions;
 using Xunit;
 using Xunit.Abstractions;
+using System.Threading.Tasks;
 
 namespace Auvik.Api.Test
 {
@@ -11,7 +12,7 @@ namespace Auvik.Api.Test
 		}
 
 		[Fact]
-		public async void ReadMultipleNetworkInfo_Succeeds()
+		public async Task ReadMultipleNetworkInfo_Succeeds()
 		{
 			var networkInfoReadMultiple = await AuvikClient
 				.Networks

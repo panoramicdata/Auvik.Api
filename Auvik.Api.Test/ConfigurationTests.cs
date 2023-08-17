@@ -78,7 +78,7 @@ namespace Auvik.Api.Test
 		}
 
 		[Fact]
-		public async void GoodConfig_Works()
+		public async Task GoodConfig_Works()
 			=> await AuvikClient
 				.Credentials
 				.VerifyCredentials()
