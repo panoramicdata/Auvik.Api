@@ -1,254 +1,255 @@
+#nullable disable
+
 using System.Text;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace Auvik.Api.Data
+namespace Auvik.Api.Data;
+
+/// <summary>
+/// High level statuses of discovery services
+/// </summary>
+[DataContract]
+public class DeviceDetailsAttributesDiscoveryStatus
 {
 	/// <summary>
-	/// High level statuses of discovery services
+	/// Gets or Sets Login
 	/// </summary>
-	[DataContract]
-	public class DeviceDetailsAttributesDiscoveryStatus
+	[JsonConverter(typeof(StringEnumConverter))]
+	public enum LoginEnum
 	{
-		/// <summary>
-		/// Gets or Sets Login
-		/// </summary>
-		[JsonConverter(typeof(StringEnumConverter))]
-		public enum LoginEnum
-		{
-
-			/// <summary>
-			/// Enum Disabled for "disabled"
-			/// </summary>
-			[EnumMember(Value = "disabled")]
-			Disabled,
-
-			/// <summary>
-			/// Enum Determining for "determining"
-			/// </summary>
-			[EnumMember(Value = "determining")]
-			Determining,
-
-			/// <summary>
-			/// Enum NotSupported for "notSupported"
-			/// </summary>
-			[EnumMember(Value = "notSupported")]
-			NotSupported,
-
-			/// <summary>
-			/// Enum NotAuthorized for "notAuthorized"
-			/// </summary>
-			[EnumMember(Value = "notAuthorized")]
-			NotAuthorized,
-
-			/// <summary>
-			/// Enum Authorizing for "authorizing"
-			/// </summary>
-			[EnumMember(Value = "authorizing")]
-			Authorizing,
-
-			/// <summary>
-			/// Enum Authorized for "authorized"
-			/// </summary>
-			[EnumMember(Value = "authorized")]
-			Authorized,
-
-			/// <summary>
-			/// Enum Privileged for "privileged"
-			/// </summary>
-			[EnumMember(Value = "privileged")]
-			Privileged
-		}
 
 		/// <summary>
-		/// Gets or Sets Snmp
+		/// Enum Disabled for "disabled"
 		/// </summary>
-		[JsonConverter(typeof(StringEnumConverter))]
-		public enum SnmpEnum
-		{
-
-			/// <summary>
-			/// Enum Disabled for "disabled"
-			/// </summary>
-			[EnumMember(Value = "disabled")]
-			Disabled,
-
-			/// <summary>
-			/// Enum Determining for "determining"
-			/// </summary>
-			[EnumMember(Value = "determining")]
-			Determining,
-
-			/// <summary>
-			/// Enum NotSupported for "notSupported"
-			/// </summary>
-			[EnumMember(Value = "notSupported")]
-			NotSupported,
-
-			/// <summary>
-			/// Enum NotAuthorized for "notAuthorized"
-			/// </summary>
-			[EnumMember(Value = "notAuthorized")]
-			NotAuthorized,
-
-			/// <summary>
-			/// Enum Authorizing for "authorizing"
-			/// </summary>
-			[EnumMember(Value = "authorizing")]
-			Authorizing,
-
-			/// <summary>
-			/// Enum Authorized for "authorized"
-			/// </summary>
-			[EnumMember(Value = "authorized")]
-			Authorized,
-
-			/// <summary>
-			/// Enum Privileged for "privileged"
-			/// </summary>
-			[EnumMember(Value = "privileged")]
-			Privileged
-		}
+		[EnumMember(Value = "disabled")]
+		Disabled,
 
 		/// <summary>
-		/// Gets or Sets Vmware
+		/// Enum Determining for "determining"
 		/// </summary>
-		[JsonConverter(typeof(StringEnumConverter))]
-		public enum VmwareEnum
-		{
-
-			/// <summary>
-			/// Enum Disabled for "disabled"
-			/// </summary>
-			[EnumMember(Value = "disabled")]
-			Disabled,
-
-			/// <summary>
-			/// Enum Determining for "determining"
-			/// </summary>
-			[EnumMember(Value = "determining")]
-			Determining,
-
-			/// <summary>
-			/// Enum NotSupported for "notSupported"
-			/// </summary>
-			[EnumMember(Value = "notSupported")]
-			NotSupported,
-
-			/// <summary>
-			/// Enum NotAuthorized for "notAuthorized"
-			/// </summary>
-			[EnumMember(Value = "notAuthorized")]
-			NotAuthorized,
-
-			/// <summary>
-			/// Enum Authorizing for "authorizing"
-			/// </summary>
-			[EnumMember(Value = "authorizing")]
-			Authorizing,
-
-			/// <summary>
-			/// Enum Authorized for "authorized"
-			/// </summary>
-			[EnumMember(Value = "authorized")]
-			Authorized,
-
-			/// <summary>
-			/// Enum Privileged for "privileged"
-			/// </summary>
-			[EnumMember(Value = "privileged")]
-			Privileged
-		}
+		[EnumMember(Value = "determining")]
+		Determining,
 
 		/// <summary>
-		/// Gets or Sets Wmi
+		/// Enum NotSupported for "notSupported"
 		/// </summary>
-		[JsonConverter(typeof(StringEnumConverter))]
-		public enum WmiEnum
-		{
-
-			/// <summary>
-			/// Enum Disabled for "disabled"
-			/// </summary>
-			[EnumMember(Value = "disabled")]
-			Disabled,
-
-			/// <summary>
-			/// Enum Determining for "determining"
-			/// </summary>
-			[EnumMember(Value = "determining")]
-			Determining,
-
-			/// <summary>
-			/// Enum NotSupported for "notSupported"
-			/// </summary>
-			[EnumMember(Value = "notSupported")]
-			NotSupported,
-
-			/// <summary>
-			/// Enum NotAuthorized for "notAuthorized"
-			/// </summary>
-			[EnumMember(Value = "notAuthorized")]
-			NotAuthorized,
-
-			/// <summary>
-			/// Enum Authorizing for "authorizing"
-			/// </summary>
-			[EnumMember(Value = "authorizing")]
-			Authorizing,
-
-			/// <summary>
-			/// Enum Authorized for "authorized"
-			/// </summary>
-			[EnumMember(Value = "authorized")]
-			Authorized,
-
-			/// <summary>
-			/// Enum Privileged for "privileged"
-			/// </summary>
-			[EnumMember(Value = "privileged")]
-			Privileged
-		}
+		[EnumMember(Value = "notSupported")]
+		NotSupported,
 
 		/// <summary>
-		/// Gets or Sets Login
+		/// Enum NotAuthorized for "notAuthorized"
 		/// </summary>
-		[DataMember(Name="login", EmitDefaultValue=false)]
-		public LoginEnum? Login { get; set; }
+		[EnumMember(Value = "notAuthorized")]
+		NotAuthorized,
 
 		/// <summary>
-		/// Gets or Sets Snmp
+		/// Enum Authorizing for "authorizing"
 		/// </summary>
-		[DataMember(Name="snmp", EmitDefaultValue=false)]
-		public SnmpEnum? Snmp { get; set; }
+		[EnumMember(Value = "authorizing")]
+		Authorizing,
 
 		/// <summary>
-		/// Gets or Sets Vmware
+		/// Enum Authorized for "authorized"
 		/// </summary>
-		[DataMember(Name="vmware", EmitDefaultValue=false)]
-		public VmwareEnum? Vmware { get; set; }
+		[EnumMember(Value = "authorized")]
+		Authorized,
 
 		/// <summary>
-		/// Gets or Sets Wmi
+		/// Enum Privileged for "privileged"
 		/// </summary>
-		[DataMember(Name="wmi", EmitDefaultValue=false)]
-		public WmiEnum? Wmi { get; set; }
+		[EnumMember(Value = "privileged")]
+		Privileged
+	}
+
+	/// <summary>
+	/// Gets or Sets Snmp
+	/// </summary>
+	[JsonConverter(typeof(StringEnumConverter))]
+	public enum SnmpEnum
+	{
 
 		/// <summary>
-		/// Returns the string presentation of the object
+		/// Enum Disabled for "disabled"
 		/// </summary>
-		/// <returns>String presentation of the object</returns>
-		public override string ToString()
-		{
-			var sb = new StringBuilder();
-			sb.Append("class DeviceDetailsAttributesDiscoveryStatus {\n");
-			sb.Append("  Login: ").Append(Login).Append("\n");
-			sb.Append("  Snmp: ").Append(Snmp).Append("\n");
-			sb.Append("  Vmware: ").Append(Vmware).Append("\n");
-			sb.Append("  Wmi: ").Append(Wmi).Append("\n");
-			sb.Append("}\n");
-			return sb.ToString();
-		}
+		[EnumMember(Value = "disabled")]
+		Disabled,
+
+		/// <summary>
+		/// Enum Determining for "determining"
+		/// </summary>
+		[EnumMember(Value = "determining")]
+		Determining,
+
+		/// <summary>
+		/// Enum NotSupported for "notSupported"
+		/// </summary>
+		[EnumMember(Value = "notSupported")]
+		NotSupported,
+
+		/// <summary>
+		/// Enum NotAuthorized for "notAuthorized"
+		/// </summary>
+		[EnumMember(Value = "notAuthorized")]
+		NotAuthorized,
+
+		/// <summary>
+		/// Enum Authorizing for "authorizing"
+		/// </summary>
+		[EnumMember(Value = "authorizing")]
+		Authorizing,
+
+		/// <summary>
+		/// Enum Authorized for "authorized"
+		/// </summary>
+		[EnumMember(Value = "authorized")]
+		Authorized,
+
+		/// <summary>
+		/// Enum Privileged for "privileged"
+		/// </summary>
+		[EnumMember(Value = "privileged")]
+		Privileged
+	}
+
+	/// <summary>
+	/// Gets or Sets Vmware
+	/// </summary>
+	[JsonConverter(typeof(StringEnumConverter))]
+	public enum VmwareEnum
+	{
+
+		/// <summary>
+		/// Enum Disabled for "disabled"
+		/// </summary>
+		[EnumMember(Value = "disabled")]
+		Disabled,
+
+		/// <summary>
+		/// Enum Determining for "determining"
+		/// </summary>
+		[EnumMember(Value = "determining")]
+		Determining,
+
+		/// <summary>
+		/// Enum NotSupported for "notSupported"
+		/// </summary>
+		[EnumMember(Value = "notSupported")]
+		NotSupported,
+
+		/// <summary>
+		/// Enum NotAuthorized for "notAuthorized"
+		/// </summary>
+		[EnumMember(Value = "notAuthorized")]
+		NotAuthorized,
+
+		/// <summary>
+		/// Enum Authorizing for "authorizing"
+		/// </summary>
+		[EnumMember(Value = "authorizing")]
+		Authorizing,
+
+		/// <summary>
+		/// Enum Authorized for "authorized"
+		/// </summary>
+		[EnumMember(Value = "authorized")]
+		Authorized,
+
+		/// <summary>
+		/// Enum Privileged for "privileged"
+		/// </summary>
+		[EnumMember(Value = "privileged")]
+		Privileged
+	}
+
+	/// <summary>
+	/// Gets or Sets Wmi
+	/// </summary>
+	[JsonConverter(typeof(StringEnumConverter))]
+	public enum WmiEnum
+	{
+
+		/// <summary>
+		/// Enum Disabled for "disabled"
+		/// </summary>
+		[EnumMember(Value = "disabled")]
+		Disabled,
+
+		/// <summary>
+		/// Enum Determining for "determining"
+		/// </summary>
+		[EnumMember(Value = "determining")]
+		Determining,
+
+		/// <summary>
+		/// Enum NotSupported for "notSupported"
+		/// </summary>
+		[EnumMember(Value = "notSupported")]
+		NotSupported,
+
+		/// <summary>
+		/// Enum NotAuthorized for "notAuthorized"
+		/// </summary>
+		[EnumMember(Value = "notAuthorized")]
+		NotAuthorized,
+
+		/// <summary>
+		/// Enum Authorizing for "authorizing"
+		/// </summary>
+		[EnumMember(Value = "authorizing")]
+		Authorizing,
+
+		/// <summary>
+		/// Enum Authorized for "authorized"
+		/// </summary>
+		[EnumMember(Value = "authorized")]
+		Authorized,
+
+		/// <summary>
+		/// Enum Privileged for "privileged"
+		/// </summary>
+		[EnumMember(Value = "privileged")]
+		Privileged
+	}
+
+	/// <summary>
+	/// Gets or Sets Login
+	/// </summary>
+	[DataMember(Name="login", EmitDefaultValue=false)]
+	public LoginEnum? Login { get; set; }
+
+	/// <summary>
+	/// Gets or Sets Snmp
+	/// </summary>
+	[DataMember(Name="snmp", EmitDefaultValue=false)]
+	public SnmpEnum? Snmp { get; set; }
+
+	/// <summary>
+	/// Gets or Sets Vmware
+	/// </summary>
+	[DataMember(Name="vmware", EmitDefaultValue=false)]
+	public VmwareEnum? Vmware { get; set; }
+
+	/// <summary>
+	/// Gets or Sets Wmi
+	/// </summary>
+	[DataMember(Name="wmi", EmitDefaultValue=false)]
+	public WmiEnum? Wmi { get; set; }
+
+	/// <summary>
+	/// Returns the string presentation of the object
+	/// </summary>
+	/// <returns>String presentation of the object</returns>
+	public override string ToString()
+	{
+		var sb = new StringBuilder();
+		sb.Append("class DeviceDetailsAttributesDiscoveryStatus {\n");
+		sb.Append("  Login: ").Append(Login).Append("\n");
+		sb.Append("  Snmp: ").Append(Snmp).Append("\n");
+		sb.Append("  Vmware: ").Append(Vmware).Append("\n");
+		sb.Append("  Wmi: ").Append(Wmi).Append("\n");
+		sb.Append("}\n");
+		return sb.ToString();
 	}
 }

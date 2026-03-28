@@ -1,6 +1,7 @@
 # Auvik.Api
 
 [![Nuget](https://img.shields.io/nuget/v/Auvik.Api)](https://www.nuget.org/packages/Auvik.Api/)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/e69c5b5373ab4577aef33e06e73e2160)](https://app.codacy.com/gh/panoramicdata/Auvik.Api/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 
 To use the Auvik nuget package:
 
@@ -12,39 +13,34 @@ To use the Auvik nuget package:
 4.  Create an API key in your User Profile in Auvik
 5.  Note your URL domain, username and API key.
 
-## Example code (C# 8.0)
+## Example code
 
-``` C#
+```csharp
 using Auvik.Api;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
-namespace My.Project
+namespace My.Project;
+
+public static class Program
 {
-	public static class Program
+	public static async Task Main()
 	{
-		public static async Task Main()
-		{
-			var auvikClient = new AuvikClient(
-				new AuvikClientOptions
-				{
-					// Ensure that the "us3" part of the URI
-					// matches your browser navigation bar
-					Uri = new Uri("https://auvikapi.us3.my.auvik.com;"),
-					Username = "you@yourdomain.com",
-					ApiKey = "YOUR API KEY GOES HERE"
-				}
-			);
+		var auvikClient = new AuvikClient(
+			new AuvikClientOptions
+			{
+				// Ensure that the "us3" part of the URI
+				// matches your browser navigation bar
+				Uri = new Uri("https://auvikapi.us3.my.auvik.com"),
+				Username = "you@yourdomain.com",
+				ApiKey = "YOUR API KEY GOES HERE"
+			}
+		);
 
-			await auvikClient
-				.Credentials
-				.VerifyCredentials()
-				.ConfigureAwait(false);
-		}
+		await auvikClient
+			.Credentials
+			.VerifyCredentials();
 	}
 }
-````
+```
 
 ## API Documentation
 

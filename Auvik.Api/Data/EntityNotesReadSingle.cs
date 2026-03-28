@@ -1,31 +1,32 @@
+#nullable disable
+
 using System.Text;
 using System.Runtime.Serialization;
 
-namespace Auvik.Api.Data
+namespace Auvik.Api.Data;
+
+/// <summary>
+/// Root level object per the json-api spec
+/// </summary>
+[DataContract]
+public class EntityNotesReadSingle
 {
 	/// <summary>
-	/// Root level object per the json-api spec
+	/// Gets or Sets Data
 	/// </summary>
-	[DataContract]
-	public class EntityNotesReadSingle
-	{
-		/// <summary>
-		/// Gets or Sets Data
-		/// </summary>
-		[DataMember(Name="data", EmitDefaultValue=false)]
-		public NoteResourceObject Data { get; set; }
+	[DataMember(Name="data", EmitDefaultValue=false)]
+	public NoteResourceObject Data { get; set; }
 
-		/// <summary>
-		/// Returns the string presentation of the object
-		/// </summary>
-		/// <returns>String presentation of the object</returns>
-		public override string ToString()
-		{
-			var sb = new StringBuilder();
-			sb.Append("class EntityNotesReadSingle {\n");
-			sb.Append("  Data: ").Append(Data).Append("\n");
-			sb.Append("}\n");
-			return sb.ToString();
-		}
+	/// <summary>
+	/// Returns the string presentation of the object
+	/// </summary>
+	/// <returns>String presentation of the object</returns>
+	public override string ToString()
+	{
+		var sb = new StringBuilder();
+		sb.Append("class EntityNotesReadSingle {\n");
+		sb.Append("  Data: ").Append(Data).Append("\n");
+		sb.Append("}\n");
+		return sb.ToString();
 	}
 }

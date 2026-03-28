@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".gitignore" />
+    <File Path="global.json" />
+    <File Path="LICENSE" />
+    <File Path="README.md" />
+    <File Path="version.json" />
+  </Folder>
+  <Project Path="Auvik.Api.Test/Auvik.Api.Test.csproj" />
+  <Project Path="Auvik.Api/Auvik.Api.csproj" />
+</Solution>

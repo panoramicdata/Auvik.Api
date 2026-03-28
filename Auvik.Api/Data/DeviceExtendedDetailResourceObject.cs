@@ -1,6 +1,7 @@
-﻿namespace Auvik.Api.Data
+#nullable disable
+
+namespace Auvik.Api.Data;
+
+public class DeviceExtendedDetailResourceObject
 {
-	public class DeviceExtendedDetailResourceObject
-	{
-	}
 }

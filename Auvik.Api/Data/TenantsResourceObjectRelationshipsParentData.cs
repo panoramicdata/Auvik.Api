@@ -1,57 +1,58 @@
+#nullable disable
+
 using System.Text;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace Auvik.Api.Data
+namespace Auvik.Api.Data;
+
+/// <summary>
+/// The parent tenant data object of the tenant selected
+/// </summary>
+[DataContract]
+public class TenantsResourceObjectRelationshipsParentData
 {
 	/// <summary>
-	/// The parent tenant data object of the tenant selected
+	/// The type of object in the API.
 	/// </summary>
-	[DataContract]
-	public class TenantsResourceObjectRelationshipsParentData
+	/// <value>The type of object in the API.</value>
+	[JsonConverter(typeof(StringEnumConverter))]
+	public enum TypeEnum
 	{
-		/// <summary>
-		/// The type of object in the API.
-		/// </summary>
-		/// <value>The type of object in the API.</value>
-		[JsonConverter(typeof(StringEnumConverter))]
-		public enum TypeEnum
-		{
-
-			/// <summary>
-			/// Enum Tenant for "tenant"
-			/// </summary>
-			[EnumMember(Value = "tenant")]
-			Tenant
-		}
 
 		/// <summary>
-		/// The type of object in the API.
+		/// Enum Tenant for "tenant"
 		/// </summary>
-		/// <value>The type of object in the API.</value>
-		[DataMember(Name="type", EmitDefaultValue=false)]
-		public TypeEnum? Type { get; set; }
+		[EnumMember(Value = "tenant")]
+		Tenant
+	}
 
-		/// <summary>
-		/// The unique identifier for a tenant
-		/// </summary>
-		/// <value>The unique identifier for a tenant</value>
-		[DataMember(Name="id", EmitDefaultValue=false)]
-		public string Id { get; set; }
+	/// <summary>
+	/// The type of object in the API.
+	/// </summary>
+	/// <value>The type of object in the API.</value>
+	[DataMember(Name="type", EmitDefaultValue=false)]
+	public TypeEnum? Type { get; set; }
 
-		/// <summary>
-		/// Returns the string presentation of the object
-		/// </summary>
-		/// <returns>String presentation of the object</returns>
-		public override string ToString()
-		{
-			var sb = new StringBuilder();
-			sb.Append("class TenantsResourceObjectRelationshipsParentData {\n");
-			sb.Append("  Id: ").Append(Id).Append("\n");
-			sb.Append("  Type: ").Append(Type).Append("\n");
-			sb.Append("}\n");
-			return sb.ToString();
-		}
+	/// <summary>
+	/// The unique identifier for a tenant
+	/// </summary>
+	/// <value>The unique identifier for a tenant</value>
+	[DataMember(Name="id", EmitDefaultValue=false)]
+	public string Id { get; set; }
+
+	/// <summary>
+	/// Returns the string presentation of the object
+	/// </summary>
+	/// <returns>String presentation of the object</returns>
+	public override string ToString()
+	{
+		var sb = new StringBuilder();
+		sb.Append("class TenantsResourceObjectRelationshipsParentData {\n");
+		sb.Append("  Id: ").Append(Id).Append("\n");
+		sb.Append("  Type: ").Append(Type).Append("\n");
+		sb.Append("}\n");
+		return sb.ToString();
 	}
 }
