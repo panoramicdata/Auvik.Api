@@ -1,15 +1,15 @@
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
 using System.Diagnostics;
 using Xunit;
-using Xunit.Abstractions;
 
 namespace Auvik.Api.Test;
 
 public abstract class Test
 {
-	protected Test(ITestOutputHelper iTestOutputHelper)
+   protected Test()
 	{
-		Logger = iTestOutputHelper.BuildLoggerFor<Test>();
+     Logger = NullLogger.Instance;
 		Config = new TestConfig(null, Logger);
 		AuvikClient = Config.AuvikClient;
 		Stopwatch = Stopwatch.StartNew();

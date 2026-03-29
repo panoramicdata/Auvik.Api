@@ -22,25 +22,25 @@ internal class TestConfig
 
 		if (credentialsAppSetting == null)
 		{
-			throw new Exception($"No credentials found in appsettings.json file for {credentialsName}.");
+           throw new InvalidOperationException($"No credentials found in appsettings.json file for {credentialsName}.");
 		}
 
 		var credentials = credentialsAppSetting.Split(';');
 		if (credentials.Length != 3)
 		{
-			throw new Exception($"Expected to find credentials in the form URI;Username;ApiKey.  Found '{credentialsAppSetting}'");
+         throw new FormatException($"Expected to find credentials in the form URI;Username;ApiKey. Found '{credentialsAppSetting}'.");
 		}
 
-		var credentialIndex = -1;
 		AuvikClient = new AuvikClient(new AuvikClientOptions
 		{
-			Uri = new Uri(credentials[++credentialIndex]),
-			Username = credentials[++credentialIndex],
-			ApiKey = credentials[++credentialIndex],
+          Uri = new Uri(credentials[0]),
+			Username = credentials[1],
+			ApiKey = credentials[2],
 			Logger = logger
 		});
 
-		TestCustomerId = configuration["TestCustomerId"];
+       TestCustomerId = configuration["TestCustomerId"]
+			?? throw new InvalidOperationException("No TestCustomerId found in appsettings.json.");
 	}
 
 	internal AuvikClient AuvikClient { get; }

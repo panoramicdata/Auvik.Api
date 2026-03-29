@@ -3,6 +3,7 @@
 	<PropertyGroup>
 		<TargetFramework>net10.0</TargetFramework>
 		<LangVersion>latest</LangVersion>
+       <Company>Panoramic Data Limited</Company>
 		<Authors>Panoramic Data Limited</Authors>
 		<Copyright>Copyright © Panoramic Data Limited $([System.DateTime]::Now.Year)</Copyright>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>

@@ -22,7 +22,7 @@ if (-not $nupkg) {
     exit 1
 }
 
-Write-Host "Publishing $($nupkg.Name)..."
+Write-Output "Publishing $($nupkg.Name)..."
 dotnet nuget push $nupkg.FullName --source https://api.nuget.org/v3/index.json --api-key $apiKey --skip-duplicate
 if ($LASTEXITCODE -ne 0) {
     Write-Error "Publish failed."
@@ -31,6 +31,6 @@ if ($LASTEXITCODE -ne 0) {
 
 # Extract version from filename (Auvik.Api.x.y.z.nupkg)
 $version = $nupkg.BaseName -replace '^Auvik\.Api\.', ''
-Write-Host "Published Auvik.Api $version"
+Write-Output "Published Auvik.Api $version"
 
 & "$PSScriptRoot\CheckForNugetPublish.ps1" -packageName "Auvik.Api" -expectedVersion $version

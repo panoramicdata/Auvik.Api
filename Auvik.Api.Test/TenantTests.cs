@@ -1,23 +1,17 @@
 using FluentAssertions;
 using Xunit;
-using Xunit.Abstractions;
 using System.Threading.Tasks;
 
 namespace Auvik.Api.Test;
 
 public class TenantTests : Test
 {
-	public TenantTests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
-	{
-	}
-
 	[Fact]
 	public async Task ReadMultipleTenantsDetail_Succeeds()
 	{
 		var tenants = await AuvikClient
 			.Tenants
-			.ReadMultipleTenantsDetail("warps")
-			.ConfigureAwait(false);
+           .ReadMultipleTenantsDetail("warps");
 
 		tenants.Should().NotBeNull();
 	}
@@ -27,8 +21,7 @@ public class TenantTests : Test
 	{
 		var tenants = await AuvikClient
 			.Tenants
-			.ReadMultipleTenants()
-			.ConfigureAwait(false);
+           .ReadMultipleTenants();
 
 		tenants.Should().NotBeNull();
 	}
@@ -37,8 +30,7 @@ public class TenantTests : Test
 	{
 		var tenants = await AuvikClient
 			.Tenants
-			.ReadMultipleTenants()
-			.ConfigureAwait(false);
+           .ReadMultipleTenants();
 
 		tenants.Should().NotBeNull();
 
@@ -46,8 +38,7 @@ public class TenantTests : Test
 		{
 			var tenantDetail = await AuvikClient
 				.Tenants
-				.ReadSingleTenantDetail(tenant.Attributes.DomainPrefix, tenant.Id)
-				.ConfigureAwait(false);
+               .ReadSingleTenantDetail(tenant.Attributes.DomainPrefix, tenant.Id);
 
 			tenantDetail.Should().NotBeNull();
 		}

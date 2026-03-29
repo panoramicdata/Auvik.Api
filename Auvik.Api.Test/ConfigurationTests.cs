@@ -3,19 +3,13 @@ using FluentAssertions;
 using System;
 using System.Threading.Tasks;
 using Xunit;
-using Xunit.Abstractions;
 
 namespace Auvik.Api.Test;
 
 public class ConfigurationTests : Test
 {
-	public ConfigurationTests(ITestOutputHelper iTestOutputHelper)
-		: base(iTestOutputHelper)
-	{
-	}
-
 	[Fact]
-	public void NoUri_ThrowsException()
+  public async Task NoUri_ThrowsException()
 	{
 		Func<Task> act = async () =>
 		{
@@ -25,18 +19,17 @@ public class ConfigurationTests : Test
 				ApiKey = "123"
 			})
 			.Credentials
-			.VerifyCredentials()
-			.ConfigureAwait(false);
+            .VerifyCredentials();
 		};
 
-		act
+      await act
 			.Should()
-			.Throw<ConfigurationException>()
+           .ThrowAsync<ConfigurationException>()
 			.WithMessage("Missing Uri");
 	}
 
 	[Fact]
-	public void NoUsername_ThrowsException()
+  public async Task NoUsername_ThrowsException()
 	{
 		Func<Task> act = async () =>
 		{
@@ -46,18 +39,17 @@ public class ConfigurationTests : Test
 				ApiKey = "ABC"
 			})
 			.Credentials
-			.VerifyCredentials()
-			.ConfigureAwait(false);
+            .VerifyCredentials();
 		};
 
-		act
+      await act
 			.Should()
-			.Throw<ConfigurationException>()
+           .ThrowAsync<ConfigurationException>()
 			.WithMessage("Missing Username");
 	}
 
 	[Fact]
-	public void NoApiKey_ThrowsException()
+  public async Task NoApiKey_ThrowsException()
 	{
 		Func<Task> act = async () =>
 		{
@@ -67,13 +59,12 @@ public class ConfigurationTests : Test
 				Username = "ABC"
 			})
 			.Credentials
-			.VerifyCredentials()
-			.ConfigureAwait(false);
+            .VerifyCredentials();
 		};
 
-		act
+      await act
 			.Should()
-			.Throw<ConfigurationException>()
+           .ThrowAsync<ConfigurationException>()
 			.WithMessage("Missing ApiKey");
 	}
 
@@ -81,6 +72,5 @@ public class ConfigurationTests : Test
 	public async Task GoodConfig_Works()
 		=> await AuvikClient
 			.Credentials
-			.VerifyCredentials()
-			.ConfigureAwait(false);
+           .VerifyCredentials();
 }
