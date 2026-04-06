@@ -4,8 +4,14 @@ using System.Threading.Tasks;
 
 namespace Auvik.Api.Test;
 
+/// <summary>
+/// Integration tests for network API endpoints.
+/// </summary>
 public class NetworkTests : Test
 {
+	/// <summary>
+	/// Verifies reading multiple network info records returns a payload.
+	/// </summary>
 	[Fact]
 	public async Task ReadMultipleNetworkInfo_Succeeds()
 	{

@@ -4,8 +4,14 @@ using System.Threading.Tasks;
 
 namespace Auvik.Api.Test;
 
+/// <summary>
+/// Integration tests for tenant API endpoints.
+/// </summary>
 public class TenantTests : Test
 {
+	/// <summary>
+	/// Verifies reading multiple tenant details returns a payload.
+	/// </summary>
 	[Fact]
 	public async Task ReadMultipleTenantsDetail_Succeeds()
 	{
@@ -16,6 +22,9 @@ public class TenantTests : Test
 		tenants.Should().NotBeNull();
 	}
 
+	/// <summary>
+	/// Verifies reading multiple tenants returns a payload.
+	/// </summary>
 	[Fact]
 	public async Task ReadMultipleTenants_Succeeds()
 	{
@@ -25,6 +34,9 @@ public class TenantTests : Test
 
 		tenants.Should().NotBeNull();
 	}
+	/// <summary>
+	/// Verifies reading each tenant's detail returns a payload.
+	/// </summary>
 	[Fact]
 	public async Task ReadSingleTenantsDetail_Succeeds()
 	{

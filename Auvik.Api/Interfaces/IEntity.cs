@@ -18,7 +18,7 @@ public interface IEntity
 	/// <remarks>
 	/// Use the Read Multiple Entity Audits API pull information about multiple entity audits for you clients. You'll need the client IDs for the clients you want to run the multiple read against.&lt;br&gt; &lt;br&gt; To find the client IDs, run the &lt;a href&#x3D;\&quot;#operation/readMultipleTenants\&quot;&gt;Read Multiple Tenants API.&lt;/a&gt;&lt;br&gt; &lt;br&gt; Looking at the detail screen on the right, click cURL to see the command that will be used. Click &lt;b&gt;Copy&lt;/b&gt; to copy the details of the command to your clipboard. Be sure to edit the following parameters within the command: &lt;ul&gt;	 &lt;li&gt;Within the API URL, &lt;b&gt;us1.my&lt;/b&gt; (https://auvikapi.us1.my.auvik.com) should be updated to match the region in which your account resides. To locate the region, log into your Auvik dashboard and look at the URL in your browser's address bar.&lt;/li&gt;	 &lt;li&gt;&lt;i&gt;user@example.com&lt;/i&gt; should be the email address of a user with permissions to view entity audit history.&lt;/li&gt;	 &lt;li&gt;&lt;i&gt;apiKey&lt;/i&gt; should be the API key that's been set for the user.&lt;/li&gt;	 &lt;li&gt;&lt;i&gt;195798545063742726&lt;/i&gt; should be the ID or comma delimited IDs of the client(s) whose data you wish to fetch information from. &lt;/li&gt;	 &lt;li&gt;&lt;i&gt;filter[status]&#x3D;created&lt;/i&gt; should be whichever key and value pair you want to filter the result set by. See below for a list of filterable parameters.&lt;/li&gt; &lt;/ul&gt;
 	/// </remarks>
-	/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+	/// <exception cref="System.Exception">Thrown when fails to make API call</exception>
 	/// <param name="filter_user">Filter by user name associated to the audit. (optional)</param>
 	/// <param name="filter_category">Filter by the audit's category. (optional)</param>
 	/// <param name="filter_status">Filter by the audit's status. (optional)</param>
@@ -28,6 +28,7 @@ public interface IEntity
 	/// <param name="page_after">Cursor after which elements will be returned as a page. The page size is provided by &lt;code&gt;page[first]&lt;/code&gt;. (optional)</param>
 	/// <param name="page_last">For paginated responses, the last N services will be returned. Used in combination with &lt;code&gt;page[before]&lt;/code&gt;. (optional, default to 100)</param>
 	/// <param name="page_before">Cursor before which elements will be returned as a page. The page size is provided by &lt;code&gt;page[last]&lt;/code&gt;. (optional)</param>
+	/// <param name="cancellationToken">cancellationToken parameter.</param>
 	/// <returns>Task of EntityAuditReadMultiple</returns>
 	[Get("/v1/inventory/entity/audit")]
 	Task<EntityAuditReadMultiple> ReadMultipleEntityAudit(
@@ -49,7 +50,7 @@ public interface IEntity
 	/// <remarks>
 	/// Use the Read Multiple Entity Notes API pull information about multiple entity notes. You'll need the client IDs for the clients you want to run the multiple read against.&lt;br&gt; &lt;br&gt; To find the client IDs, run the &lt;a href&#x3D;\&quot;#operation/readMultipleTenants\&quot;&gt;Read Multiple Tenants API.&lt;/a&gt;&lt;br&gt; &lt;br&gt; Looking at the detail screen on the right, click cURL to see the command that will be used. Click &lt;b&gt;Copy&lt;/b&gt; to copy the details of the command to your clipboard. Be sure to edit the following parameters within the command: &lt;ul&gt;	 &lt;li&gt;Within the API URL, &lt;b&gt;us1.my&lt;/b&gt; (https://auvikapi.us1.my.auvik.com) should be updated to match the region in which your account resides. To locate the region, log into your Auvik dashboard and look at the URL in your browser's address bar.&lt;/li&gt;	 &lt;li&gt;&lt;i&gt;user@example.com&lt;/i&gt; should be the email address of a user with permissions to view entity notes.&lt;/li&gt;	 &lt;li&gt;&lt;i&gt;apiKey&lt;/i&gt; should be the API key that's been set for the user.&lt;/li&gt;	 &lt;li&gt;&lt;i&gt;195798545063742726&lt;/i&gt; should be the ID or comma delimited IDs of the client(s) whose data you wish to fetch information from. &lt;/li&gt;	 &lt;li&gt;&lt;i&gt;filter[entityType]&#x3D;device&lt;/i&gt; should be whichever key and value pair you want to filter the result set by. See below for a list of filterable parameters.&lt;/li&gt; &lt;/ul&gt;
 	/// </remarks>
-	/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+	/// <exception cref="System.Exception">Thrown when fails to make API call</exception>
 	/// <param name="filter_entityId">Filter by the entity's ID. (optional)</param>
 	/// <param name="filter_entityType">Filter by the entity's type. (optional)</param>
 	/// <param name="filter_entityName">Filter by the entity's name. (optional)</param>
@@ -60,6 +61,7 @@ public interface IEntity
 	/// <param name="page_after">Cursor after which elements will be returned as a page. The page size is provided by &lt;code&gt;page[first]&lt;/code&gt;. (optional)</param>
 	/// <param name="page_last">For paginated responses, the last N services will be returned. Used in combination with &lt;code&gt;page[before]&lt;/code&gt;. (optional, default to 100)</param>
 	/// <param name="page_before">Cursor before which elements will be returned as a page. The page size is provided by &lt;code&gt;page[last]&lt;/code&gt;. (optional)</param>
+	/// <param name="cancellationToken">cancellationToken parameter.</param>
 	/// <returns>Task of EntityNotesReadMultiple</returns>
 	[Get("/v1/inventory/entity/note")]
 	Task<EntityNotesReadMultiple> ReadMultipleEntityNote(
@@ -82,8 +84,9 @@ public interface IEntity
 	/// <remarks>
 	/// Use the Single Multiple Entity Audit API pull information about a single entity audit. You'll need the audit entry ID for the specific audit.&lt;br&gt; &lt;br&gt; To find the audit ID, run the &lt;a href&#x3D;\&quot;#operation/readMultipleEntityAudit\&quot;&gt;Read Multiple Entity Audits API&lt;/a&gt;&lt;br&gt; &lt;br&gt; Looking at the detail screen on the right, click cURL to see the command that will be used. Click &lt;b&gt;Copy&lt;/b&gt; to copy the details of the command to your clipboard. Be sure to edit the following parameters within the command: &lt;ul&gt;	 &lt;li&gt;Within the API URL, &lt;b&gt;us1.my&lt;/b&gt; (https://auvikapi.us1.my.auvik.com) should be updated to match the region in which your account resides. To locate the region, log into your Auvik dashboard and look at the URL in your browser's address bar.&lt;/li&gt;	 &lt;li&gt;&lt;i&gt;user@example.com&lt;/i&gt; should be the email address of a user with permissions to view entity audit history.&lt;/li&gt;	 &lt;li&gt;&lt;i&gt;apiKey&lt;/i&gt; should be the API key that's been set for the user.&lt;/li&gt;	 &lt;li&gt;&lt;i&gt;MTk...yMw&lt;/i&gt; should be the audit's ID.&lt;/li&gt; &lt;/ul&gt;
 	/// </remarks>
-	/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+	/// <exception cref="System.Exception">Thrown when fails to make API call</exception>
 	/// <param name="id">ID of entity audit</param>
+	/// <param name="cancellationToken">cancellationToken parameter.</param>
 	/// <returns>Task of EntityAuditReadSingle</returns>
 	[Get("/v1/inventory/entity/audit/{id}")]
 	Task<EntityAuditReadSingle> ReadSingleEntityAudit(
@@ -97,8 +100,9 @@ public interface IEntity
 	/// <remarks>
 	/// Use the Read Single Entity Note API to pull the information about a specific entity note. You'll need the entity note ID for the specific entity note.&lt;br&gt; &lt;br&gt; To find the note IDs the &lt;a href&#x3D;\&quot;#operation/readMultipleEntityNote\&quot;&gt;Read Multiple Entity Notes API&lt;/a&gt;.&lt;br&gt; &lt;br&gt; Looking at the detail screen on the right, click cURL to see the command that will be used. Click &lt;b&gt;Copy&lt;/b&gt; to copy the details of the command to your clipboard. Be sure to edit the following parameters within the command: &lt;ul&gt;	 &lt;li&gt;Within the API URL, &lt;b&gt;us1.my&lt;/b&gt; (https://auvikapi.us1.my.auvik.com) should be updated to match the region in which your account resides. To locate the region, log into your Auvik dashboard and look at the URL in your browser's address bar.&lt;/li&gt;	 &lt;li&gt;&lt;i&gt;user@example.com&lt;/i&gt; should be the email address of a user with permissions to view entity notes.&lt;/li&gt;	 &lt;li&gt;&lt;i&gt;apiKey&lt;/i&gt; should be the API key that's been set for the user.&lt;/li&gt;	 &lt;li&gt;&lt;i&gt;MTk...yMw&lt;/i&gt; should be the note ID.&lt;/li&gt; &lt;/ul&gt;
 	/// </remarks>
-	/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+	/// <exception cref="System.Exception">Thrown when fails to make API call</exception>
 	/// <param name="id">ID of entity note</param>
+	/// <param name="cancellationToken">cancellationToken parameter.</param>
 	/// <returns>Task of EntityNotesReadSingle</returns>
 	[Get("/v1/inventory/entity/note/{id}")]
 	Task<EntityNotesReadSingle> ReadSingleEntityNote(

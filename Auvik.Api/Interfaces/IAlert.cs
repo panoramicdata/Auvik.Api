@@ -18,6 +18,7 @@ public interface IAlert
 	/// Use the Dismiss Alert API to dismiss a specific alert that Auvik has triggered
 	/// </remarks>
 	/// <param name="id">ID of alert</param>
+	/// <param name="cancellationToken">cancellationToken parameter.</param>
 	/// <returns>Task of void</returns>
 	[Post("/v1/alert/dismiss/{id}")]
 	public Task AlertDismissSingle(

@@ -6,8 +6,14 @@ using Xunit;
 
 namespace Auvik.Api.Test;
 
+/// <summary>
+/// Tests validation behavior for <see cref="AuvikClientOptions"/>.
+/// </summary>
 public class ConfigurationTests : Test
 {
+	/// <summary>
+	/// Verifies client creation fails when URI is missing.
+	/// </summary>
 	[Fact]
   public async Task NoUri_ThrowsException()
 	{
@@ -28,6 +34,9 @@ public class ConfigurationTests : Test
 			.WithMessage("Missing Uri");
 	}
 
+	/// <summary>
+	/// Verifies client creation fails when username is missing.
+	/// </summary>
 	[Fact]
   public async Task NoUsername_ThrowsException()
 	{
@@ -48,6 +57,9 @@ public class ConfigurationTests : Test
 			.WithMessage("Missing Username");
 	}
 
+	/// <summary>
+	/// Verifies client creation fails when API key is missing.
+	/// </summary>
 	[Fact]
   public async Task NoApiKey_ThrowsException()
 	{
@@ -68,6 +80,9 @@ public class ConfigurationTests : Test
 			.WithMessage("Missing ApiKey");
 	}
 
+	/// <summary>
+	/// Verifies a valid configuration can call the credentials endpoint.
+	/// </summary>
 	[Fact]
 	public async Task GoodConfig_Works()
 		=> await AuvikClient

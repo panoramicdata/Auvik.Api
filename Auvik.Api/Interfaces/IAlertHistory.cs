@@ -18,7 +18,7 @@ public interface IAlertHistory
 	/// <remarks>
 	/// Use the Read Multiple Alerts' Info API to pull the collected information about the various alerts that Auvik has triggered.&lt;br&gt; &lt;br&gt; To find the client IDs, run the &lt;a href&#x3D;\&quot;#operation/readMultipleTenants\&quot;&gt;Read Multiple Tenants API&lt;/a&gt;.&lt;br&gt; &lt;br&gt; Looking at the detail screen on the right, click cURL to see the command that will be used. Click &lt;b&gt;Copy&lt;/b&gt; to copy the details of the command to your clipboard. Be sure to edit the following parameters within the command: &lt;ul&gt;	 &lt;li&gt;&lt;i&gt;user@example.com&lt;/i&gt; should be the email address of a user with permissions to view alert information.&lt;/li&gt;	 &lt;li&gt;&lt;i&gt;apiKey&lt;/i&gt; should be the API key that's been set for the user.&lt;/li&gt;	 &lt;li&gt;&lt;i&gt;195798545063742726&lt;/i&gt; should be the ID or comma delimited IDs of the tenant(s) whose data you wish to fetch information from. &lt;/li&gt;	 &lt;li&gt;&lt;i&gt;severity&lt;/i&gt; and &lt;i&gt;warning&lt;/i&gt; should be whichever key and value pair you want to filter the result set by. See below for a list of filterable attributes.&lt;/li&gt; &lt;/ul&gt;
 	/// </remarks>
-	/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+	/// <exception cref="System.Exception">Thrown when fails to make API call</exception>
 	/// <param name="filter_alertSpecificationId">Filter by alert specification ID. (optional)</param>
 	/// <param name="filter_severity">Filter by alert severity. (optional)</param>
 	/// <param name="filter_status">Filter by the status of the alert. (optional)</param>
@@ -32,6 +32,7 @@ public interface IAlertHistory
 	/// <param name="page_after">Cursor after which elements will be returned as a page. The page size is provided by &lt;code&gt;page[first]&lt;/code&gt;. (optional)</param>
 	/// <param name="page_last">For paginated responses, the last N services will be returned. Used in combination with &lt;code&gt;page[before]&lt;/code&gt;. (optional, default to 100)</param>
 	/// <param name="page_before">Cursor before which elements will be returned as a page. The page size is provided by &lt;code&gt;page[last]&lt;/code&gt;. (optional)</param>
+	/// <param name="cancellationToken">cancellationToken parameter.</param>
 	/// <returns>Task of AlertHistoryInfoReadMultiple</returns>
 	[Get("/v1/alert/history/info")]
 	Task<AlertHistoryInfoReadMultiple> ReadMultipleAlertInfo(
@@ -58,6 +59,7 @@ public interface IAlertHistory
 	/// Use the Read Single Alert's Info API to pull the collected information about a specific alert that Auvik has triggered.&lt;br&gt; &lt;br&gt; To find the alert IDs, run the &lt;a href&#x3D;\&quot;#operation/readMultipleAlertInfo\&quot;&gt;Read Multiple Alerts API&lt;/a&gt;.&lt;br&gt; &lt;br&gt; Looking at the detail screen on the right, click cURL to see the command that will be used. Click &lt;b&gt;Copy&lt;/b&gt; to copy the details of the command to your clipboard. Be sure to edit the following parameters within the command: &lt;ul&gt;	 &lt;li&gt;&lt;i&gt;user@example.com&lt;/i&gt; should be the email address of a user with permissions to view alert information.&lt;/li&gt;	 &lt;li&gt;&lt;i&gt;apiKey&lt;/i&gt; should be the API key that's been set for the user.&lt;/li&gt;	 &lt;li&gt;&lt;i&gt;195798545063742726&lt;/i&gt; should be the ID or comma delimited IDs of the tenant(s) whose data you wish to fetch information from. &lt;/li&gt;	 &lt;li&gt;&lt;i&gt;MTk...2Nw&lt;/i&gt; should be the alert's ID.&lt;/li&gt; &lt;/ul&gt;
 	/// </remarks>
 	/// <param name="id">ID of alert</param>
+	/// <param name="cancellationToken">cancellationToken parameter.</param>
 	/// <returns>Task of AlertHistoryInfoReadSingle</returns>
 	[Get("/v1/alert/history/info/{id}")]
 	Task<AlertHistoryInfoReadSingle> ReadSingleAlertInfo(

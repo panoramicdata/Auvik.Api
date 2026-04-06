@@ -18,10 +18,11 @@ public interface IUsage
 	/// <remarks>
 	/// Use the Read Client Usage API to pull a summary of a client's (and client's children if a multi-client) usage for a given time range.&lt;br&gt; &lt;br&gt; To find the client IDs, run the &lt;a href&#x3D;\&quot;#operation/readMultipleTenants\&quot;&gt;Read Multiple Tenants API.&lt;/a&gt;&lt;br&gt; Looking at the detail screen on the right, click cURL to see the command that will be used. Click &lt;b&gt;Copy&lt;/b&gt; to copy the details of the command to your clipboard. Be sure to edit the following parameters within the command: &lt;ul&gt;	 &lt;li&gt;&lt;i&gt;user@example.com&lt;/i&gt; should be the email address of a user with permissions to view billing information.&lt;/li&gt;	 &lt;li&gt;&lt;i&gt;apiKey&lt;/i&gt; should be the API key that's been set for the user.&lt;/li&gt;	 &lt;li&gt;&lt;i&gt;2019-06-01&lt;/i&gt; should be the date from which you want to query.&lt;/li&gt;	 &lt;li&gt;&lt;i&gt;2019-06-30&lt;/i&gt; should be the date to which you want to query.&lt;/li&gt;	 &lt;li&gt;&lt;i&gt;199762235015168516&lt;/i&gt; should be the IDs of list of IDs of the clients whose data you wish to query.&lt;/li&gt; &lt;/ul&gt;
 	/// </remarks>
-	/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+	/// <exception cref="System.Exception">Thrown when fails to make API call</exception>
 	/// <param name="filter_fromDate">Date from which you want to query</param>
 	/// <param name="filter_thruDate">Date to which you want to query</param>
 	/// <param name="tenants">Comma delimited list of tenant IDs to request info from. (optional)</param>
+	/// <param name="cancellationToken">cancellationToken parameter.</param>
 	/// <returns>Task of ClientUsageRead</returns>
 	[Get("/v1/billing/usage/client")]
 	Task<ClientUsageRead> ReadClientUsage(
@@ -37,10 +38,11 @@ public interface IUsage
 	/// <remarks>
 	/// Use the Read Device Usage API to pull a summary of a client's (and client's children if a multi-client) usage for a given time range.&lt;br&gt; Looking at the detail screen on the right, click cURL to see the command that will be used. Click &lt;b&gt;Copy&lt;/b&gt; to copy the details of the command to your clipboard. Be sure to edit the following parameters within the command: &lt;ul&gt;	 &lt;li&gt;&lt;i&gt;user@example.com&lt;/i&gt; should be the email address of a user with permissions to view billing information.&lt;/li&gt;	 &lt;li&gt;&lt;i&gt;apiKey&lt;/i&gt; should be the API key that's been set for the user.&lt;/li&gt;	 &lt;li&gt;&lt;i&gt;2019-06-01&lt;/i&gt; should be the date from which you want to query.&lt;/li&gt;	 &lt;li&gt;&lt;i&gt;2019-06-30&lt;/i&gt; should be the date to which you want to query.&lt;/li&gt;	 &lt;li&gt;&lt;i&gt;MTk5...g2Nw&lt;/i&gt; should be the ID of the device whose usage you want to query.&lt;/li&gt; &lt;/ul&gt;
 	/// </remarks>
-	/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+	/// <exception cref="System.Exception">Thrown when fails to make API call</exception>
 	/// <param name="id">ID of device</param>
 	/// <param name="filter_fromDate">Date from which you want to query</param>
 	/// <param name="filter_thruDate">Date to which you want to query</param>
+	/// <param name="cancellationToken">cancellationToken parameter.</param>
 	/// <returns>Task of DeviceUsageRead</returns>
 	[Get("/v1/billing/usage/device/{id}")]
 	Task<DeviceUsageRead> ReadDeviceUsage(

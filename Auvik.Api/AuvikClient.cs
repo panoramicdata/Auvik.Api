@@ -82,6 +82,10 @@ public class AuvikClient : IDisposable
 	/// <inheritdoc />
 	public IUsage Usage { get; }
 
+	/// <summary>
+	/// Releases resources used by the client.
+	/// </summary>
+	/// <param name="disposing">True when called from <see cref="Dispose()"/>; false when called from a finalizer.</param>
 	protected virtual void Dispose(bool disposing)
 	{
 		if (!disposedValue)
@@ -100,6 +104,9 @@ public class AuvikClient : IDisposable
 		}
 	}
 
+	/// <summary>
+	/// Releases all resources used by this instance.
+	/// </summary>
 	public void Dispose()
 	{
 		// Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
