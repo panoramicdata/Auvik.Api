@@ -3,6 +3,7 @@
   "version": "1.3",
   "publicReleaseRefSpec": [
     "^refs/heads/main$",
-    "^refs/tags/\\d+\\.\\d+\\.\\d+"
+    "^refs/tags/\\d\u002B\\.\\d\u002B\\.\\d\u002B",
+    "^refs/tags/\\d\u002B\\.\\d\u002B\\.\\d\u002B$"
   ]
 }
