@@ -19,7 +19,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-  </ItemGroup>
+  <PackageReference Include="coverlet.collector" PrivateAssets="all" /></ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Auvik.Api\Auvik.Api.csproj" />
   </ItemGroup>
