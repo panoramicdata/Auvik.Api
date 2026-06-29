@@ -8,7 +8,7 @@
     <PackageVersion Include="Microsoft.Extensions.Logging" Version="10.0.8" />
     <PackageVersion Include="Nerdbank.GitVersioning" Version="3.9.50" />
     <PackageVersion Include="Newtonsoft.Json" Version="13.0.4" />
-    <PackageVersion Include="Refit" Version="11.0.1" />
+    <PackageVersion Include="Refit" Version="12.1.0" />
     <PackageVersion Include="SecurityCodeScan.VS2019" Version="5.6.7" />
     <!-- Auvik.Api.Test -->
     <PackageVersion Include="FluentAssertions" Version="8.10.0" />
