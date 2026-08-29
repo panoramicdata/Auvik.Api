@@ -1,5 +1,5 @@
-using Auvik.Api.Exceptions;
-using FluentAssertions;
+﻿using Auvik.Api.Exceptions;
+using AwesomeAssertions;
 using System;
 using System.Threading.Tasks;
 using Xunit;
