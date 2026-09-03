@@ -121,4 +121,46 @@ public class SerializationTests
 		deserialized.Data.Attributes.DeviceName.Should().Be("switch-1");
 		deserialized.Data.Attributes.DeviceType.Should().Be(DeviceAttributes.DeviceTypeEnum.L3Switch);
 	}
+	/// <summary>
+	/// Properties that moved to a shared base class still bind from the same JSON names.
+	/// </summary>
+	[Fact]
+	public void Deserialize_InheritedProperties_Bind()
+	{
+		var links = JsonSerializer.Deserialize<DeviceOidMonitorReadLinks>(
+			"""{"first":"f","last":"l","next":"n","prev":"p"}""",
+			Options);
+
+		links.Should().NotBeNull();
+		links!.First.Should().Be("f");
+		links.Last.Should().Be("l");
+		links.Next.Should().Be("n");
+		links.Prev.Should().Be("p");
+
+		JsonSerializer.Serialize(links, Options)
+			.Should().Be("""{"first":"f","last":"l","next":"n","prev":"p"}""");
+	}
+
+	/// <summary>
+	/// A derived resource binds both its own type discriminator and the inherited body.
+	/// </summary>
+	[Fact]
+	public void Deserialize_DerivedResourceObject_BindsOwnAndInheritedMembers()
+	{
+		var accessPoint = JsonSerializer.Deserialize<AccessPoint>(
+			"""{"type":"deviceExtendedDetail","id":"abc"}""",
+			Options);
+
+		accessPoint.Should().NotBeNull();
+		accessPoint!.Type.Should().Be(AccessPoint.TypeEnum.DeviceExtendedDetail);
+		accessPoint.Id.Should().Be("abc");
+
+		var statistics = JsonSerializer.Deserialize<DeviceStatisticsResourceObject>(
+			"""{"type":"deviceStatistics","id":"stat-1"}""",
+			Options);
+
+		statistics.Should().NotBeNull();
+		statistics!.Type.Should().Be(DeviceStatisticsResourceObject.TypeEnum.DeviceStatistics);
+		statistics.Id.Should().Be("stat-1");
+	}
 }

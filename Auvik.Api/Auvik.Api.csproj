@@ -10,6 +10,10 @@
     <PackageReleaseNotes>
 			Breaking: retarget from netstandard2.0 to net10.0.
 			Serialization moved from Newtonsoft.Json to System.Text.Json; the Newtonsoft.Json dependency is gone.
+			Repeated data object members moved onto shared base classes (PaginationLinks,
+			DeviceExtendedDetailsResource, DeviceReferenceData, StatisticsResourceObject). Source
+			compatible - every property and nested TypeEnum is still reached through the same type -
+			but callers compiled against an earlier build need a rebuild.
 			Updated dependencies (Microsoft.Extensions.Logging, Refit).
 			Adopted Central Package Management.
 		</PackageReleaseNotes>
