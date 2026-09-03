@@ -1,10 +1,10 @@
 #nullable disable
 
 using System.IO;
-using System.Text;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 using Auvik.Api.Serialization;
+using Auvik.Api.Internal;
 
 namespace Auvik.Api.Data;
 
@@ -142,16 +142,5 @@ public class NetworkAttributes
 	/// Returns the string presentation of the object
 	/// </summary>
 	/// <returns>String presentation of the object</returns>
-	public override string ToString()
-	{
-		var sb = new StringBuilder();
-		sb.Append("class NetworkAttributes {\n");
-		sb.Append("  Description: ").Append(Description).Append("\n");
-		sb.Append("  LastModified: ").Append(LastModified).Append("\n");
-		sb.Append("  NetworkName: ").Append(NetworkName).Append("\n");
-		sb.Append("  NetworkType: ").Append(NetworkType).Append("\n");
-		sb.Append("  ScanStatus: ").Append(ScanStatus).Append("\n");
-		sb.Append("}\n");
-		return sb.ToString();
-	}
+	public override string ToString() => ObjectDescription.Describe(this);
 }

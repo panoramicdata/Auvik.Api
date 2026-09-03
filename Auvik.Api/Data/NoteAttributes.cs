@@ -1,10 +1,10 @@
 #nullable disable
 
 using System.IO;
-using System.Text;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 using Auvik.Api.Serialization;
+using Auvik.Api.Internal;
 
 namespace Auvik.Api.Data;
 
@@ -107,18 +107,5 @@ public class NoteAttributes
 	/// Returns the string presentation of the object
 	/// </summary>
 	/// <returns>String presentation of the object</returns>
-	public override string ToString()
-	{
-		var sb = new StringBuilder();
-		sb.Append("class NoteAttributes {\n");
-		sb.Append("  Body: ").Append(Body).Append("\n");
-		sb.Append("  EntityId: ").Append(EntityId).Append("\n");
-		sb.Append("  EntityName: ").Append(EntityName).Append("\n");
-		sb.Append("  EntityType: ").Append(EntityType).Append("\n");
-		sb.Append("  LastModified: ").Append(LastModified).Append("\n");
-		sb.Append("  LastModifiedBy: ").Append(LastModifiedBy).Append("\n");
-		sb.Append("  Title: ").Append(Title).Append("\n");
-		sb.Append("}\n");
-		return sb.ToString();
-	}
+	public override string ToString() => ObjectDescription.Describe(this);
 }

@@ -1,10 +1,10 @@
 #nullable disable
 
 using System.IO;
-using System.Text;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 using Auvik.Api.Serialization;
+using Auvik.Api.Internal;
 
 namespace Auvik.Api.Data;
 
@@ -124,21 +124,5 @@ public class TenantDetailAttributes
 	/// Returns the string presentation of the object
 	/// </summary>
 	/// <returns>String presentation of the object</returns>
-	public override string ToString()
-	{
-		var sb = new StringBuilder();
-		sb.Append("class TenantDetailAttributes {\n");
-		sb.Append("  Address: ").Append(Address).Append("\n");
-		sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
-		sb.Append("  DomainPrefix: ").Append(DomainPrefix).Append("\n");
-		sb.Append("  Enabled: ").Append(Enabled).Append("\n");
-		sb.Append("  Running: ").Append(Running).Append("\n");
-		sb.Append("  Subscribed: ").Append(Subscribed).Append("\n");
-		sb.Append("  SubscriptionOwner: ").Append(SubscriptionOwner).Append("\n");
-		sb.Append("  TenantType: ").Append(TenantType).Append("\n");
-		sb.Append("  TrialEndDate: ").Append(TrialEndDate).Append("\n");
-		sb.Append("  TrialStartDate: ").Append(TrialStartDate).Append("\n");
-		sb.Append("}\n");
-		return sb.ToString();
-	}
+	public override string ToString() => ObjectDescription.Describe(this);
 }

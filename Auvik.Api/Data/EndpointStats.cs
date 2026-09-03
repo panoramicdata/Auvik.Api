@@ -1,9 +1,9 @@
 #nullable disable
 
-using System.Text;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
+using Auvik.Api.Internal;
 
 namespace Auvik.Api.Data;
 
@@ -41,14 +41,5 @@ public class EndpointStats
 	/// Returns the string presentation of the object
 	/// </summary>
 	/// <returns>String presentation of the object</returns>
-	public override string ToString()
-	{
-		var sb = new StringBuilder();
-		sb.Append("class EndpointStats {\n");
-		sb.Append("  Id: ").Append(Id).Append("\n");
-		sb.Append("  IpAddress: ").Append(IpAddress).Append("\n");
-		sb.Append("  Stats: ").Append(Stats).Append("\n");
-		sb.Append("}\n");
-		return sb.ToString();
-	}
+	public override string ToString() => ObjectDescription.Describe(this);
 }

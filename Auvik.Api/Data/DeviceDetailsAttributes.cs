@@ -1,10 +1,10 @@
 #nullable disable
 
 using System.IO;
-using System.Text;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 using Auvik.Api.Serialization;
+using Auvik.Api.Internal;
 
 namespace Auvik.Api.Data;
 
@@ -92,14 +92,5 @@ public class DeviceDetailsAttributes
 	/// Returns the string presentation of the object
 	/// </summary>
 	/// <returns>String presentation of the object</returns>
-	public override string ToString()
-	{
-		var sb = new StringBuilder();
-		sb.Append("class DeviceDetailsAttributes {\n");
-		sb.Append("  DiscoveryStatus: ").Append(DiscoveryStatus).Append("\n");
-		sb.Append("  ManageStatus: ").Append(ManageStatus).Append("\n");
-		sb.Append("  TrafficInsightsStatus: ").Append(TrafficInsightsStatus).Append("\n");
-		sb.Append("}\n");
-		return sb.ToString();
-	}
+	public override string ToString() => ObjectDescription.Describe(this);
 }

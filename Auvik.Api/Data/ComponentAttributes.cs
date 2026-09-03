@@ -2,9 +2,9 @@
 
 using System.IO;
 using System.Runtime.Serialization;
-using System.Text;
 using System.Text.Json.Serialization;
 using Auvik.Api.Serialization;
+using Auvik.Api.Internal;
 
 namespace Auvik.Api.Data;
 
@@ -128,15 +128,5 @@ public class ComponentAttributes
 	/// Returns the string presentation of the object
 	/// </summary>
 	/// <returns>String presentation of the object</returns>
-	public override string ToString()
-	{
-		var sb = new StringBuilder();
-		sb.Append("class ComponentAttributes {\n");
-		sb.Append("  ComponentName: ").Append(ComponentName).Append("\n");
-		sb.Append("  ComponentType: ").Append(ComponentType).Append("\n");
-		sb.Append("  CurrentStatus: ").Append(CurrentStatus).Append("\n");
-		sb.Append("  LastModified: ").Append(LastModified).Append("\n");
-		sb.Append("}\n");
-		return sb.ToString();
-	}
+	public override string ToString() => ObjectDescription.Describe(this);
 }

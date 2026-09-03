@@ -1,11 +1,11 @@
 #nullable disable
 
 using System.IO;
-using System.Text;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 using Auvik.Api.Serialization;
+using Auvik.Api.Internal;
 
 namespace Auvik.Api.Data;
 
@@ -372,21 +372,5 @@ public class InterfaceAttributes
 	/// Returns the string presentation of the object
 	/// </summary>
 	/// <returns>String presentation of the object</returns>
-	public override string ToString()
-	{
-		var sb = new StringBuilder();
-		sb.Append("class InterfaceAttributes {\n");
-		sb.Append("  AdminStatus: ").Append(AdminStatus).Append("\n");
-		sb.Append("  CustomConnections: ").Append(CustomConnections).Append("\n");
-		sb.Append("  Duplex: ").Append(Duplex).Append("\n");
-		sb.Append("  InterfaceName: ").Append(InterfaceName).Append("\n");
-		sb.Append("  InterfaceType: ").Append(InterfaceType).Append("\n");
-		sb.Append("  IpAddresses: ").Append(IpAddresses).Append("\n");
-		sb.Append("  LastModified: ").Append(LastModified).Append("\n");
-		sb.Append("  MacAddress: ").Append(MacAddress).Append("\n");
-		sb.Append("  NegotiatedSpeed: ").Append(NegotiatedSpeed).Append("\n");
-		sb.Append("  OperationalStatus: ").Append(OperationalStatus).Append("\n");
-		sb.Append("}\n");
-		return sb.ToString();
-	}
+	public override string ToString() => ObjectDescription.Describe(this);
 }

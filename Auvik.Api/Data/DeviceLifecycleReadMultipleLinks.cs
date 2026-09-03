@@ -1,8 +1,8 @@
 #nullable disable
 
-using System.Text;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
+using Auvik.Api.Internal;
 
 namespace Auvik.Api.Data;
 
@@ -48,15 +48,5 @@ public class DeviceLifecycleReadMultipleLinks
 	/// Returns the string presentation of the object
 	/// </summary>
 	/// <returns>String presentation of the object</returns>
-	public override string ToString()
-	{
-		var sb = new StringBuilder();
-		sb.Append("class DeviceLifecycleReadMultipleLinks {\n");
-		sb.Append("  First: ").Append(First).Append("\n");
-		sb.Append("  Last: ").Append(Last).Append("\n");
-		sb.Append("  Next: ").Append(Next).Append("\n");
-		sb.Append("  Prev: ").Append(Prev).Append("\n");
-		sb.Append("}\n");
-		return sb.ToString();
-	}
+	public override string ToString() => ObjectDescription.Describe(this);
 }

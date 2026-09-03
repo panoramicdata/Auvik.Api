@@ -1,10 +1,10 @@
 #nullable disable
 
 using System.IO;
-using System.Text;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 using Auvik.Api.Serialization;
+using Auvik.Api.Internal;
 
 namespace Auvik.Api.Data;
 
@@ -262,16 +262,5 @@ public class DeviceLifecycleAttributes
 	/// Returns the string presentation of the object
 	/// </summary>
 	/// <returns>String presentation of the object</returns>
-	public override string ToString()
-	{
-		var sb = new StringBuilder();
-		sb.Append("class DeviceLifecycleAttributes {\n");
-		sb.Append("  DeviceName: ").Append(DeviceName).Append("\n");
-		sb.Append("  LastSupportStatus: ").Append(LastSupportStatus).Append("\n");
-		sb.Append("  SalesAvailability: ").Append(SalesAvailability).Append("\n");
-		sb.Append("  SecuritySoftwareMaintenanceStatus: ").Append(SecuritySoftwareMaintenanceStatus).Append("\n");
-		sb.Append("  SoftwareMaintenanceStatus: ").Append(SoftwareMaintenanceStatus).Append("\n");
-		sb.Append("}\n");
-		return sb.ToString();
-	}
+	public override string ToString() => ObjectDescription.Describe(this);
 }

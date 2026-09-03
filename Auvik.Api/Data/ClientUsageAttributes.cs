@@ -1,8 +1,8 @@
 #nullable disable
 
 using System.Runtime.Serialization;
-using System.Text;
 using System.Text.Json.Serialization;
+using Auvik.Api.Internal;
 
 namespace Auvik.Api.Data;
 
@@ -53,16 +53,5 @@ public class ClientUsageAttributes
 	/// Returns the string presentation of the object
 	/// </summary>
 	/// <returns>String presentation of the object</returns>
-	public override string ToString()
-	{
-		var sb = new StringBuilder();
-		sb.Append("class ClientUsageAttributes {\n");
-		sb.Append("  BillableDays: ").Append(BillableDays).Append("\n");
-		sb.Append("  ClientUsage: ").Append(ClientUsage).Append("\n");
-		sb.Append("  DeviceUsage: ").Append(DeviceUsage).Append("\n");
-		sb.Append("  DomainPrefix: ").Append(DomainPrefix).Append("\n");
-		sb.Append("  UsagePeriod: ").Append(UsagePeriod).Append("\n");
-		sb.Append("}\n");
-		return sb.ToString();
-	}
+	public override string ToString() => ObjectDescription.Describe(this);
 }

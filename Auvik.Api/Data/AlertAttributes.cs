@@ -2,9 +2,9 @@
 
 using System.Collections.Generic;
 using System.Runtime.Serialization;
-using System.Text;
 using System.Text.Json.Serialization;
 using Auvik.Api.Serialization;
+using Auvik.Api.Internal;
 
 namespace Auvik.Api.Data;
 
@@ -162,20 +162,5 @@ public class AlertAttributes
 	/// Returns the string presentation of the object
 	/// </summary>
 	/// <returns>String presentation of the object</returns>
-	public override string ToString()
-	{
-		var sb = new StringBuilder();
-		sb.Append("class AlertAttributes {\n");
-		sb.Append("  Description: ").Append(Description).Append("\n");
-		sb.Append("  DetectedOn: ").Append(DetectedOn).Append("\n");
-		sb.Append("  Dismissed: ").Append(Dismissed).Append("\n");
-		sb.Append("  Dispatched: ").Append(Dispatched).Append("\n");
-		sb.Append("  ExternalTicket: ").Append(ExternalTicket).Append("\n");
-		sb.Append("  Name: ").Append(Name).Append("\n");
-		sb.Append("  Severity: ").Append(Severity).Append("\n");
-		sb.Append("  SpecificationId: ").Append(SpecificationId).Append("\n");
-		sb.Append("  Status: ").Append(Status).Append("\n");
-		sb.Append("}\n");
-		return sb.ToString();
-	}
+	public override string ToString() => ObjectDescription.Describe(this);
 }

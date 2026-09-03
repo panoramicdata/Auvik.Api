@@ -1,9 +1,9 @@
 #nullable disable
 
 using System.IO;
-using System.Text;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
+using Auvik.Api.Internal;
 
 namespace Auvik.Api.Data;
 
@@ -73,18 +73,5 @@ public class DeviceWarrantyAttributes
 	/// Returns the string presentation of the object
 	/// </summary>
 	/// <returns>String presentation of the object</returns>
-	public override string ToString()
-	{
-		var sb = new StringBuilder();
-		sb.Append("class DeviceWarrantyAttributes {\n");
-		sb.Append("  ContractRenewalAvailability: ").Append(ContractRenewalAvailability).Append("\n");
-		sb.Append("  DeviceName: ").Append(DeviceName).Append("\n");
-		sb.Append("  RecommendedSoftwareVersion: ").Append(RecommendedSoftwareVersion).Append("\n");
-		sb.Append("  ServiceAttachmentStatus: ").Append(ServiceAttachmentStatus).Append("\n");
-		sb.Append("  ServiceCoverageStatus: ").Append(ServiceCoverageStatus).Append("\n");
-		sb.Append("  WarrantyCoverageStatus: ").Append(WarrantyCoverageStatus).Append("\n");
-		sb.Append("  WarrantyExpirationDate: ").Append(WarrantyExpirationDate).Append("\n");
-		sb.Append("}\n");
-		return sb.ToString();
-	}
+	public override string ToString() => ObjectDescription.Describe(this);
 }

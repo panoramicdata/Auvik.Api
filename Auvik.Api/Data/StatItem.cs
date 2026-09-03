@@ -1,9 +1,9 @@
 #nullable disable
 
-using System.Text;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
+using Auvik.Api.Internal;
 
 namespace Auvik.Api.Data;
 
@@ -57,16 +57,5 @@ public class StatItem
 	/// Returns the string presentation of the object
 	/// </summary>
 	/// <returns>String presentation of the object</returns>
-	public override string ToString()
-	{
-		var sb = new StringBuilder();
-		sb.Append("class StatItem {\n");
-		sb.Append("  Data: ").Append(Data).Append("\n");
-		sb.Append("  Index: ").Append(Index).Append("\n");
-		sb.Append("  Legend: ").Append(Legend).Append("\n");
-		sb.Append("  Name: ").Append(Name).Append("\n");
-		sb.Append("  Unit: ").Append(Unit).Append("\n");
-		sb.Append("}\n");
-		return sb.ToString();
-	}
+	public override string ToString() => ObjectDescription.Describe(this);
 }
