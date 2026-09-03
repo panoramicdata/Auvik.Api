@@ -2,6 +2,7 @@
 
 using System.Runtime.Serialization;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -16,6 +17,7 @@ public class ComponentStatisticsRelationshipsComponentDataLinks
 	/// </summary>
 	/// <value>Link to this component's dashboard in Auvik</value>
 	[DataMember(Name = "dashboard", EmitDefaultValue = false)]
+	[JsonPropertyName("dashboard")]
 	public string Dashboard { get; set; }
 
 	/// <summary>
@@ -23,6 +25,7 @@ public class ComponentStatisticsRelationshipsComponentDataLinks
 	/// </summary>
 	/// <value>Link to this component's parent device dashboard in Auvik</value>
 	[DataMember(Name = "parentDevice", EmitDefaultValue = false)]
+	[JsonPropertyName("parentDevice")]
 	public string ParentDevice { get; set; }
 
 	/// <summary>
@@ -30,6 +33,7 @@ public class ComponentStatisticsRelationshipsComponentDataLinks
 	/// </summary>
 	/// <value>Link to this set of component info</value>
 	[DataMember(Name = "self", EmitDefaultValue = false)]
+	[JsonPropertyName("self")]
 	public string Self { get; set; }
 
 	/// <summary>

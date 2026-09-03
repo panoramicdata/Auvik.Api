@@ -2,6 +2,7 @@
 
 using System.Text;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -16,6 +17,7 @@ public class DeviceUsageAttributesAverageDaysByClientType
 	/// </summary>
 	/// <value>Average billable devices days for the device when its client was set to Essentials</value>
 	[DataMember(Name="essentials", EmitDefaultValue=false)]
+	[JsonPropertyName("essentials")]
 	public decimal? Essentials { get; set; }
 
 	/// <summary>
@@ -23,6 +25,7 @@ public class DeviceUsageAttributesAverageDaysByClientType
 	/// </summary>
 	/// <value>Average billable devices days for the device when its client had no set client type</value>
 	[DataMember(Name="notier", EmitDefaultValue=false)]
+	[JsonPropertyName("notier")]
 	public decimal? Notier { get; set; }
 
 	/// <summary>
@@ -30,6 +33,7 @@ public class DeviceUsageAttributesAverageDaysByClientType
 	/// </summary>
 	/// <value>Average billable devices days for the device when its client was set to Performance</value>
 	[DataMember(Name="performance", EmitDefaultValue=false)]
+	[JsonPropertyName("performance")]
 	public decimal? Performance { get; set; }
 
 	/// <summary>

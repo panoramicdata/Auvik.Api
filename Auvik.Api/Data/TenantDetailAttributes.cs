@@ -3,8 +3,8 @@
 using System.IO;
 using System.Text;
 using System.Runtime.Serialization;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using Auvik.Api.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -18,7 +18,7 @@ public class TenantDetailAttributes
 	/// The type of tenant in Auvik. A finite list of enumerated string values
 	/// </summary>
 	/// <value>The type of tenant in Auvik. A finite list of enumerated string values</value>
-	[JsonConverter(typeof(StringEnumConverter))]
+	[JsonConverter(typeof(EnumMemberJsonConverter))]
 	public enum TenantTypeEnum
 	{
 
@@ -46,12 +46,14 @@ public class TenantDetailAttributes
 	/// </summary>
 	/// <value>The type of tenant in Auvik. A finite list of enumerated string values</value>
 	[DataMember(Name="tenantType", EmitDefaultValue=false)]
+	[JsonPropertyName("tenantType")]
 	public TenantTypeEnum? TenantType { get; set; }
 
 	/// <summary>
 	/// Gets or Sets Address
 	/// </summary>
 	[DataMember(Name="address", EmitDefaultValue=false)]
+	[JsonPropertyName("address")]
 	public TenantDetailAttributesAddress Address { get; set; }
 
 	/// <summary>
@@ -59,6 +61,7 @@ public class TenantDetailAttributes
 	/// </summary>
 	/// <value>Display name used within Auvik</value>
 	[DataMember(Name="displayName", EmitDefaultValue=false)]
+	[JsonPropertyName("displayName")]
 	public string DisplayName { get; set; }
 
 	/// <summary>
@@ -66,6 +69,7 @@ public class TenantDetailAttributes
 	/// </summary>
 	/// <value>The domain prefix of the tenant</value>
 	[DataMember(Name="domainPrefix", EmitDefaultValue=false)]
+	[JsonPropertyName("domainPrefix")]
 	public string DomainPrefix { get; set; }
 
 	/// <summary>
@@ -73,6 +77,7 @@ public class TenantDetailAttributes
 	/// </summary>
 	/// <value>Whether or not the tenant is enabled</value>
 	[DataMember(Name="enabled", EmitDefaultValue=false)]
+	[JsonPropertyName("enabled")]
 	public bool? Enabled { get; set; }
 
 	/// <summary>
@@ -80,6 +85,7 @@ public class TenantDetailAttributes
 	/// </summary>
 	/// <value>Whether or not the tenant is running</value>
 	[DataMember(Name="running", EmitDefaultValue=false)]
+	[JsonPropertyName("running")]
 	public bool? Running { get; set; }
 
 	/// <summary>
@@ -87,6 +93,7 @@ public class TenantDetailAttributes
 	/// </summary>
 	/// <value>Whether or not the tenant is subscribed</value>
 	[DataMember(Name="subscribed", EmitDefaultValue=false)]
+	[JsonPropertyName("subscribed")]
 	public bool? Subscribed { get; set; }
 
 	/// <summary>
@@ -94,6 +101,7 @@ public class TenantDetailAttributes
 	/// </summary>
 	/// <value>The owner who subscribes the tenant</value>
 	[DataMember(Name="subscriptionOwner", EmitDefaultValue=false)]
+	[JsonPropertyName("subscriptionOwner")]
 	public string SubscriptionOwner { get; set; }
 
 	/// <summary>
@@ -101,6 +109,7 @@ public class TenantDetailAttributes
 	/// </summary>
 	/// <value>Start date of trial</value>
 	[DataMember(Name="trialEndDate", EmitDefaultValue=false)]
+	[JsonPropertyName("trialEndDate")]
 	public string TrialEndDate { get; set; }
 
 	/// <summary>
@@ -108,6 +117,7 @@ public class TenantDetailAttributes
 	/// </summary>
 	/// <value>Start date of trial</value>
 	[DataMember(Name="trialStartDate", EmitDefaultValue=false)]
+	[JsonPropertyName("trialStartDate")]
 	public string TrialStartDate { get; set; }
 
 	/// <summary>

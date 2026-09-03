@@ -2,6 +2,7 @@
 
 using System.Text;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -16,6 +17,7 @@ public class ServiceStatisticsRelationshipsServiceDataAttributes
 	/// </summary>
 	/// <value>A description of the service</value>
 	[DataMember(Name="serviceName", EmitDefaultValue=false)]
+	[JsonPropertyName("serviceName")]
 	public string ServiceName { get; set; }
 
 	/// <summary>

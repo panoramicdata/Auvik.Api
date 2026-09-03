@@ -1,15 +1,15 @@
 #nullable disable
 
 using System.Runtime.Serialization;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using Auvik.Api.Serialization;
 
 namespace Auvik.Api.Data;
 
 /// <summary>
 /// Defines DeviceTypeSchema
 /// </summary>
-[JsonConverter(typeof(StringEnumConverter))]
+[JsonConverter(typeof(EnumMemberJsonConverter))]
 public enum DeviceTypeSchema
 {
 

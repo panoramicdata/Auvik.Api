@@ -2,8 +2,8 @@
 
 using System.Text;
 using System.Runtime.Serialization;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using Auvik.Api.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -17,7 +17,7 @@ public class ServiceStatisticsResourceObject
 	/// The type of this resource object
 	/// </summary>
 	/// <value>The type of this resource object</value>
-	[JsonConverter(typeof(StringEnumConverter))]
+	[JsonConverter(typeof(EnumMemberJsonConverter))]
 	public enum TypeEnum
 	{
 
@@ -33,12 +33,14 @@ public class ServiceStatisticsResourceObject
 	/// </summary>
 	/// <value>The type of this resource object</value>
 	[DataMember(Name="type", EmitDefaultValue=false)]
+	[JsonPropertyName("type")]
 	public TypeEnum? Type { get; set; }
 
 	/// <summary>
 	/// Gets or Sets Attributes
 	/// </summary>
 	[DataMember(Name="attributes", EmitDefaultValue=false)]
+	[JsonPropertyName("attributes")]
 	public ServiceStatisticsAttributes Attributes { get; set; }
 
 	/// <summary>
@@ -46,18 +48,21 @@ public class ServiceStatisticsResourceObject
 	/// </summary>
 	/// <value>ID for this statistic</value>
 	[DataMember(Name="id", EmitDefaultValue=false)]
+	[JsonPropertyName("id")]
 	public string Id { get; set; }
 
 	/// <summary>
 	/// Gets or Sets Links
 	/// </summary>
 	[DataMember(Name="links", EmitDefaultValue=false)]
+	[JsonPropertyName("links")]
 	public ServiceStatisticsResourceObjectLinks Links { get; set; }
 
 	/// <summary>
 	/// Gets or Sets Relationships
 	/// </summary>
 	[DataMember(Name="relationships", EmitDefaultValue=false)]
+	[JsonPropertyName("relationships")]
 	public ServiceStatisticsRelationships Relationships { get; set; }
 
 	/// <summary>

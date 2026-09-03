@@ -2,6 +2,7 @@
 
 using System.Runtime.Serialization;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -16,6 +17,7 @@ public class ClientUsageAttributesClientUsage
 	/// </summary>
 	/// <value>Average billable client days for this client (and its children) across the usage period</value>
 	[DataMember(Name = "averagedDays", EmitDefaultValue = false)]
+	[JsonPropertyName("averagedDays")]
 	public decimal? AveragedDays { get; set; }
 
 	/// <summary>
@@ -23,6 +25,7 @@ public class ClientUsageAttributesClientUsage
 	/// </summary>
 	/// <value>Total billable client days for this client (and its children) across the usage period</value>
 	[DataMember(Name = "totalDays", EmitDefaultValue = false)]
+	[JsonPropertyName("totalDays")]
 	public decimal? TotalDays { get; set; }
 
 	/// <summary>

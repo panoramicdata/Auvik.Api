@@ -3,6 +3,7 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -17,6 +18,7 @@ public class BasicError
 	/// </summary>
 	/// <value>Array of error objects</value>
 	[DataMember(Name = "errors", EmitDefaultValue = false)]
+	[JsonPropertyName("errors")]
 	public List<object> Errors { get; set; }
 
 	/// <summary>

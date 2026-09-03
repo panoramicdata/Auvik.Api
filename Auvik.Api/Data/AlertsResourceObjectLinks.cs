@@ -2,6 +2,7 @@
 
 using System.Runtime.Serialization;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -16,6 +17,7 @@ public class AlertsResourceObjectLinks
 	/// </summary>
 	/// <value>Link to this alert's dashboard in the Auvik UI</value>
 	[DataMember(Name = "dashboard", EmitDefaultValue = false)]
+	[JsonPropertyName("dashboard")]
 	public string Dashboard { get; set; }
 
 	/// <summary>
@@ -23,6 +25,7 @@ public class AlertsResourceObjectLinks
 	/// </summary>
 	/// <value>Link to this alert</value>
 	[DataMember(Name = "self", EmitDefaultValue = false)]
+	[JsonPropertyName("self")]
 	public string Self { get; set; }
 
 	/// <summary>

@@ -1,9 +1,9 @@
 #nullable disable
 
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 using System.Runtime.Serialization;
 using System.Text;
+using System.Text.Json.Serialization;
+using Auvik.Api.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -17,7 +17,7 @@ public class ClientUsageResourceObject
 	/// The type of this resource object
 	/// </summary>
 	/// <value>The type of this resource object</value>
-	[JsonConverter(typeof(StringEnumConverter))]
+	[JsonConverter(typeof(EnumMemberJsonConverter))]
 	public enum TypeEnum
 	{
 
@@ -33,12 +33,14 @@ public class ClientUsageResourceObject
 	/// </summary>
 	/// <value>The type of this resource object</value>
 	[DataMember(Name = "type", EmitDefaultValue = false)]
+	[JsonPropertyName("type")]
 	public TypeEnum? Type { get; set; }
 
 	/// <summary>
 	/// Gets or Sets Attributes
 	/// </summary>
 	[DataMember(Name = "attributes", EmitDefaultValue = false)]
+	[JsonPropertyName("attributes")]
 	public ClientUsageAttributes Attributes { get; set; }
 
 	/// <summary>
@@ -46,18 +48,21 @@ public class ClientUsageResourceObject
 	/// </summary>
 	/// <value>Client tenant's ID</value>
 	[DataMember(Name = "id", EmitDefaultValue = false)]
+	[JsonPropertyName("id")]
 	public string Id { get; set; }
 
 	/// <summary>
 	/// Gets or Sets Links
 	/// </summary>
 	[DataMember(Name = "links", EmitDefaultValue = false)]
+	[JsonPropertyName("links")]
 	public ClientUsageResourceObjectLinks Links { get; set; }
 
 	/// <summary>
 	/// Gets or Sets Relationships
 	/// </summary>
 	[DataMember(Name = "relationships", EmitDefaultValue = false)]
+	[JsonPropertyName("relationships")]
 	public ClientUsageRelationships Relationships { get; set; }
 
 	/// <summary>

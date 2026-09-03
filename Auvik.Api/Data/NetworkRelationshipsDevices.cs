@@ -3,6 +3,7 @@
 using System.Text;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -17,6 +18,7 @@ public class NetworkRelationshipsDevices
 	/// </summary>
 	/// <value>A device resource object</value>
 	[DataMember(Name="data", EmitDefaultValue=false)]
+	[JsonPropertyName("data")]
 	public List<NetworkRelationshipsDevicesData> Data { get; set; }
 
 	/// <summary>

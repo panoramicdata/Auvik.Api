@@ -2,6 +2,7 @@
 
 using System.Runtime.Serialization;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -15,18 +16,21 @@ public class AlertRelationships
 	/// Gets or Sets Entity
 	/// </summary>
 	[DataMember(Name = "entity", EmitDefaultValue = false)]
+	[JsonPropertyName("entity")]
 	public AlertRelationshipsEntity Entity { get; set; }
 
 	/// <summary>
 	/// Gets or Sets RelatedAlert
 	/// </summary>
 	[DataMember(Name = "relatedAlert", EmitDefaultValue = false)]
+	[JsonPropertyName("relatedAlert")]
 	public AlertRelationshipsRelatedAlert RelatedAlert { get; set; }
 
 	/// <summary>
 	/// Gets or Sets Tenant
 	/// </summary>
 	[DataMember(Name = "tenant", EmitDefaultValue = false)]
+	[JsonPropertyName("tenant")]
 	public Tenant Tenant { get; set; }
 
 	/// <summary>

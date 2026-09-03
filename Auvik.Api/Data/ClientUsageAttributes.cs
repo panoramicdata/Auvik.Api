@@ -2,6 +2,7 @@
 
 using System.Runtime.Serialization;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -16,18 +17,21 @@ public class ClientUsageAttributes
 	/// </summary>
 	/// <value>Days this client (and only this client) was billable for across the usage period.</value>
 	[DataMember(Name = "billableDays", EmitDefaultValue = false)]
+	[JsonPropertyName("billableDays")]
 	public decimal? BillableDays { get; set; }
 
 	/// <summary>
 	/// Gets or Sets ClientUsage
 	/// </summary>
 	[DataMember(Name = "clientUsage", EmitDefaultValue = false)]
+	[JsonPropertyName("clientUsage")]
 	public ClientUsageAttributesClientUsage ClientUsage { get; set; }
 
 	/// <summary>
 	/// Gets or Sets DeviceUsage
 	/// </summary>
 	[DataMember(Name = "deviceUsage", EmitDefaultValue = false)]
+	[JsonPropertyName("deviceUsage")]
 	public ClientUsageAttributesDeviceUsage DeviceUsage { get; set; }
 
 	/// <summary>
@@ -35,12 +39,14 @@ public class ClientUsageAttributes
 	/// </summary>
 	/// <value>Client tenant's domain prefix/name</value>
 	[DataMember(Name = "domainPrefix", EmitDefaultValue = false)]
+	[JsonPropertyName("domainPrefix")]
 	public string DomainPrefix { get; set; }
 
 	/// <summary>
 	/// Gets or Sets UsagePeriod
 	/// </summary>
 	[DataMember(Name = "usagePeriod", EmitDefaultValue = false)]
+	[JsonPropertyName("usagePeriod")]
 	public ClientUsageAttributesUsagePeriod UsagePeriod { get; set; }
 
 	/// <summary>

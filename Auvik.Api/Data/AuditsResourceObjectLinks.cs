@@ -2,6 +2,7 @@
 
 using System.Runtime.Serialization;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -16,6 +17,7 @@ public class AuditsResourceObjectLinks
 	/// </summary>
 	/// <value>Link to this entity audit</value>
 	[DataMember(Name = "self", EmitDefaultValue = false)]
+	[JsonPropertyName("self")]
 	public string Self { get; set; }
 
 	/// <summary>

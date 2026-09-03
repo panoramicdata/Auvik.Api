@@ -3,7 +3,7 @@
 using System.IO;
 using System.Text;
 using System.Runtime.Serialization;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -18,6 +18,7 @@ public class OidAttributes
 	/// </summary>
 	/// <value>OID identifier</value>
 	[DataMember(Name="oid", EmitDefaultValue=false)]
+	[JsonPropertyName("oid")]
 	public string Oid { get; set; }
 
 	/// <summary>
@@ -25,6 +26,7 @@ public class OidAttributes
 	/// </summary>
 	/// <value>OID name</value>
 	[DataMember(Name="oidName", EmitDefaultValue=false)]
+	[JsonPropertyName("oidName")]
 	public string OidName { get; set; }
 
 	/// <summary>
@@ -32,6 +34,7 @@ public class OidAttributes
 	/// </summary>
 	/// <value>OID value</value>
 	[DataMember(Name="value", EmitDefaultValue=false)]
+	[JsonPropertyName("value")]
 	public decimal? Value { get; set; }
 
 	/// <summary>

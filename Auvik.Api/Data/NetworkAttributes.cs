@@ -3,8 +3,8 @@
 using System.IO;
 using System.Text;
 using System.Runtime.Serialization;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using Auvik.Api.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -18,7 +18,7 @@ public class NetworkAttributes
 	/// This network's type
 	/// </summary>
 	/// <value>This network's type</value>
-	[JsonConverter(typeof(StringEnumConverter))]
+	[JsonConverter(typeof(EnumMemberJsonConverter))]
 	public enum NetworkTypeEnum
 	{
 
@@ -69,7 +69,7 @@ public class NetworkAttributes
 	/// If this network is set to be scanned or not
 	/// </summary>
 	/// <value>If this network is set to be scanned or not</value>
-	[JsonConverter(typeof(StringEnumConverter))]
+	[JsonConverter(typeof(EnumMemberJsonConverter))]
 	public enum ScanStatusEnum
 	{
 
@@ -103,6 +103,7 @@ public class NetworkAttributes
 	/// </summary>
 	/// <value>This network's type</value>
 	[DataMember(Name="networkType", EmitDefaultValue=false)]
+	[JsonPropertyName("networkType")]
 	public NetworkTypeEnum? NetworkType { get; set; }
 
 	/// <summary>
@@ -110,6 +111,7 @@ public class NetworkAttributes
 	/// </summary>
 	/// <value>If this network is set to be scanned or not</value>
 	[DataMember(Name="scanStatus", EmitDefaultValue=false)]
+	[JsonPropertyName("scanStatus")]
 	public ScanStatusEnum? ScanStatus { get; set; }
 
 	/// <summary>
@@ -117,6 +119,7 @@ public class NetworkAttributes
 	/// </summary>
 	/// <value>Description of this network, also often an IP/subnet or an SSID</value>
 	[DataMember(Name="description", EmitDefaultValue=false)]
+	[JsonPropertyName("description")]
 	public string Description { get; set; }
 
 	/// <summary>
@@ -124,6 +127,7 @@ public class NetworkAttributes
 	/// </summary>
 	/// <value>When one of this network's attributes was last modified</value>
 	[DataMember(Name="lastModified", EmitDefaultValue=false)]
+	[JsonPropertyName("lastModified")]
 	public string LastModified { get; set; }
 
 	/// <summary>
@@ -131,6 +135,7 @@ public class NetworkAttributes
 	/// </summary>
 	/// <value>Name of this network, usually an IP/subnet or an SSID</value>
 	[DataMember(Name="networkName", EmitDefaultValue=false)]
+	[JsonPropertyName("networkName")]
 	public string NetworkName { get; set; }
 
 	/// <summary>

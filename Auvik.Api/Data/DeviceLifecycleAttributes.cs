@@ -3,8 +3,8 @@
 using System.IO;
 using System.Text;
 using System.Runtime.Serialization;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using Auvik.Api.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -18,7 +18,7 @@ public class DeviceLifecycleAttributes
 	/// Availability of service and support for the product
 	/// </summary>
 	/// <value>Availability of service and support for the product</value>
-	[JsonConverter(typeof(StringEnumConverter))]
+	[JsonConverter(typeof(EnumMemberJsonConverter))]
 	public enum LastSupportStatusEnum
 	{
 
@@ -69,7 +69,7 @@ public class DeviceLifecycleAttributes
 	/// Availability to order the requested product through Cisco point-of-sale mechanisms
 	/// </summary>
 	/// <value>Availability to order the requested product through Cisco point-of-sale mechanisms</value>
-	[JsonConverter(typeof(StringEnumConverter))]
+	[JsonConverter(typeof(EnumMemberJsonConverter))]
 	public enum SalesAvailabilityEnum
 	{
 
@@ -120,7 +120,7 @@ public class DeviceLifecycleAttributes
 	/// Availability of any planned maintenance release or scheduled software remedy for a security vulnerability issued by Cisco Engineering
 	/// </summary>
 	/// <value>Availability of any planned maintenance release or scheduled software remedy for a security vulnerability issued by Cisco Engineering</value>
-	[JsonConverter(typeof(StringEnumConverter))]
+	[JsonConverter(typeof(EnumMemberJsonConverter))]
 	public enum SecuritySoftwareMaintenanceStatusEnum
 	{
 
@@ -171,7 +171,7 @@ public class DeviceLifecycleAttributes
 	/// Availability of any software maintenance releases or bug fixes to the software product released by Cisco Engineering
 	/// </summary>
 	/// <value>Availability of any software maintenance releases or bug fixes to the software product released by Cisco Engineering</value>
-	[JsonConverter(typeof(StringEnumConverter))]
+	[JsonConverter(typeof(EnumMemberJsonConverter))]
 	public enum SoftwareMaintenanceStatusEnum
 	{
 
@@ -223,6 +223,7 @@ public class DeviceLifecycleAttributes
 	/// </summary>
 	/// <value>Availability of service and support for the product</value>
 	[DataMember(Name="lastSupportStatus", EmitDefaultValue=false)]
+	[JsonPropertyName("lastSupportStatus")]
 	public LastSupportStatusEnum? LastSupportStatus { get; set; }
 
 	/// <summary>
@@ -230,6 +231,7 @@ public class DeviceLifecycleAttributes
 	/// </summary>
 	/// <value>Availability to order the requested product through Cisco point-of-sale mechanisms</value>
 	[DataMember(Name="salesAvailability", EmitDefaultValue=false)]
+	[JsonPropertyName("salesAvailability")]
 	public SalesAvailabilityEnum? SalesAvailability { get; set; }
 
 	/// <summary>
@@ -237,6 +239,7 @@ public class DeviceLifecycleAttributes
 	/// </summary>
 	/// <value>Availability of any planned maintenance release or scheduled software remedy for a security vulnerability issued by Cisco Engineering</value>
 	[DataMember(Name="securitySoftwareMaintenanceStatus", EmitDefaultValue=false)]
+	[JsonPropertyName("securitySoftwareMaintenanceStatus")]
 	public SecuritySoftwareMaintenanceStatusEnum? SecuritySoftwareMaintenanceStatus { get; set; }
 
 	/// <summary>
@@ -244,6 +247,7 @@ public class DeviceLifecycleAttributes
 	/// </summary>
 	/// <value>Availability of any software maintenance releases or bug fixes to the software product released by Cisco Engineering</value>
 	[DataMember(Name="softwareMaintenanceStatus", EmitDefaultValue=false)]
+	[JsonPropertyName("softwareMaintenanceStatus")]
 	public SoftwareMaintenanceStatusEnum? SoftwareMaintenanceStatus { get; set; }
 
 	/// <summary>
@@ -251,6 +255,7 @@ public class DeviceLifecycleAttributes
 	/// </summary>
 	/// <value>Device's name</value>
 	[DataMember(Name="deviceName", EmitDefaultValue=false)]
+	[JsonPropertyName("deviceName")]
 	public string DeviceName { get; set; }
 
 	/// <summary>

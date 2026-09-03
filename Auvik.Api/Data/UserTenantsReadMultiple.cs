@@ -3,6 +3,7 @@
 using System.Text;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -17,6 +18,7 @@ public class UserTenantsReadMultiple
 	/// </summary>
 	/// <value>An array of resource objects, an array of resource identifier objects, or an empty array ([]), for requests that target resource collections.</value>
 	[DataMember(Name="data", EmitDefaultValue=false)]
+	[JsonPropertyName("data")]
 	public List<TenantsResourceObject> Data { get; set; }
 
 	/// <summary>

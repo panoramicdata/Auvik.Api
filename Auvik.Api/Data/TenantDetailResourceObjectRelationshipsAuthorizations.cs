@@ -3,6 +3,7 @@
 using System.Text;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -17,6 +18,7 @@ public class TenantDetailResourceObjectRelationshipsAuthorizations
 	/// </summary>
 	/// <value>The list of authorization to the tenant selected</value>
 	[DataMember(Name="data", EmitDefaultValue=false)]
+	[JsonPropertyName("data")]
 	public List<TenantDetailResourceObjectRelationshipsAuthorizationsData> Data { get; set; }
 
 	/// <summary>

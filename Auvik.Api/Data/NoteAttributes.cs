@@ -3,8 +3,8 @@
 using System.IO;
 using System.Text;
 using System.Runtime.Serialization;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using Auvik.Api.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -18,7 +18,7 @@ public class NoteAttributes
 	/// The related entity type
 	/// </summary>
 	/// <value>The related entity type</value>
-	[JsonConverter(typeof(StringEnumConverter))]
+	[JsonConverter(typeof(EnumMemberJsonConverter))]
 	public enum EntityTypeEnum
 	{
 
@@ -52,6 +52,7 @@ public class NoteAttributes
 	/// </summary>
 	/// <value>The related entity type</value>
 	[DataMember(Name="entityType", EmitDefaultValue=false)]
+	[JsonPropertyName("entityType")]
 	public EntityTypeEnum? EntityType { get; set; }
 
 	/// <summary>
@@ -59,6 +60,7 @@ public class NoteAttributes
 	/// </summary>
 	/// <value>Content of this note</value>
 	[DataMember(Name="body", EmitDefaultValue=false)]
+	[JsonPropertyName("body")]
 	public string Body { get; set; }
 
 	/// <summary>
@@ -66,6 +68,7 @@ public class NoteAttributes
 	/// </summary>
 	/// <value>The related entity's ID</value>
 	[DataMember(Name="entityId", EmitDefaultValue=false)]
+	[JsonPropertyName("entityId")]
 	public string EntityId { get; set; }
 
 	/// <summary>
@@ -73,6 +76,7 @@ public class NoteAttributes
 	/// </summary>
 	/// <value>The related entity's name</value>
 	[DataMember(Name="entityName", EmitDefaultValue=false)]
+	[JsonPropertyName("entityName")]
 	public string EntityName { get; set; }
 
 	/// <summary>
@@ -80,6 +84,7 @@ public class NoteAttributes
 	/// </summary>
 	/// <value>When one of this entity note's attributes was last modified</value>
 	[DataMember(Name="lastModified", EmitDefaultValue=false)]
+	[JsonPropertyName("lastModified")]
 	public string LastModified { get; set; }
 
 	/// <summary>
@@ -87,6 +92,7 @@ public class NoteAttributes
 	/// </summary>
 	/// <value>The username that last modified the note</value>
 	[DataMember(Name="lastModifiedBy", EmitDefaultValue=false)]
+	[JsonPropertyName("lastModifiedBy")]
 	public string LastModifiedBy { get; set; }
 
 	/// <summary>
@@ -94,6 +100,7 @@ public class NoteAttributes
 	/// </summary>
 	/// <value>This note's title</value>
 	[DataMember(Name="title", EmitDefaultValue=false)]
+	[JsonPropertyName("title")]
 	public string Title { get; set; }
 
 	/// <summary>

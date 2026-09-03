@@ -3,7 +3,7 @@
 using System.IO;
 using System.Text;
 using System.Runtime.Serialization;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -18,6 +18,7 @@ public class DeviceRelationshipsNetworksAttributes
 	/// </summary>
 	/// <value>Identifier of the network, usually an IP/subnet or an SSID</value>
 	[DataMember(Name="networkName", EmitDefaultValue=false)]
+	[JsonPropertyName("networkName")]
 	public string NetworkName { get; set; }
 
 	/// <summary>

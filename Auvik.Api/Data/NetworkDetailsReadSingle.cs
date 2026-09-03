@@ -2,6 +2,7 @@
 
 using System.Text;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -15,6 +16,7 @@ public class NetworkDetailsReadSingle
 	/// Gets or Sets Data
 	/// </summary>
 	[DataMember(Name="data", EmitDefaultValue=false)]
+	[JsonPropertyName("data")]
 	public NetworkDetailsResourceObject Data { get; set; }
 
 	/// <summary>

@@ -3,6 +3,7 @@
 using System.Text;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -17,6 +18,7 @@ public class EndpointStats
 	/// </summary>
 	/// <value>ID of the endpoint</value>
 	[DataMember(Name="id", EmitDefaultValue=false)]
+	[JsonPropertyName("id")]
 	public string Id { get; set; }
 
 	/// <summary>
@@ -24,6 +26,7 @@ public class EndpointStats
 	/// </summary>
 	/// <value>IP Address of the endpoint</value>
 	[DataMember(Name="ipAddress", EmitDefaultValue=false)]
+	[JsonPropertyName("ipAddress")]
 	public string IpAddress { get; set; }
 
 	/// <summary>
@@ -31,6 +34,7 @@ public class EndpointStats
 	/// </summary>
 	/// <value>The list of statistics reported for the endpoint</value>
 	[DataMember(Name="stats", EmitDefaultValue=false)]
+	[JsonPropertyName("stats")]
 	public List<StatItem> Stats { get; set; }
 
 	/// <summary>

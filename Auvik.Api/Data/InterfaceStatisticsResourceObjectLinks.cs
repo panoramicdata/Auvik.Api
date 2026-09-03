@@ -2,6 +2,7 @@
 
 using System.Text;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -16,6 +17,7 @@ public class InterfaceStatisticsResourceObjectLinks
 	/// </summary>
 	/// <value>Link to this interface's record in the Interface Info API</value>
 	[DataMember(Name="dashboard", EmitDefaultValue=false)]
+	[JsonPropertyName("dashboard")]
 	public string Dashboard { get; set; }
 
 	/// <summary>
@@ -23,6 +25,7 @@ public class InterfaceStatisticsResourceObjectLinks
 	/// </summary>
 	/// <value>Link used to get this result set</value>
 	[DataMember(Name="self", EmitDefaultValue=false)]
+	[JsonPropertyName("self")]
 	public string Self { get; set; }
 
 	/// <summary>

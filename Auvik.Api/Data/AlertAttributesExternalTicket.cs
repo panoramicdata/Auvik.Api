@@ -1,9 +1,9 @@
 #nullable disable
 
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 using System.Runtime.Serialization;
 using System.Text;
+using System.Text.Json.Serialization;
+using Auvik.Api.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -17,7 +17,7 @@ public class AlertAttributesExternalTicket
 	/// The system of external ticket
 	/// </summary>
 	/// <value>The system of external ticket</value>
-	[JsonConverter(typeof(StringEnumConverter))]
+	[JsonConverter(typeof(EnumMemberJsonConverter))]
 	public enum SystemEnum
 	{
 
@@ -117,6 +117,7 @@ public class AlertAttributesExternalTicket
 	/// </summary>
 	/// <value>The system of external ticket</value>
 	[DataMember(Name = "system", EmitDefaultValue = false)]
+	[JsonPropertyName("system")]
 	public SystemEnum? System { get; set; }
 
 	/// <summary>
@@ -124,6 +125,7 @@ public class AlertAttributesExternalTicket
 	/// </summary>
 	/// <value>The unique identifier for the external ticket</value>
 	[DataMember(Name = "id", EmitDefaultValue = false)]
+	[JsonPropertyName("id")]
 	public string Id { get; set; }
 
 	/// <summary>

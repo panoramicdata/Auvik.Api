@@ -1,4 +1,5 @@
 using Auvik.Api.Interfaces;
+using Auvik.Api.Serialization;
 using Refit;
 using System;
 using System.Net.Http;
@@ -32,18 +33,23 @@ public class AuvikClient : IDisposable
 			BaseAddress = auvikClientOptions.Uri
 		};
 
-		Alerts = RestService.For<IAlert>(_httpClient);
-		AlertHistories = RestService.For<IAlertHistory>(_httpClient);
-		Components = RestService.For<IComponent>(_httpClient);
-		Configurations = RestService.For<IConfiguration>(_httpClient);
-		Credentials = RestService.For<Interfaces.ICredentials>(_httpClient);
-		Devices = RestService.For<IDevice>(_httpClient);
-		Entities = RestService.For<IEntity>(_httpClient);
-		Interfaces = RestService.For<IInterface>(_httpClient);
-		Networks = RestService.For<INetworkApi>(_httpClient);
-		Statistics = RestService.For<IStatistics>(_httpClient);
-		Tenants = RestService.For<ITenants>(_httpClient);
-		Usage = RestService.For<IUsage>(_httpClient);
+		var refitSettings = new RefitSettings
+		{
+			ContentSerializer = new SystemTextJsonContentSerializer(AuvikJsonSerializerOptions.Default)
+		};
+
+		Alerts = RestService.For<IAlert>(_httpClient, refitSettings);
+		AlertHistories = RestService.For<IAlertHistory>(_httpClient, refitSettings);
+		Components = RestService.For<IComponent>(_httpClient, refitSettings);
+		Configurations = RestService.For<IConfiguration>(_httpClient, refitSettings);
+		Credentials = RestService.For<Interfaces.ICredentials>(_httpClient, refitSettings);
+		Devices = RestService.For<IDevice>(_httpClient, refitSettings);
+		Entities = RestService.For<IEntity>(_httpClient, refitSettings);
+		Interfaces = RestService.For<IInterface>(_httpClient, refitSettings);
+		Networks = RestService.For<INetworkApi>(_httpClient, refitSettings);
+		Statistics = RestService.For<IStatistics>(_httpClient, refitSettings);
+		Tenants = RestService.For<ITenants>(_httpClient, refitSettings);
+		Usage = RestService.For<IUsage>(_httpClient, refitSettings);
 	}
 
 	/// <inheritdoc />

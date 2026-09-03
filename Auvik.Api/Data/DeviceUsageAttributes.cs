@@ -2,6 +2,7 @@
 
 using System.Text;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -16,12 +17,14 @@ public class DeviceUsageAttributes
 	/// </summary>
 	/// <value>The average billable device days across the usage period</value>
 	[DataMember(Name="averageDays", EmitDefaultValue=false)]
+	[JsonPropertyName("averageDays")]
 	public decimal? AverageDays { get; set; }
 
 	/// <summary>
 	/// Gets or Sets AverageDaysByClientType
 	/// </summary>
 	[DataMember(Name="averageDaysByClientType", EmitDefaultValue=false)]
+	[JsonPropertyName("averageDaysByClientType")]
 	public DeviceUsageAttributesAverageDaysByClientType AverageDaysByClientType { get; set; }
 
 	/// <summary>
@@ -29,6 +32,7 @@ public class DeviceUsageAttributes
 	/// </summary>
 	/// <value>Device's name</value>
 	[DataMember(Name="deviceName", EmitDefaultValue=false)]
+	[JsonPropertyName("deviceName")]
 	public string DeviceName { get; set; }
 
 	/// <summary>
@@ -36,18 +40,21 @@ public class DeviceUsageAttributes
 	/// </summary>
 	/// <value>The total billable device days across the usage period</value>
 	[DataMember(Name="totalDays", EmitDefaultValue=false)]
+	[JsonPropertyName("totalDays")]
 	public decimal? TotalDays { get; set; }
 
 	/// <summary>
 	/// Gets or Sets TotalDaysByClientType
 	/// </summary>
 	[DataMember(Name="totalDaysByClientType", EmitDefaultValue=false)]
+	[JsonPropertyName("totalDaysByClientType")]
 	public DeviceUsageAttributesTotalDaysByClientType TotalDaysByClientType { get; set; }
 
 	/// <summary>
 	/// Gets or Sets UsagePeriod
 	/// </summary>
 	[DataMember(Name="usagePeriod", EmitDefaultValue=false)]
+	[JsonPropertyName("usagePeriod")]
 	public ClientUsageAttributesUsagePeriod UsagePeriod { get; set; }
 
 	/// <summary>

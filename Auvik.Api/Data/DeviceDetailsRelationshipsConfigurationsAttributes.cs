@@ -3,7 +3,7 @@
 using System.IO;
 using System.Text;
 using System.Runtime.Serialization;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -18,6 +18,7 @@ public class DeviceDetailsRelationshipsConfigurationsAttributes
 	/// </summary>
 	/// <value>Last backup time of the configuration</value>
 	[DataMember(Name="backupTime", EmitDefaultValue=false)]
+	[JsonPropertyName("backupTime")]
 	public string BackupTime { get; set; }
 
 	/// <summary>
@@ -25,6 +26,7 @@ public class DeviceDetailsRelationshipsConfigurationsAttributes
 	/// </summary>
 	/// <value>Whether the configuration is currently running</value>
 	[DataMember(Name="isRunning", EmitDefaultValue=false)]
+	[JsonPropertyName("isRunning")]
 	public bool? IsRunning { get; set; }
 
 	/// <summary>

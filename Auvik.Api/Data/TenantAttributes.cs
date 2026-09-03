@@ -3,8 +3,8 @@
 using System.IO;
 using System.Text;
 using System.Runtime.Serialization;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using Auvik.Api.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -18,7 +18,7 @@ public class TenantAttributes
 	/// The type of tenant in Auvik. A finite list of enumerated string values
 	/// </summary>
 	/// <value>The type of tenant in Auvik. A finite list of enumerated string values</value>
-	[JsonConverter(typeof(StringEnumConverter))]
+	[JsonConverter(typeof(EnumMemberJsonConverter))]
 	public enum TenantTypeEnum
 	{
 
@@ -46,6 +46,7 @@ public class TenantAttributes
 	/// </summary>
 	/// <value>The type of tenant in Auvik. A finite list of enumerated string values</value>
 	[DataMember(Name="tenantType", EmitDefaultValue=false)]
+	[JsonPropertyName("tenantType")]
 	public TenantTypeEnum? TenantType { get; set; }
 
 	/// <summary>
@@ -53,6 +54,7 @@ public class TenantAttributes
 	/// </summary>
 	/// <value>The domain prefix of the tenant</value>
 	[DataMember(Name="domainPrefix", EmitDefaultValue=false)]
+	[JsonPropertyName("domainPrefix")]
 	public string DomainPrefix { get; set; }
 
 	/// <summary>

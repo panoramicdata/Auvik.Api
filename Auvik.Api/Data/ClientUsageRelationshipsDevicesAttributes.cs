@@ -2,6 +2,7 @@
 
 using System.Runtime.Serialization;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -16,6 +17,7 @@ public class ClientUsageRelationshipsDevicesAttributes
 	/// </summary>
 	/// <value>This device's owning client's name/domainPrefix</value>
 	[DataMember(Name = "clientName", EmitDefaultValue = false)]
+	[JsonPropertyName("clientName")]
 	public string ClientName { get; set; }
 
 	/// <summary>
@@ -23,6 +25,7 @@ public class ClientUsageRelationshipsDevicesAttributes
 	/// </summary>
 	/// <value>Device's name</value>
 	[DataMember(Name = "name", EmitDefaultValue = false)]
+	[JsonPropertyName("name")]
 	public string Name { get; set; }
 
 	/// <summary>
@@ -30,6 +33,7 @@ public class ClientUsageRelationshipsDevicesAttributes
 	/// </summary>
 	/// <value>Total billable days for this device across the usage period</value>
 	[DataMember(Name = "totalDays", EmitDefaultValue = false)]
+	[JsonPropertyName("totalDays")]
 	public decimal? TotalDays { get; set; }
 
 	/// <summary>

@@ -4,8 +4,8 @@ using System.IO;
 using System.Text;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using Auvik.Api.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -19,7 +19,7 @@ public class DeviceAttributes
 	/// What type of device it is
 	/// </summary>
 	/// <value>What type of device it is</value>
-	[JsonConverter(typeof(StringEnumConverter))]
+	[JsonConverter(typeof(EnumMemberJsonConverter))]
 	public enum DeviceTypeEnum
 	{
 
@@ -310,7 +310,7 @@ public class DeviceAttributes
 	/// Device's online status
 	/// </summary>
 	/// <value>Device's online status</value>
-	[JsonConverter(typeof(StringEnumConverter))]
+	[JsonConverter(typeof(EnumMemberJsonConverter))]
 	public enum OnlineStatusEnum
 	{
 
@@ -368,6 +368,7 @@ public class DeviceAttributes
 	/// </summary>
 	/// <value>What type of device it is</value>
 	[DataMember(Name="deviceType", EmitDefaultValue=false)]
+	[JsonPropertyName("deviceType")]
 	public DeviceTypeEnum? DeviceType { get; set; }
 
 	/// <summary>
@@ -375,6 +376,7 @@ public class DeviceAttributes
 	/// </summary>
 	/// <value>Device's online status</value>
 	[DataMember(Name="onlineStatus", EmitDefaultValue=false)]
+	[JsonPropertyName("onlineStatus")]
 	public OnlineStatusEnum? OnlineStatus { get; set; }
 
 	/// <summary>
@@ -382,6 +384,7 @@ public class DeviceAttributes
 	/// </summary>
 	/// <value>Description</value>
 	[DataMember(Name="description", EmitDefaultValue=false)]
+	[JsonPropertyName("description")]
 	public string Description { get; set; }
 
 	/// <summary>
@@ -389,6 +392,7 @@ public class DeviceAttributes
 	/// </summary>
 	/// <value>Device's name</value>
 	[DataMember(Name="deviceName", EmitDefaultValue=false)]
+	[JsonPropertyName("deviceName")]
 	public string DeviceName { get; set; }
 
 	/// <summary>
@@ -396,6 +400,7 @@ public class DeviceAttributes
 	/// </summary>
 	/// <value>Device's firmware version</value>
 	[DataMember(Name="firmwareVersion", EmitDefaultValue=false)]
+	[JsonPropertyName("firmwareVersion")]
 	public string FirmwareVersion { get; set; }
 
 	/// <summary>
@@ -403,6 +408,7 @@ public class DeviceAttributes
 	/// </summary>
 	/// <value>Device's local IP addresses</value>
 	[DataMember(Name="ipAddresses", EmitDefaultValue=false)]
+	[JsonPropertyName("ipAddresses")]
 	public List<string> IpAddresses { get; set; }
 
 	/// <summary>
@@ -410,6 +416,7 @@ public class DeviceAttributes
 	/// </summary>
 	/// <value>When one of this device's attributes was last modified</value>
 	[DataMember(Name="lastModified", EmitDefaultValue=false)]
+	[JsonPropertyName("lastModified")]
 	public string LastModified { get; set; }
 
 	/// <summary>
@@ -417,6 +424,7 @@ public class DeviceAttributes
 	/// </summary>
 	/// <value>Last seen online date/time of a device</value>
 	[DataMember(Name="lastSeenTime", EmitDefaultValue=false)]
+	[JsonPropertyName("lastSeenTime")]
 	public string LastSeenTime { get; set; }
 
 	/// <summary>
@@ -424,6 +432,7 @@ public class DeviceAttributes
 	/// </summary>
 	/// <value>Make and model of this device</value>
 	[DataMember(Name="makeModel", EmitDefaultValue=false)]
+	[JsonPropertyName("makeModel")]
 	public string MakeModel { get; set; }
 
 	/// <summary>
@@ -431,6 +440,7 @@ public class DeviceAttributes
 	/// </summary>
 	/// <value>Device's serial number</value>
 	[DataMember(Name="serialNumber", EmitDefaultValue=false)]
+	[JsonPropertyName("serialNumber")]
 	public string SerialNumber { get; set; }
 
 	/// <summary>
@@ -438,6 +448,7 @@ public class DeviceAttributes
 	/// </summary>
 	/// <value>Devices software version, if known</value>
 	[DataMember(Name="softwareVersion", EmitDefaultValue=false)]
+	[JsonPropertyName("softwareVersion")]
 	public string SoftwareVersion { get; set; }
 
 	/// <summary>
@@ -445,6 +456,7 @@ public class DeviceAttributes
 	/// </summary>
 	/// <value>Vendor name for this device</value>
 	[DataMember(Name="vendorName", EmitDefaultValue=false)]
+	[JsonPropertyName("vendorName")]
 	public string VendorName { get; set; }
 
 	/// <summary>

@@ -2,6 +2,7 @@
 
 using System.Text;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -16,6 +17,7 @@ public class ServiceStatisticsRelationshipsServiceDataLinks
 	/// </summary>
 	/// <value>Link to this service's dashboard in Auvik</value>
 	[DataMember(Name="dashboard", EmitDefaultValue=false)]
+	[JsonPropertyName("dashboard")]
 	public string Dashboard { get; set; }
 
 	/// <summary>

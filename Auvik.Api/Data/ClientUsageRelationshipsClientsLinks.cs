@@ -2,6 +2,7 @@
 
 using System.Runtime.Serialization;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -16,6 +17,7 @@ public class ClientUsageRelationshipsClientsLinks
 	/// </summary>
 	/// <value>Link to this client's usage in the Usage API</value>
 	[DataMember(Name = "self", EmitDefaultValue = false)]
+	[JsonPropertyName("self")]
 	public string Self { get; set; }
 
 	/// <summary>

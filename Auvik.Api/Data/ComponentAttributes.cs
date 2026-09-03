@@ -1,10 +1,10 @@
 #nullable disable
 
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
+using System.Text.Json.Serialization;
+using Auvik.Api.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -18,7 +18,7 @@ public class ComponentAttributes
 	/// This component's type
 	/// </summary>
 	/// <value>This component's type</value>
-	[JsonConverter(typeof(StringEnumConverter))]
+	[JsonConverter(typeof(EnumMemberJsonConverter))]
 	public enum ComponentTypeEnum
 	{
 
@@ -69,7 +69,7 @@ public class ComponentAttributes
 	/// High level description of this component's status
 	/// </summary>
 	/// <value>High level description of this component's status</value>
-	[JsonConverter(typeof(StringEnumConverter))]
+	[JsonConverter(typeof(EnumMemberJsonConverter))]
 	public enum CurrentStatusEnum
 	{
 
@@ -97,6 +97,7 @@ public class ComponentAttributes
 	/// </summary>
 	/// <value>This component's type</value>
 	[DataMember(Name = "componentType", EmitDefaultValue = false)]
+	[JsonPropertyName("componentType")]
 	public ComponentTypeEnum? ComponentType { get; set; }
 
 	/// <summary>
@@ -104,6 +105,7 @@ public class ComponentAttributes
 	/// </summary>
 	/// <value>High level description of this component's status</value>
 	[DataMember(Name = "currentStatus", EmitDefaultValue = false)]
+	[JsonPropertyName("currentStatus")]
 	public CurrentStatusEnum? CurrentStatus { get; set; }
 
 	/// <summary>
@@ -111,6 +113,7 @@ public class ComponentAttributes
 	/// </summary>
 	/// <value>This component's name</value>
 	[DataMember(Name = "componentName", EmitDefaultValue = false)]
+	[JsonPropertyName("componentName")]
 	public string ComponentName { get; set; }
 
 	/// <summary>
@@ -118,6 +121,7 @@ public class ComponentAttributes
 	/// </summary>
 	/// <value>When one of this component's attributes was last modified</value>
 	[DataMember(Name = "lastModified", EmitDefaultValue = false)]
+	[JsonPropertyName("lastModified")]
 	public string LastModified { get; set; }
 
 	/// <summary>

@@ -2,6 +2,7 @@
 
 using System.Text;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -15,12 +16,14 @@ public class ServiceStatisticsRelationshipsServiceData
 	/// Gets or Sets Attributes
 	/// </summary>
 	[DataMember(Name="attributes", EmitDefaultValue=false)]
+	[JsonPropertyName("attributes")]
 	public ServiceStatisticsRelationshipsServiceDataAttributes Attributes { get; set; }
 
 	/// <summary>
 	/// Gets or Sets Links
 	/// </summary>
 	[DataMember(Name="links", EmitDefaultValue=false)]
+	[JsonPropertyName("links")]
 	public ServiceStatisticsRelationshipsServiceDataLinks Links { get; set; }
 
 	/// <summary>
@@ -28,6 +31,7 @@ public class ServiceStatisticsRelationshipsServiceData
 	/// </summary>
 	/// <value>The entity type for a service</value>
 	[DataMember(Name="type", EmitDefaultValue=false)]
+	[JsonPropertyName("type")]
 	public string Type { get; set; }
 
 	/// <summary>

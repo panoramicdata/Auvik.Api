@@ -4,8 +4,8 @@ using System.IO;
 using System.Text;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using Auvik.Api.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -19,7 +19,7 @@ public class InterfaceAttributes
 	/// Duplex mode of this interface
 	/// </summary>
 	/// <value>Duplex mode of this interface</value>
-	[JsonConverter(typeof(StringEnumConverter))]
+	[JsonConverter(typeof(EnumMemberJsonConverter))]
 	public enum DuplexEnum
 	{
 
@@ -46,7 +46,7 @@ public class InterfaceAttributes
 	/// This interface's type
 	/// </summary>
 	/// <value>This interface's type</value>
-	[JsonConverter(typeof(StringEnumConverter))]
+	[JsonConverter(typeof(EnumMemberJsonConverter))]
 	public enum InterfaceTypeEnum
 	{
 
@@ -235,7 +235,7 @@ public class InterfaceAttributes
 	/// This interface's operational status
 	/// </summary>
 	/// <value>This interface's operational status</value>
-	[JsonConverter(typeof(StringEnumConverter))]
+	[JsonConverter(typeof(EnumMemberJsonConverter))]
 	public enum OperationalStatusEnum
 	{
 
@@ -293,6 +293,7 @@ public class InterfaceAttributes
 	/// </summary>
 	/// <value>Duplex mode of this interface</value>
 	[DataMember(Name="duplex", EmitDefaultValue=false)]
+	[JsonPropertyName("duplex")]
 	public DuplexEnum? Duplex { get; set; }
 
 	/// <summary>
@@ -300,6 +301,7 @@ public class InterfaceAttributes
 	/// </summary>
 	/// <value>This interface's type</value>
 	[DataMember(Name="interfaceType", EmitDefaultValue=false)]
+	[JsonPropertyName("interfaceType")]
 	public InterfaceTypeEnum? InterfaceType { get; set; }
 
 	/// <summary>
@@ -307,6 +309,7 @@ public class InterfaceAttributes
 	/// </summary>
 	/// <value>This interface's operational status</value>
 	[DataMember(Name="operationalStatus", EmitDefaultValue=false)]
+	[JsonPropertyName("operationalStatus")]
 	public OperationalStatusEnum? OperationalStatus { get; set; }
 
 	/// <summary>
@@ -314,6 +317,7 @@ public class InterfaceAttributes
 	/// </summary>
 	/// <value>Whether this interface is enabled</value>
 	[DataMember(Name="adminStatus", EmitDefaultValue=false)]
+	[JsonPropertyName("adminStatus")]
 	public bool? AdminStatus { get; set; }
 
 	/// <summary>
@@ -321,6 +325,7 @@ public class InterfaceAttributes
 	/// </summary>
 	/// <value>Whether this interface allows custom connections</value>
 	[DataMember(Name="customConnections", EmitDefaultValue=false)]
+	[JsonPropertyName("customConnections")]
 	public bool? CustomConnections { get; set; }
 
 	/// <summary>
@@ -328,6 +333,7 @@ public class InterfaceAttributes
 	/// </summary>
 	/// <value>This interface's name</value>
 	[DataMember(Name="interfaceName", EmitDefaultValue=false)]
+	[JsonPropertyName("interfaceName")]
 	public string InterfaceName { get; set; }
 
 	/// <summary>
@@ -335,6 +341,7 @@ public class InterfaceAttributes
 	/// </summary>
 	/// <value>This interface's IP addresses</value>
 	[DataMember(Name="ipAddresses", EmitDefaultValue=false)]
+	[JsonPropertyName("ipAddresses")]
 	public List<string> IpAddresses { get; set; }
 
 	/// <summary>
@@ -342,6 +349,7 @@ public class InterfaceAttributes
 	/// </summary>
 	/// <value>When one of this interface's attributes was last modified</value>
 	[DataMember(Name="lastModified", EmitDefaultValue=false)]
+	[JsonPropertyName("lastModified")]
 	public string LastModified { get; set; }
 
 	/// <summary>
@@ -349,6 +357,7 @@ public class InterfaceAttributes
 	/// </summary>
 	/// <value>MAC address</value>
 	[DataMember(Name="macAddress", EmitDefaultValue=false)]
+	[JsonPropertyName("macAddress")]
 	public string MacAddress { get; set; }
 
 	/// <summary>
@@ -356,6 +365,7 @@ public class InterfaceAttributes
 	/// </summary>
 	/// <value>Negotiated speed</value>
 	[DataMember(Name="negotiatedSpeed", EmitDefaultValue=false)]
+	[JsonPropertyName("negotiatedSpeed")]
 	public string NegotiatedSpeed { get; set; }
 
 	/// <summary>

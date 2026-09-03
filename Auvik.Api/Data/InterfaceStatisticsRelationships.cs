@@ -2,6 +2,7 @@
 
 using System.Text;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -15,12 +16,14 @@ public class InterfaceStatisticsRelationships
 	/// Gets or Sets _Interface
 	/// </summary>
 	[DataMember(Name="interface", EmitDefaultValue=false)]
+	[JsonPropertyName("interface")]
 	public InterfaceStatisticsRelationshipsInterface _Interface { get; set; }
 
 	/// <summary>
 	/// Gets or Sets Tenant
 	/// </summary>
 	[DataMember(Name="tenant", EmitDefaultValue=false)]
+	[JsonPropertyName("tenant")]
 	public Tenant Tenant { get; set; }
 
 	/// <summary>

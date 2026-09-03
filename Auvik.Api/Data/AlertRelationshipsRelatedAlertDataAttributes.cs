@@ -2,6 +2,7 @@
 
 using System.Runtime.Serialization;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -16,6 +17,7 @@ public class AlertRelationshipsRelatedAlertDataAttributes
 	/// </summary>
 	/// <value>The name of related alert</value>
 	[DataMember(Name = "name", EmitDefaultValue = false)]
+	[JsonPropertyName("name")]
 	public string Name { get; set; }
 
 	/// <summary>

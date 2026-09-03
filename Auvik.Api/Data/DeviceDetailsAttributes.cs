@@ -3,8 +3,8 @@
 using System.IO;
 using System.Text;
 using System.Runtime.Serialization;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using Auvik.Api.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -18,7 +18,7 @@ public class DeviceDetailsAttributes
 	/// The status of TrafficInsights on this device
 	/// </summary>
 	/// <value>The status of TrafficInsights on this device</value>
-	[JsonConverter(typeof(StringEnumConverter))]
+	[JsonConverter(typeof(EnumMemberJsonConverter))]
 	public enum TrafficInsightsStatusEnum
 	{
 
@@ -70,12 +70,14 @@ public class DeviceDetailsAttributes
 	/// </summary>
 	/// <value>The status of TrafficInsights on this device</value>
 	[DataMember(Name="trafficInsightsStatus", EmitDefaultValue=false)]
+	[JsonPropertyName("trafficInsightsStatus")]
 	public TrafficInsightsStatusEnum? TrafficInsightsStatus { get; set; }
 
 	/// <summary>
 	/// Gets or Sets DiscoveryStatus
 	/// </summary>
 	[DataMember(Name="discoveryStatus", EmitDefaultValue=false)]
+	[JsonPropertyName("discoveryStatus")]
 	public DeviceDetailsAttributesDiscoveryStatus DiscoveryStatus { get; set; }
 
 	/// <summary>
@@ -83,6 +85,7 @@ public class DeviceDetailsAttributes
 	/// </summary>
 	/// <value>Whether this device is managed by Auvik or not</value>
 	[DataMember(Name="manageStatus", EmitDefaultValue=false)]
+	[JsonPropertyName("manageStatus")]
 	public bool? ManageStatus { get; set; }
 
 	/// <summary>

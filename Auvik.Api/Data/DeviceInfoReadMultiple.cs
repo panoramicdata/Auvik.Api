@@ -3,6 +3,7 @@
 using System.Text;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -16,24 +17,28 @@ public class DeviceInfoReadMultiple
 	/// Gets or Sets Data
 	/// </summary>
 	[DataMember(Name="data", EmitDefaultValue=false)]
+	[JsonPropertyName("data")]
 	public List<DevicesResourceObject> Data { get; set; }
 
 	/// <summary>
 	/// Gets or Sets Included
 	/// </summary>
 	[DataMember(Name="included", EmitDefaultValue=false)]
+	[JsonPropertyName("included")]
 	public List<DeviceDetailsResourceObject> Included { get; set; }
 
 	/// <summary>
 	/// Gets or Sets Links
 	/// </summary>
 	[DataMember(Name="links", EmitDefaultValue=false)]
+	[JsonPropertyName("links")]
 	public DeviceInfoReadMultipleLinks Links { get; set; }
 
 	/// <summary>
 	/// Gets or Sets Meta
 	/// </summary>
 	[DataMember(Name="meta", EmitDefaultValue=false)]
+	[JsonPropertyName("meta")]
 	public Meta Meta { get; set; }
 
 	/// <summary>

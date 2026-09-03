@@ -1,9 +1,9 @@
 #nullable disable
 
-using Newtonsoft.Json;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -18,6 +18,7 @@ public class ConfigAttributes
 	/// </summary>
 	/// <value>The time at which this configuration was backed up.</value>
 	[DataMember(Name = "backupTime", EmitDefaultValue = false)]
+	[JsonPropertyName("backupTime")]
 	public string BackupTime { get; set; }
 
 	/// <summary>
@@ -25,6 +26,7 @@ public class ConfigAttributes
 	/// </summary>
 	/// <value>Whether or not the configuration is currently running on the device.</value>
 	[DataMember(Name = "isRunning", EmitDefaultValue = false)]
+	[JsonPropertyName("isRunning")]
 	public bool? IsRunning { get; set; }
 
 	/// <summary>

@@ -3,7 +3,7 @@
 using System.IO;
 using System.Text;
 using System.Runtime.Serialization;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -18,6 +18,7 @@ public class DeviceDetailsRelationshipsInterfacesAttributes
 	/// </summary>
 	/// <value>This interface's name</value>
 	[DataMember(Name="interfaceName", EmitDefaultValue=false)]
+	[JsonPropertyName("interfaceName")]
 	public string InterfaceName { get; set; }
 
 	/// <summary>
@@ -25,6 +26,7 @@ public class DeviceDetailsRelationshipsInterfacesAttributes
 	/// </summary>
 	/// <value>The MAC address of this interface</value>
 	[DataMember(Name="macAddress", EmitDefaultValue=false)]
+	[JsonPropertyName("macAddress")]
 	public string MacAddress { get; set; }
 
 	/// <summary>

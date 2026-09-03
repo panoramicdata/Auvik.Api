@@ -2,6 +2,7 @@
 
 using System.Runtime.Serialization;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -15,12 +16,14 @@ public class ComponentStatisticsRelationships
 	/// Gets or Sets Component
 	/// </summary>
 	[DataMember(Name = "component", EmitDefaultValue = false)]
+	[JsonPropertyName("component")]
 	public ComponentStatisticsRelationshipsComponent Component { get; set; }
 
 	/// <summary>
 	/// Gets or Sets Tenant
 	/// </summary>
 	[DataMember(Name = "tenant", EmitDefaultValue = false)]
+	[JsonPropertyName("tenant")]
 	public Tenant Tenant { get; set; }
 
 	/// <summary>

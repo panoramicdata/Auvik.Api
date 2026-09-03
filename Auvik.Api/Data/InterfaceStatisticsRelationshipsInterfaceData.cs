@@ -2,6 +2,7 @@
 
 using System.Text;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -16,6 +17,7 @@ public class InterfaceStatisticsRelationshipsInterfaceData
 	/// </summary>
 	/// <value>This interface's ID</value>
 	[DataMember(Name="id", EmitDefaultValue=false)]
+	[JsonPropertyName("id")]
 	public string Id { get; set; }
 
 	/// <summary>
@@ -23,6 +25,7 @@ public class InterfaceStatisticsRelationshipsInterfaceData
 	/// </summary>
 	/// <value>This interface's name</value>
 	[DataMember(Name="interfaceName", EmitDefaultValue=false)]
+	[JsonPropertyName("interfaceName")]
 	public string InterfaceName { get; set; }
 
 	/// <summary>
@@ -30,12 +33,14 @@ public class InterfaceStatisticsRelationshipsInterfaceData
 	/// </summary>
 	/// <value>This interface's type</value>
 	[DataMember(Name="interfaceType", EmitDefaultValue=false)]
+	[JsonPropertyName("interfaceType")]
 	public string InterfaceType { get; set; }
 
 	/// <summary>
 	/// Gets or Sets Links
 	/// </summary>
 	[DataMember(Name="links", EmitDefaultValue=false)]
+	[JsonPropertyName("links")]
 	public InterfaceStatisticsRelationshipsInterfaceDataLinks Links { get; set; }
 
 	/// <summary>
@@ -43,6 +48,7 @@ public class InterfaceStatisticsRelationshipsInterfaceData
 	/// </summary>
 	/// <value>This interface's parent device</value>
 	[DataMember(Name="parentDevice", EmitDefaultValue=false)]
+	[JsonPropertyName("parentDevice")]
 	public string ParentDevice { get; set; }
 
 	/// <summary>
@@ -50,6 +56,7 @@ public class InterfaceStatisticsRelationshipsInterfaceData
 	/// </summary>
 	/// <value>The type of the object</value>
 	[DataMember(Name="type", EmitDefaultValue=false)]
+	[JsonPropertyName("type")]
 	public string Type { get; set; }
 
 	/// <summary>

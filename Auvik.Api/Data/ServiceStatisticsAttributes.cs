@@ -4,7 +4,7 @@ using System.IO;
 using System.Text;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -19,24 +19,28 @@ public class ServiceStatisticsAttributes
 	/// </summary>
 	/// <value>Endpoints checked by a cloud ping check service</value>
 	[DataMember(Name="endpoints", EmitDefaultValue=false)]
+	[JsonPropertyName("endpoints")]
 	public List<EndpointStats> Endpoints { get; set; }
 
 	/// <summary>
 	/// Gets or Sets Interval
 	/// </summary>
 	[DataMember(Name="interval", EmitDefaultValue=false)]
+	[JsonPropertyName("interval")]
 	public Interval Interval { get; set; }
 
 	/// <summary>
 	/// Gets or Sets ReportPeriod
 	/// </summary>
 	[DataMember(Name="reportPeriod", EmitDefaultValue=false)]
+	[JsonPropertyName("reportPeriod")]
 	public ReportPeriod ReportPeriod { get; set; }
 
 	/// <summary>
 	/// Gets or Sets StatType
 	/// </summary>
 	[DataMember(Name="statType", EmitDefaultValue=false)]
+	[JsonPropertyName("statType")]
 	public StatType StatType { get; set; }
 
 	/// <summary>

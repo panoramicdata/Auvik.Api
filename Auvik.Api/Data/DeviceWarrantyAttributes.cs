@@ -3,7 +3,7 @@
 using System.IO;
 using System.Text;
 using System.Runtime.Serialization;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -18,6 +18,7 @@ public class DeviceWarrantyAttributes
 	/// </summary>
 	/// <value>Contract renewal availability</value>
 	[DataMember(Name="contractRenewalAvailability", EmitDefaultValue=false)]
+	[JsonPropertyName("contractRenewalAvailability")]
 	public string ContractRenewalAvailability { get; set; }
 
 	/// <summary>
@@ -25,6 +26,7 @@ public class DeviceWarrantyAttributes
 	/// </summary>
 	/// <value>Device's name</value>
 	[DataMember(Name="deviceName", EmitDefaultValue=false)]
+	[JsonPropertyName("deviceName")]
 	public string DeviceName { get; set; }
 
 	/// <summary>
@@ -32,6 +34,7 @@ public class DeviceWarrantyAttributes
 	/// </summary>
 	/// <value>Recommended Devices software version, if known</value>
 	[DataMember(Name="recommendedSoftwareVersion", EmitDefaultValue=false)]
+	[JsonPropertyName("recommendedSoftwareVersion")]
 	public string RecommendedSoftwareVersion { get; set; }
 
 	/// <summary>
@@ -39,6 +42,7 @@ public class DeviceWarrantyAttributes
 	/// </summary>
 	/// <value>Service attachment status</value>
 	[DataMember(Name="serviceAttachmentStatus", EmitDefaultValue=false)]
+	[JsonPropertyName("serviceAttachmentStatus")]
 	public string ServiceAttachmentStatus { get; set; }
 
 	/// <summary>
@@ -46,6 +50,7 @@ public class DeviceWarrantyAttributes
 	/// </summary>
 	/// <value>Service coverage status</value>
 	[DataMember(Name="serviceCoverageStatus", EmitDefaultValue=false)]
+	[JsonPropertyName("serviceCoverageStatus")]
 	public string ServiceCoverageStatus { get; set; }
 
 	/// <summary>
@@ -53,6 +58,7 @@ public class DeviceWarrantyAttributes
 	/// </summary>
 	/// <value>Warranty coverage status</value>
 	[DataMember(Name="warrantyCoverageStatus", EmitDefaultValue=false)]
+	[JsonPropertyName("warrantyCoverageStatus")]
 	public string WarrantyCoverageStatus { get; set; }
 
 	/// <summary>
@@ -60,6 +66,7 @@ public class DeviceWarrantyAttributes
 	/// </summary>
 	/// <value>Warranty expiration date for this device. Value is what is returned by Cisco device, which is not guaranteed to be a date.</value>
 	[DataMember(Name="warrantyExpirationDate", EmitDefaultValue=false)]
+	[JsonPropertyName("warrantyExpirationDate")]
 	public string WarrantyExpirationDate { get; set; }
 
 	/// <summary>

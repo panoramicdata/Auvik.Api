@@ -2,6 +2,7 @@
 
 using System.Text;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -15,6 +16,7 @@ public class DeviceUsageRelationships
 	/// Gets or Sets _Client
 	/// </summary>
 	[DataMember(Name="client", EmitDefaultValue=false)]
+	[JsonPropertyName("client")]
 	public DeviceUsageRelationshipsClient _Client { get; set; }
 
 	/// <summary>

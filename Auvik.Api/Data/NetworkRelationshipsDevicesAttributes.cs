@@ -3,7 +3,7 @@
 using System.IO;
 using System.Text;
 using System.Runtime.Serialization;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -18,6 +18,7 @@ public class NetworkRelationshipsDevicesAttributes
 	/// </summary>
 	/// <value>Device's name</value>
 	[DataMember(Name="deviceName", EmitDefaultValue=false)]
+	[JsonPropertyName("deviceName")]
 	public string DeviceName { get; set; }
 
 	/// <summary>

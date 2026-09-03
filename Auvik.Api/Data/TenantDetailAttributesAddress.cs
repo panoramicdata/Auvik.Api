@@ -2,6 +2,7 @@
 
 using System.Text;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -16,6 +17,7 @@ public class TenantDetailAttributesAddress
 	/// </summary>
 	/// <value>The state or province the tenant locates</value>
 	[DataMember(Name="State/Province", EmitDefaultValue=false)]
+	[JsonPropertyName("State/Province")]
 	public string StateProvince { get; set; }
 
 	/// <summary>
@@ -23,6 +25,7 @@ public class TenantDetailAttributesAddress
 	/// </summary>
 	/// <value>ZIP or PostalCode of the address</value>
 	[DataMember(Name="ZIP/PostalCode", EmitDefaultValue=false)]
+	[JsonPropertyName("ZIP/PostalCode")]
 	public string ZIPPostalCode { get; set; }
 
 	/// <summary>
@@ -30,6 +33,7 @@ public class TenantDetailAttributesAddress
 	/// </summary>
 	/// <value>First part of address</value>
 	[DataMember(Name="address1", EmitDefaultValue=false)]
+	[JsonPropertyName("address1")]
 	public string Address1 { get; set; }
 
 	/// <summary>
@@ -37,6 +41,7 @@ public class TenantDetailAttributesAddress
 	/// </summary>
 	/// <value>Second part of address</value>
 	[DataMember(Name="address2", EmitDefaultValue=false)]
+	[JsonPropertyName("address2")]
 	public string Address2 { get; set; }
 
 	/// <summary>
@@ -44,6 +49,7 @@ public class TenantDetailAttributesAddress
 	/// </summary>
 	/// <value>The city tenant locates</value>
 	[DataMember(Name="city", EmitDefaultValue=false)]
+	[JsonPropertyName("city")]
 	public string City { get; set; }
 
 	/// <summary>
@@ -51,6 +57,7 @@ public class TenantDetailAttributesAddress
 	/// </summary>
 	/// <value>Country of the tenant</value>
 	[DataMember(Name="country", EmitDefaultValue=false)]
+	[JsonPropertyName("country")]
 	public string Country { get; set; }
 
 	/// <summary>

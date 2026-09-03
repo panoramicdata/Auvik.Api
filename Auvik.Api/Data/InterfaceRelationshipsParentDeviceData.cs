@@ -2,8 +2,8 @@
 
 using System.Text;
 using System.Runtime.Serialization;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using Auvik.Api.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -17,7 +17,7 @@ public class InterfaceRelationshipsParentDeviceData
 	/// The type of the object
 	/// </summary>
 	/// <value>The type of the object</value>
-	[JsonConverter(typeof(StringEnumConverter))]
+	[JsonConverter(typeof(EnumMemberJsonConverter))]
 	public enum TypeEnum
 	{
 
@@ -33,6 +33,7 @@ public class InterfaceRelationshipsParentDeviceData
 	/// </summary>
 	/// <value>The type of the object</value>
 	[DataMember(Name="type", EmitDefaultValue=false)]
+	[JsonPropertyName("type")]
 	public TypeEnum? Type { get; set; }
 
 	/// <summary>
@@ -40,12 +41,14 @@ public class InterfaceRelationshipsParentDeviceData
 	/// </summary>
 	/// <value>This device's ID</value>
 	[DataMember(Name="id", EmitDefaultValue=false)]
+	[JsonPropertyName("id")]
 	public string Id { get; set; }
 
 	/// <summary>
 	/// Gets or Sets Links
 	/// </summary>
 	[DataMember(Name="links", EmitDefaultValue=false)]
+	[JsonPropertyName("links")]
 	public InterfaceRelationshipsParentDeviceDataLinks Links { get; set; }
 
 	/// <summary>

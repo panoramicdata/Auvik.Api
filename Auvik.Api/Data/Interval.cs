@@ -2,7 +2,6 @@
 
 using System.Text;
 using System.Runtime.Serialization;
-using Newtonsoft.Json;
 
 namespace Auvik.Api.Data;
 

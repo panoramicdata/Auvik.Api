@@ -2,8 +2,8 @@
 
 using System.Text;
 using System.Runtime.Serialization;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using Auvik.Api.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -17,7 +17,7 @@ public class DeviceUsageRelationshipsClientData
 	/// The type of this resource object
 	/// </summary>
 	/// <value>The type of this resource object</value>
-	[JsonConverter(typeof(StringEnumConverter))]
+	[JsonConverter(typeof(EnumMemberJsonConverter))]
 	public enum TypeEnum
 	{
 
@@ -33,12 +33,14 @@ public class DeviceUsageRelationshipsClientData
 	/// </summary>
 	/// <value>The type of this resource object</value>
 	[DataMember(Name="type", EmitDefaultValue=false)]
+	[JsonPropertyName("type")]
 	public TypeEnum? Type { get; set; }
 
 	/// <summary>
 	/// Gets or Sets Attributes
 	/// </summary>
 	[DataMember(Name="attributes", EmitDefaultValue=false)]
+	[JsonPropertyName("attributes")]
 	public DeviceUsageRelationshipsClientDataAttributes Attributes { get; set; }
 
 	/// <summary>
@@ -46,12 +48,14 @@ public class DeviceUsageRelationshipsClientData
 	/// </summary>
 	/// <value>Client's ID</value>
 	[DataMember(Name="id", EmitDefaultValue=false)]
+	[JsonPropertyName("id")]
 	public string Id { get; set; }
 
 	/// <summary>
 	/// Gets or Sets Links
 	/// </summary>
 	[DataMember(Name="links", EmitDefaultValue=false)]
+	[JsonPropertyName("links")]
 	public ClientUsageResourceObjectLinks Links { get; set; }
 
 	/// <summary>

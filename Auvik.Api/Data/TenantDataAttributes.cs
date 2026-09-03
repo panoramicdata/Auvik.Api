@@ -3,7 +3,7 @@
 using System.IO;
 using System.Text;
 using System.Runtime.Serialization;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -18,6 +18,7 @@ public class TenantDataAttributes
 	/// </summary>
 	/// <value>The domain prefix of the tenant</value>
 	[DataMember(Name="domainPrefix", EmitDefaultValue=false)]
+	[JsonPropertyName("domainPrefix")]
 	public string DomainPrefix { get; set; }
 
 	/// <summary>

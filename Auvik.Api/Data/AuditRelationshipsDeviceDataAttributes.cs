@@ -2,6 +2,7 @@
 
 using System.Runtime.Serialization;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -16,6 +17,7 @@ public class AuditRelationshipsDeviceDataAttributes
 	/// </summary>
 	/// <value>Device's name</value>
 	[DataMember(Name = "deviceName", EmitDefaultValue = false)]
+	[JsonPropertyName("deviceName")]
 	public string DeviceName { get; set; }
 
 	/// <summary>

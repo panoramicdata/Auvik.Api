@@ -2,6 +2,7 @@
 
 using System.Text;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -16,6 +17,7 @@ public class DeviceExtendedDetailsDeviceLinks
 	/// </summary>
 	/// <value>Link to this device's device info</value>
 	[DataMember(Name="info", EmitDefaultValue=false)]
+	[JsonPropertyName("info")]
 	public string Info { get; set; }
 
 	/// <summary>
@@ -23,6 +25,7 @@ public class DeviceExtendedDetailsDeviceLinks
 	/// </summary>
 	/// <value>Link to this device's extended details</value>
 	[DataMember(Name="self", EmitDefaultValue=false)]
+	[JsonPropertyName("self")]
 	public string Self { get; set; }
 
 	/// <summary>

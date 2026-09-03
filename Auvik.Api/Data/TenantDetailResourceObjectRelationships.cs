@@ -2,6 +2,7 @@
 
 using System.Text;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -15,12 +16,14 @@ public class TenantDetailResourceObjectRelationships
 	/// Gets or Sets Authorizations
 	/// </summary>
 	[DataMember(Name="authorizations", EmitDefaultValue=false)]
+	[JsonPropertyName("authorizations")]
 	public TenantDetailResourceObjectRelationshipsAuthorizations Authorizations { get; set; }
 
 	/// <summary>
 	/// Gets or Sets Parent
 	/// </summary>
 	[DataMember(Name="parent", EmitDefaultValue=false)]
+	[JsonPropertyName("parent")]
 	public TenantDetailResourceObjectRelationshipsParent Parent { get; set; }
 
 	/// <summary>

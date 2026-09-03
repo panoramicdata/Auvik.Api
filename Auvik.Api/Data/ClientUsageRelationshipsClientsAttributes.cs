@@ -2,6 +2,7 @@
 
 using System.Runtime.Serialization;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -16,6 +17,7 @@ public class ClientUsageRelationshipsClientsAttributes
 	/// </summary>
 	/// <value>Client tenant's domain prefix/name</value>
 	[DataMember(Name = "domainPrefix", EmitDefaultValue = false)]
+	[JsonPropertyName("domainPrefix")]
 	public string DomainPrefix { get; set; }
 
 	/// <summary>
@@ -23,6 +25,7 @@ public class ClientUsageRelationshipsClientsAttributes
 	/// </summary>
 	/// <value>Total billable days for this client across the usage period</value>
 	[DataMember(Name = "totalBillableDays", EmitDefaultValue = false)]
+	[JsonPropertyName("totalBillableDays")]
 	public decimal? TotalBillableDays { get; set; }
 
 	/// <summary>

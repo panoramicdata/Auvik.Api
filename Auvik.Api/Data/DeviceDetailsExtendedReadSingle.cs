@@ -3,6 +3,7 @@
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -16,6 +17,7 @@ public class DeviceDetailsExtendedReadSingle
 	/// Gets or Sets Data
 	/// </summary>
 	[DataMember(Name = "data", EmitDefaultValue = false)]
+	[JsonPropertyName("data")]
 	public DeviceExtendedDetailResourceObject Data { get; set; }
 
 	/// <summary>

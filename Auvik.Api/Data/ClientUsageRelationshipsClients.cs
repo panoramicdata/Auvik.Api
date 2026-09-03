@@ -3,6 +3,7 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -17,6 +18,7 @@ public class ClientUsageRelationshipsClients
 	/// </summary>
 	/// <value>A client's usage for the given usage period</value>
 	[DataMember(Name = "data", EmitDefaultValue = false)]
+	[JsonPropertyName("data")]
 	public List<ClientUsageRelationshipsClientsData> Data { get; set; }
 
 	/// <summary>

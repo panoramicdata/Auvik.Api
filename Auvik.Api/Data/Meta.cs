@@ -2,6 +2,7 @@
 
 using System.Text;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -16,6 +17,7 @@ public class Meta
 	/// </summary>
 	/// <value>Total page count.</value>
 	[DataMember(Name="totalPages", EmitDefaultValue=false)]
+	[JsonPropertyName("totalPages")]
 	public decimal? TotalPages { get; set; }
 
 	/// <summary>

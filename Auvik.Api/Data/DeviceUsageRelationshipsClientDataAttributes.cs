@@ -2,6 +2,7 @@
 
 using System.Text;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -16,6 +17,7 @@ public class DeviceUsageRelationshipsClientDataAttributes
 	/// </summary>
 	/// <value>Client tenant's domain prefix/name</value>
 	[DataMember(Name="domainPrefix", EmitDefaultValue=false)]
+	[JsonPropertyName("domainPrefix")]
 	public string DomainPrefix { get; set; }
 
 	/// <summary>

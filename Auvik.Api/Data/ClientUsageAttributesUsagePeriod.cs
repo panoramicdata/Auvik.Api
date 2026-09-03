@@ -2,6 +2,7 @@
 
 using System.Runtime.Serialization;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -16,6 +17,7 @@ public class ClientUsageAttributesUsagePeriod
 	/// </summary>
 	/// <value>Date and time the usage period ends</value>
 	[DataMember(Name = "endDate", EmitDefaultValue = false)]
+	[JsonPropertyName("endDate")]
 	public string EndDate { get; set; }
 
 	/// <summary>
@@ -23,6 +25,7 @@ public class ClientUsageAttributesUsagePeriod
 	/// </summary>
 	/// <value>Number of days in the usage period</value>
 	[DataMember(Name = "lengthInDays", EmitDefaultValue = false)]
+	[JsonPropertyName("lengthInDays")]
 	public decimal? LengthInDays { get; set; }
 
 	/// <summary>
@@ -30,6 +33,7 @@ public class ClientUsageAttributesUsagePeriod
 	/// </summary>
 	/// <value>Date and time the usage period starts</value>
 	[DataMember(Name = "startDate", EmitDefaultValue = false)]
+	[JsonPropertyName("startDate")]
 	public string StartDate { get; set; }
 
 	/// <summary>

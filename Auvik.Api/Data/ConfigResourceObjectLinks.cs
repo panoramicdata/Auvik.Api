@@ -2,6 +2,7 @@
 
 using System.Text;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -16,6 +17,7 @@ public class ConfigResourceObjectLinks
 	/// </summary>
 	/// <value>Link to this configuration in Auvik dashboard</value>
 	[DataMember(Name="dashboard", EmitDefaultValue=false)]
+	[JsonPropertyName("dashboard")]
 	public string Dashboard { get; set; }
 
 	/// <summary>
@@ -23,6 +25,7 @@ public class ConfigResourceObjectLinks
 	/// </summary>
 	/// <value>Link to this configuration</value>
 	[DataMember(Name="self", EmitDefaultValue=false)]
+	[JsonPropertyName("self")]
 	public string Self { get; set; }
 
 	/// <summary>

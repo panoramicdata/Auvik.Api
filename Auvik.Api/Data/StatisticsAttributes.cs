@@ -3,6 +3,7 @@
 using System.Text;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -16,18 +17,21 @@ public class StatisticsAttributes
 	/// Gets or Sets Interval
 	/// </summary>
 	[DataMember(Name="interval", EmitDefaultValue=false)]
+	[JsonPropertyName("interval")]
 	public Interval Interval { get; set; }
 
 	/// <summary>
 	/// Gets or Sets ReportPeriod
 	/// </summary>
 	[DataMember(Name="reportPeriod", EmitDefaultValue=false)]
+	[JsonPropertyName("reportPeriod")]
 	public ReportPeriod ReportPeriod { get; set; }
 
 	/// <summary>
 	/// Gets or Sets StatType
 	/// </summary>
 	[DataMember(Name="statType", EmitDefaultValue=false)]
+	[JsonPropertyName("statType")]
 	public StatType StatType { get; set; }
 
 	/// <summary>
@@ -35,6 +39,7 @@ public class StatisticsAttributes
 	/// </summary>
 	/// <value>The list of statistics reported for the entity</value>
 	[DataMember(Name="stats", EmitDefaultValue=false)]
+	[JsonPropertyName("stats")]
 	public List<StatItem> Stats { get; set; }
 
 	/// <summary>

@@ -2,6 +2,7 @@
 
 using System.Text;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -16,6 +17,7 @@ public class DeviceStatisticsRelationshipsDeviceData
 	/// </summary>
 	/// <value>The name of the device</value>
 	[DataMember(Name="deviceName", EmitDefaultValue=false)]
+	[JsonPropertyName("deviceName")]
 	public string DeviceName { get; set; }
 
 	/// <summary>
@@ -23,6 +25,7 @@ public class DeviceStatisticsRelationshipsDeviceData
 	/// </summary>
 	/// <value>The type of the device</value>
 	[DataMember(Name="deviceType", EmitDefaultValue=false)]
+	[JsonPropertyName("deviceType")]
 	public string DeviceType { get; set; }
 
 	/// <summary>
@@ -30,12 +33,14 @@ public class DeviceStatisticsRelationshipsDeviceData
 	/// </summary>
 	/// <value>This device's ID</value>
 	[DataMember(Name="id", EmitDefaultValue=false)]
+	[JsonPropertyName("id")]
 	public string Id { get; set; }
 
 	/// <summary>
 	/// Gets or Sets Links
 	/// </summary>
 	[DataMember(Name="links", EmitDefaultValue=false)]
+	[JsonPropertyName("links")]
 	public InterfaceRelationshipsParentDeviceDataLinks Links { get; set; }
 
 	/// <summary>
@@ -43,6 +48,7 @@ public class DeviceStatisticsRelationshipsDeviceData
 	/// </summary>
 	/// <value>The type of the object</value>
 	[DataMember(Name="type", EmitDefaultValue=false)]
+	[JsonPropertyName("type")]
 	public string Type { get; set; }
 
 	/// <summary>

@@ -2,8 +2,8 @@
 
 using System.Text;
 using System.Runtime.Serialization;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using Auvik.Api.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -17,7 +17,7 @@ public class TenantDetailResourceObjectRelationshipsAuthorizationsData
 	/// The type of authorizations
 	/// </summary>
 	/// <value>The type of authorizations</value>
-	[JsonConverter(typeof(StringEnumConverter))]
+	[JsonConverter(typeof(EnumMemberJsonConverter))]
 	public enum TypeEnum
 	{
 
@@ -33,6 +33,7 @@ public class TenantDetailResourceObjectRelationshipsAuthorizationsData
 	/// </summary>
 	/// <value>The type of authorizations</value>
 	[DataMember(Name="type", EmitDefaultValue=false)]
+	[JsonPropertyName("type")]
 	public TypeEnum? Type { get; set; }
 
 	/// <summary>
@@ -40,6 +41,7 @@ public class TenantDetailResourceObjectRelationshipsAuthorizationsData
 	/// </summary>
 	/// <value>The id is granted for authorization</value>
 	[DataMember(Name="id", EmitDefaultValue=false)]
+	[JsonPropertyName("id")]
 	public string Id { get; set; }
 
 	/// <summary>

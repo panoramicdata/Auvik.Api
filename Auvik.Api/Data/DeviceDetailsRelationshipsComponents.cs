@@ -4,7 +4,7 @@ using System.IO;
 using System.Text;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -19,6 +19,7 @@ public class DeviceDetailsRelationshipsComponents
 	/// </summary>
 	/// <value>A component resource object</value>
 	[DataMember(Name="data", EmitDefaultValue=false)]
+	[JsonPropertyName("data")]
 	public List<DeviceDetailsRelationshipsComponentsData> Data { get; set; }
 
 	/// <summary>

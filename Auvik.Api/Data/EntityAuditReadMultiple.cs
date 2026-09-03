@@ -3,6 +3,7 @@
 using System.Text;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -16,18 +17,21 @@ public class EntityAuditReadMultiple
 	/// Gets or Sets Data
 	/// </summary>
 	[DataMember(Name="data", EmitDefaultValue=false)]
+	[JsonPropertyName("data")]
 	public List<AuditsResourceObject> Data { get; set; }
 
 	/// <summary>
 	/// Gets or Sets Links
 	/// </summary>
 	[DataMember(Name="links", EmitDefaultValue=false)]
+	[JsonPropertyName("links")]
 	public EntityAuditReadMultipleLinks Links { get; set; }
 
 	/// <summary>
 	/// Gets or Sets Meta
 	/// </summary>
 	[DataMember(Name="meta", EmitDefaultValue=false)]
+	[JsonPropertyName("meta")]
 	public Meta Meta { get; set; }
 
 	/// <summary>

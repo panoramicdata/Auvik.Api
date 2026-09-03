@@ -2,6 +2,7 @@
 
 using System.Text;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -16,6 +17,7 @@ public class ReportPeriod
 	/// </summary>
 	/// <value>Start timestamp for the statistics query</value>
 	[DataMember(Name="fromTime", EmitDefaultValue=false)]
+	[JsonPropertyName("fromTime")]
 	public string FromTime { get; set; }
 
 	/// <summary>
@@ -23,6 +25,7 @@ public class ReportPeriod
 	/// </summary>
 	/// <value>End timestamp for the statistics query</value>
 	[DataMember(Name="thruTime", EmitDefaultValue=false)]
+	[JsonPropertyName("thruTime")]
 	public string ThruTime { get; set; }
 
 	/// <summary>

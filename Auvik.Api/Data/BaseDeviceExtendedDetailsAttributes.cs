@@ -1,9 +1,9 @@
 #nullable disable
 
-using Newtonsoft.Json;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -18,6 +18,7 @@ public class BaseDeviceExtendedDetailsAttributes
 	/// </summary>
 	/// <value>Device's name</value>
 	[DataMember(Name = "deviceName", EmitDefaultValue = false)]
+	[JsonPropertyName("deviceName")]
 	public string DeviceName { get; set; }
 
 	/// <summary>
@@ -25,6 +26,7 @@ public class BaseDeviceExtendedDetailsAttributes
 	/// </summary>
 	/// <value>When one of this device's attributes was last modified</value>
 	[DataMember(Name = "lastModified", EmitDefaultValue = false)]
+	[JsonPropertyName("lastModified")]
 	public string LastModified { get; set; }
 
 	/// <summary>
@@ -32,6 +34,7 @@ public class BaseDeviceExtendedDetailsAttributes
 	/// </summary>
 	/// <value>Last seen online date/time of a device</value>
 	[DataMember(Name = "lastSeenTime", EmitDefaultValue = false)]
+	[JsonPropertyName("lastSeenTime")]
 	public string LastSeenTime { get; set; }
 
 	/// <summary>

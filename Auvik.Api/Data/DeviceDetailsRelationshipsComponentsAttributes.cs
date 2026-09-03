@@ -3,8 +3,8 @@
 using System.IO;
 using System.Text;
 using System.Runtime.Serialization;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using Auvik.Api.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -18,7 +18,7 @@ public class DeviceDetailsRelationshipsComponentsAttributes
 	/// This component's type
 	/// </summary>
 	/// <value>This component's type</value>
-	[JsonConverter(typeof(StringEnumConverter))]
+	[JsonConverter(typeof(EnumMemberJsonConverter))]
 	public enum ComponentTypeEnum
 	{
 
@@ -70,6 +70,7 @@ public class DeviceDetailsRelationshipsComponentsAttributes
 	/// </summary>
 	/// <value>This component's type</value>
 	[DataMember(Name="componentType", EmitDefaultValue=false)]
+	[JsonPropertyName("componentType")]
 	public ComponentTypeEnum? ComponentType { get; set; }
 
 	/// <summary>
@@ -77,18 +78,21 @@ public class DeviceDetailsRelationshipsComponentsAttributes
 	/// </summary>
 	/// <value>This component's name</value>
 	[DataMember(Name="componentName", EmitDefaultValue=false)]
+	[JsonPropertyName("componentName")]
 	public string ComponentName { get; set; }
 
 	/// <summary>
 	/// Gets or Sets ConfigurationId
 	/// </summary>
 	[DataMember(Name="configurationId", EmitDefaultValue=false)]
+	[JsonPropertyName("configurationId")]
 	public string ConfigurationId { get; set; }
 
 	/// <summary>
 	/// Gets or Sets ConfigurationIndex
 	/// </summary>
 	[DataMember(Name="configurationIndex", EmitDefaultValue=false)]
+	[JsonPropertyName("configurationIndex")]
 	public string ConfigurationIndex { get; set; }
 
 	/// <summary>

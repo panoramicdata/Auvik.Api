@@ -1,10 +1,10 @@
 #nullable disable
 
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Text;
+using System.Text.Json.Serialization;
+using Auvik.Api.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -18,7 +18,7 @@ public class AlertAttributes
 	/// This severity of the alert message
 	/// </summary>
 	/// <value>This severity of the alert message</value>
-	[JsonConverter(typeof(StringEnumConverter))]
+	[JsonConverter(typeof(EnumMemberJsonConverter))]
 	public enum SeverityEnum
 	{
 
@@ -57,7 +57,7 @@ public class AlertAttributes
 	/// High level description of this alert's status
 	/// </summary>
 	/// <value>High level description of this alert's status</value>
-	[JsonConverter(typeof(StringEnumConverter))]
+	[JsonConverter(typeof(EnumMemberJsonConverter))]
 	public enum StatusEnum
 	{
 
@@ -91,6 +91,7 @@ public class AlertAttributes
 	/// </summary>
 	/// <value>This severity of the alert message</value>
 	[DataMember(Name = "severity", EmitDefaultValue = false)]
+	[JsonPropertyName("severity")]
 	public SeverityEnum? Severity { get; set; }
 
 	/// <summary>
@@ -98,6 +99,7 @@ public class AlertAttributes
 	/// </summary>
 	/// <value>High level description of this alert's status</value>
 	[DataMember(Name = "status", EmitDefaultValue = false)]
+	[JsonPropertyName("status")]
 	public StatusEnum? Status { get; set; }
 
 	/// <summary>
@@ -105,6 +107,7 @@ public class AlertAttributes
 	/// </summary>
 	/// <value>This description of the alert</value>
 	[DataMember(Name = "description", EmitDefaultValue = false)]
+	[JsonPropertyName("description")]
 	public string Description { get; set; }
 
 	/// <summary>
@@ -112,6 +115,7 @@ public class AlertAttributes
 	/// </summary>
 	/// <value>The date time of the alert's message was detected</value>
 	[DataMember(Name = "detectedOn", EmitDefaultValue = false)]
+	[JsonPropertyName("detectedOn")]
 	public string DetectedOn { get; set; }
 
 	/// <summary>
@@ -119,6 +123,7 @@ public class AlertAttributes
 	/// </summary>
 	/// <value>Whether the alert has been dismissed or not</value>
 	[DataMember(Name = "dismissed", EmitDefaultValue = false)]
+	[JsonPropertyName("dismissed")]
 	public bool? Dismissed { get; set; }
 
 	/// <summary>
@@ -126,6 +131,7 @@ public class AlertAttributes
 	/// </summary>
 	/// <value>Whether the alert has been dispatched or not</value>
 	[DataMember(Name = "dispatched", EmitDefaultValue = false)]
+	[JsonPropertyName("dispatched")]
 	public bool? Dispatched { get; set; }
 
 	/// <summary>
@@ -133,6 +139,7 @@ public class AlertAttributes
 	/// </summary>
 	/// <value>The external ticket list associated to current alert message</value>
 	[DataMember(Name = "externalTicket", EmitDefaultValue = false)]
+	[JsonPropertyName("externalTicket")]
 	public List<AlertAttributesExternalTicket> ExternalTicket { get; set; }
 
 	/// <summary>
@@ -140,6 +147,7 @@ public class AlertAttributes
 	/// </summary>
 	/// <value>This alert's name</value>
 	[DataMember(Name = "name", EmitDefaultValue = false)]
+	[JsonPropertyName("name")]
 	public string Name { get; set; }
 
 	/// <summary>
@@ -147,6 +155,7 @@ public class AlertAttributes
 	/// </summary>
 	/// <value>Specification ID linked to Alert type</value>
 	[DataMember(Name = "specificationId", EmitDefaultValue = false)]
+	[JsonPropertyName("specificationId")]
 	public string SpecificationId { get; set; }
 
 	/// <summary>

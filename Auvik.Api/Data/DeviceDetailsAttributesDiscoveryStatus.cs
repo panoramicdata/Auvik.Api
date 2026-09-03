@@ -2,8 +2,8 @@
 
 using System.Text;
 using System.Runtime.Serialization;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using Auvik.Api.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -16,7 +16,7 @@ public class DeviceDetailsAttributesDiscoveryStatus
 	/// <summary>
 	/// Gets or Sets Login
 	/// </summary>
-	[JsonConverter(typeof(StringEnumConverter))]
+	[JsonConverter(typeof(EnumMemberJsonConverter))]
 	public enum LoginEnum
 	{
 
@@ -66,7 +66,7 @@ public class DeviceDetailsAttributesDiscoveryStatus
 	/// <summary>
 	/// Gets or Sets Snmp
 	/// </summary>
-	[JsonConverter(typeof(StringEnumConverter))]
+	[JsonConverter(typeof(EnumMemberJsonConverter))]
 	public enum SnmpEnum
 	{
 
@@ -116,7 +116,7 @@ public class DeviceDetailsAttributesDiscoveryStatus
 	/// <summary>
 	/// Gets or Sets Vmware
 	/// </summary>
-	[JsonConverter(typeof(StringEnumConverter))]
+	[JsonConverter(typeof(EnumMemberJsonConverter))]
 	public enum VmwareEnum
 	{
 
@@ -166,7 +166,7 @@ public class DeviceDetailsAttributesDiscoveryStatus
 	/// <summary>
 	/// Gets or Sets Wmi
 	/// </summary>
-	[JsonConverter(typeof(StringEnumConverter))]
+	[JsonConverter(typeof(EnumMemberJsonConverter))]
 	public enum WmiEnum
 	{
 
@@ -217,24 +217,28 @@ public class DeviceDetailsAttributesDiscoveryStatus
 	/// Gets or Sets Login
 	/// </summary>
 	[DataMember(Name="login", EmitDefaultValue=false)]
+	[JsonPropertyName("login")]
 	public LoginEnum? Login { get; set; }
 
 	/// <summary>
 	/// Gets or Sets Snmp
 	/// </summary>
 	[DataMember(Name="snmp", EmitDefaultValue=false)]
+	[JsonPropertyName("snmp")]
 	public SnmpEnum? Snmp { get; set; }
 
 	/// <summary>
 	/// Gets or Sets Vmware
 	/// </summary>
 	[DataMember(Name="vmware", EmitDefaultValue=false)]
+	[JsonPropertyName("vmware")]
 	public VmwareEnum? Vmware { get; set; }
 
 	/// <summary>
 	/// Gets or Sets Wmi
 	/// </summary>
 	[DataMember(Name="wmi", EmitDefaultValue=false)]
+	[JsonPropertyName("wmi")]
 	public WmiEnum? Wmi { get; set; }
 
 	/// <summary>

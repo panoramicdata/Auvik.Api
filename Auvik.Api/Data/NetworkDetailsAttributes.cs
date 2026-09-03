@@ -4,8 +4,8 @@ using System.IO;
 using System.Text;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using Auvik.Api.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -19,7 +19,7 @@ public class NetworkDetailsAttributes
 	/// How collectors for this network are selected
 	/// </summary>
 	/// <value>How collectors for this network are selected</value>
-	[JsonConverter(typeof(StringEnumConverter))]
+	[JsonConverter(typeof(EnumMemberJsonConverter))]
 	public enum CollectorSelectionEnum
 	{
 
@@ -40,7 +40,7 @@ public class NetworkDetailsAttributes
 	/// Whether this network is a private or public network
 	/// </summary>
 	/// <value>Whether this network is a private or public network</value>
-	[JsonConverter(typeof(StringEnumConverter))]
+	[JsonConverter(typeof(EnumMemberJsonConverter))]
 	public enum ScopeEnum
 	{
 
@@ -62,6 +62,7 @@ public class NetworkDetailsAttributes
 	/// </summary>
 	/// <value>How collectors for this network are selected</value>
 	[DataMember(Name="collectorSelection", EmitDefaultValue=false)]
+	[JsonPropertyName("collectorSelection")]
 	public CollectorSelectionEnum? CollectorSelection { get; set; }
 
 	/// <summary>
@@ -69,6 +70,7 @@ public class NetworkDetailsAttributes
 	/// </summary>
 	/// <value>Whether this network is a private or public network</value>
 	[DataMember(Name="scope", EmitDefaultValue=false)]
+	[JsonPropertyName("scope")]
 	public ScopeEnum? Scope { get; set; }
 
 	/// <summary>
@@ -76,6 +78,7 @@ public class NetworkDetailsAttributes
 	/// </summary>
 	/// <value>IP addresses and IP address ranges on this network that have been excluded from scans</value>
 	[DataMember(Name="excludedIpAddresses", EmitDefaultValue=false)]
+	[JsonPropertyName("excludedIpAddresses")]
 	public List<string> ExcludedIpAddresses { get; set; }
 
 	/// <summary>
@@ -83,6 +86,7 @@ public class NetworkDetailsAttributes
 	/// </summary>
 	/// <value>UUID of the primary Auvik collector assigned to this network</value>
 	[DataMember(Name="primaryCollector", EmitDefaultValue=false)]
+	[JsonPropertyName("primaryCollector")]
 	public string PrimaryCollector { get; set; }
 
 	/// <summary>
@@ -90,6 +94,7 @@ public class NetworkDetailsAttributes
 	/// </summary>
 	/// <value>List of UUIDs of secondary Auvik collectors assigned to this network, if any</value>
 	[DataMember(Name="secondaryCollectors", EmitDefaultValue=false)]
+	[JsonPropertyName("secondaryCollectors")]
 	public List<string> SecondaryCollectors { get; set; }
 
 	/// <summary>

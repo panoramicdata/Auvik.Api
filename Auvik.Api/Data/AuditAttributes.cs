@@ -1,10 +1,10 @@
 #nullable disable
 
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
+using System.Text.Json.Serialization;
+using Auvik.Api.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -18,7 +18,7 @@ public class AuditAttributes
 	/// What action is being performed
 	/// </summary>
 	/// <value>What action is being performed</value>
-	[JsonConverter(typeof(StringEnumConverter))]
+	[JsonConverter(typeof(EnumMemberJsonConverter))]
 	public enum ActionEnum
 	{
 
@@ -39,7 +39,7 @@ public class AuditAttributes
 	/// What service is taking/took this audited action
 	/// </summary>
 	/// <value>What service is taking/took this audited action</value>
-	[JsonConverter(typeof(StringEnumConverter))]
+	[JsonConverter(typeof(EnumMemberJsonConverter))]
 	public enum CategoryEnum
 	{
 
@@ -72,7 +72,7 @@ public class AuditAttributes
 	/// Whether is request is being made into or out of the entity's client
 	/// </summary>
 	/// <value>Whether is request is being made into or out of the entity's client</value>
-	[JsonConverter(typeof(StringEnumConverter))]
+	[JsonConverter(typeof(EnumMemberJsonConverter))]
 	public enum DirectionEnum
 	{
 
@@ -99,7 +99,7 @@ public class AuditAttributes
 	/// State of the audited action
 	/// </summary>
 	/// <value>State of the audited action</value>
-	[JsonConverter(typeof(StringEnumConverter))]
+	[JsonConverter(typeof(EnumMemberJsonConverter))]
 	public enum StatusEnum
 	{
 
@@ -139,6 +139,7 @@ public class AuditAttributes
 	/// </summary>
 	/// <value>What action is being performed</value>
 	[DataMember(Name = "action", EmitDefaultValue = false)]
+	[JsonPropertyName("action")]
 	public ActionEnum? Action { get; set; }
 
 	/// <summary>
@@ -146,6 +147,7 @@ public class AuditAttributes
 	/// </summary>
 	/// <value>What service is taking/took this audited action</value>
 	[DataMember(Name = "category", EmitDefaultValue = false)]
+	[JsonPropertyName("category")]
 	public CategoryEnum? Category { get; set; }
 
 	/// <summary>
@@ -153,6 +155,7 @@ public class AuditAttributes
 	/// </summary>
 	/// <value>Whether is request is being made into or out of the entity's client</value>
 	[DataMember(Name = "direction", EmitDefaultValue = false)]
+	[JsonPropertyName("direction")]
 	public DirectionEnum? Direction { get; set; }
 
 	/// <summary>
@@ -160,6 +163,7 @@ public class AuditAttributes
 	/// </summary>
 	/// <value>State of the audited action</value>
 	[DataMember(Name = "status", EmitDefaultValue = false)]
+	[JsonPropertyName("status")]
 	public StatusEnum? Status { get; set; }
 
 	/// <summary>
@@ -167,6 +171,7 @@ public class AuditAttributes
 	/// </summary>
 	/// <value>Reason the audited action is in its current state</value>
 	[DataMember(Name = "cause", EmitDefaultValue = false)]
+	[JsonPropertyName("cause")]
 	public string Cause { get; set; }
 
 	/// <summary>
@@ -174,6 +179,7 @@ public class AuditAttributes
 	/// </summary>
 	/// <value>Tertiary data related to the audited action</value>
 	[DataMember(Name = "data", EmitDefaultValue = false)]
+	[JsonPropertyName("data")]
 	public string Data { get; set; }
 
 	/// <summary>
@@ -181,6 +187,7 @@ public class AuditAttributes
 	/// </summary>
 	/// <value>When this audited action was started</value>
 	[DataMember(Name = "dateStarted", EmitDefaultValue = false)]
+	[JsonPropertyName("dateStarted")]
 	public string DateStarted { get; set; }
 
 	/// <summary>
@@ -188,6 +195,7 @@ public class AuditAttributes
 	/// </summary>
 	/// <value>When this audited action was last active</value>
 	[DataMember(Name = "lastActive", EmitDefaultValue = false)]
+	[JsonPropertyName("lastActive")]
 	public string LastActive { get; set; }
 
 	/// <summary>
@@ -195,6 +203,7 @@ public class AuditAttributes
 	/// </summary>
 	/// <value>The user name associated to this audit log</value>
 	[DataMember(Name = "user", EmitDefaultValue = false)]
+	[JsonPropertyName("user")]
 	public string User { get; set; }
 
 	/// <summary>

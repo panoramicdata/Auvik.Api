@@ -9,7 +9,8 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageReleaseNotes>
 			Breaking: retarget from netstandard2.0 to net10.0.
-			Updated dependencies (Microsoft.Extensions.Logging 10.0.5, Newtonsoft.Json 13.0.4, Refit 10.1.6).
+			Serialization moved from Newtonsoft.Json to System.Text.Json; the Newtonsoft.Json dependency is gone.
+			Updated dependencies (Microsoft.Extensions.Logging, Refit).
 			Adopted Central Package Management.
 		</PackageReleaseNotes>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -27,7 +28,6 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Newtonsoft.Json" />
     <PackageReference Include="Refit" />
     <PackageReference Include="SecurityCodeScan.VS2019">
       <PrivateAssets>all</PrivateAssets>

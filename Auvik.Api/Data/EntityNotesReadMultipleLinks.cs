@@ -2,6 +2,7 @@
 
 using System.Text;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -16,6 +17,7 @@ public class EntityNotesReadMultipleLinks
 	/// </summary>
 	/// <value>First page in the data set</value>
 	[DataMember(Name="first", EmitDefaultValue=false)]
+	[JsonPropertyName("first")]
 	public string First { get; set; }
 
 	/// <summary>
@@ -23,6 +25,7 @@ public class EntityNotesReadMultipleLinks
 	/// </summary>
 	/// <value>Last page in the data set</value>
 	[DataMember(Name="last", EmitDefaultValue=false)]
+	[JsonPropertyName("last")]
 	public string Last { get; set; }
 
 	/// <summary>
@@ -30,6 +33,7 @@ public class EntityNotesReadMultipleLinks
 	/// </summary>
 	/// <value>Next page in the data set</value>
 	[DataMember(Name="next", EmitDefaultValue=false)]
+	[JsonPropertyName("next")]
 	public string Next { get; set; }
 
 	/// <summary>
@@ -37,6 +41,7 @@ public class EntityNotesReadMultipleLinks
 	/// </summary>
 	/// <value>Previous page in the data set</value>
 	[DataMember(Name="prev", EmitDefaultValue=false)]
+	[JsonPropertyName("prev")]
 	public string Prev { get; set; }
 
 	/// <summary>

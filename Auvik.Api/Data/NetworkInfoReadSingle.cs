@@ -3,6 +3,7 @@
 using System.Text;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Auvik.Api.Data;
 
@@ -16,12 +17,14 @@ public class NetworkInfoReadSingle
 	/// Gets or Sets Data
 	/// </summary>
 	[DataMember(Name="data", EmitDefaultValue=false)]
+	[JsonPropertyName("data")]
 	public NetworksResourceObject Data { get; set; }
 
 	/// <summary>
 	/// Gets or Sets Included
 	/// </summary>
 	[DataMember(Name="included", EmitDefaultValue=false)]
+	[JsonPropertyName("included")]
 	public List<NetworkDetailsResourceObject> Included { get; set; }
 
 	/// <summary>
