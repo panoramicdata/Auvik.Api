@@ -8,6 +8,12 @@ namespace Auvik.Api.Test;
 /// <summary>
 /// Shared test base that initializes logger, configuration, and API client.
 /// </summary>
+/// <remarks>
+/// The constructor loads appsettings.json, which holds live Auvik credentials and does not exist in
+/// CI, so every class deriving from this one is an integration test. CI excludes them with
+/// --filter "Category!=Integration".
+/// </remarks>
+[Trait("Category", "Integration")]
 public abstract class Test
 {
 	/// <summary>
