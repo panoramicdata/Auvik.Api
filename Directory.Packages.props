@@ -7,7 +7,7 @@
     <!-- Auvik.Api -->
     <PackageVersion Include="Microsoft.Extensions.Logging" Version="10.0.12" />
     <PackageVersion Include="Nerdbank.GitVersioning" Version="3.10.94" />
-    <PackageVersion Include="Refit" Version="15.2.0" />
+    <PackageVersion Include="Refit" Version="16.3.0" />
     <PackageVersion Include="SecurityCodeScan.VS2019" Version="5.6.7" />
     <!-- Auvik.Api.Test -->
     <PackageVersion Include="AwesomeAssertions" Version="9.6.0" />
