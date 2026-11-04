@@ -38,6 +38,11 @@ public class AuvikClientOptions
 	public ILogger Logger { get; set; } = NullLogger.Instance;
 
 	/// <summary>
+	/// Whether to refuse every request that could modify Auvik, before it is sent
+	/// </summary>
+	public bool IsReadOnly { get; set; }
+
+	/// <summary>
 	/// Throws an exception if this object is invalid.
 	/// </summary>
 	internal void Validate()

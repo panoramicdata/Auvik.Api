@@ -14,6 +14,7 @@ namespace Auvik.Api;
 /// </summary>
 public class AuthenticatedHttpClientHandler : HttpClientHandler
 {
+	private readonly AuvikClientOptions _options;
 	private readonly AuthenticationHeaderValue _auth;
 	private readonly ILogger _logger;
 
@@ -23,6 +24,7 @@ public class AuthenticatedHttpClientHandler : HttpClientHandler
 	/// <param name="auvikClientOptions">Client options containing API credentials and logger configuration.</param>
 	public AuthenticatedHttpClientHandler(AuvikClientOptions auvikClientOptions)
 	{
+		_options = auvikClientOptions;
 		var byteArray = Encoding.ASCII.GetBytes($"{auvikClientOptions.Username}:{auvikClientOptions.ApiKey}");
 		_auth = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
 		_logger = auvikClientOptions?.Logger ?? NullLogger.Instance;
@@ -38,6 +40,11 @@ public class AuthenticatedHttpClientHandler : HttpClientHandler
 		HttpRequestMessage request,
 		CancellationToken cancellationToken)
 	{
+		if (_options.IsReadOnly && request.Method != HttpMethod.Get && request.Method != HttpMethod.Head && request.Method != HttpMethod.Options)
+		{
+			throw new InvalidOperationException($"{request.Method} {request.RequestUri} is refused because AuvikClientOptions.IsReadOnly is set.");
+		}
+
 		// See if the request has an authorize header
 		request.Headers.Authorization = _auth;
 		_logger.LogDebug($"{request.Method} {request.RequestUri}\n{request.Headers}{(request.Content is null ? null : "\n" + await request.Content.ReadAsStringAsync().ConfigureAwait(false))}");
