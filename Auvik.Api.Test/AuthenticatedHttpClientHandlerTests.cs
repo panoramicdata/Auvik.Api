@@ -180,7 +180,6 @@ public class AuthenticatedHttpClientHandlerTests
 	{
 		var listener = new TcpListener(IPAddress.Loopback, 0);
 		listener.Start();
-		int port = ((IPEndPoint)listener.LocalEndpoint).Port;
 
 		var requestText = Task.Run(async () =>
 		{
