@@ -5,6 +5,8 @@
 [![Nuget](https://img.shields.io/nuget/v/Auvik.Api)](https://www.nuget.org/packages/Auvik.Api/)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/e69c5b5373ab4577aef33e06e73e2160)](https://app.codacy.com/gh/panoramicdata/Auvik.Api/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 
+> **Need help with APIs or .NET?** Panoramic Data are experts in APIs and .NET, and we can help with your development. [Contact us](https://www.panoramicdata.com/contact-us) or see our [software services](https://www.panoramicdata.com/services/software).
+
 Supports .NET 11.0.
 
 To use the Auvik nuget package:
