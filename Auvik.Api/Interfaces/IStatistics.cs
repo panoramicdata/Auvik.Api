@@ -28,7 +28,7 @@ public interface IStatistics
 	/// <param name="filter_componentId">Filter by component ID. (optional)</param>
 	/// <param name="filter_parentDevice">Filter by the entity's parent device ID. (optional)</param>
 	/// <param name="tenants">Comma delimited list of tenant IDs to request info from. (optional)</param>
-	/// <param name="paging">Cursor-based paging options. (optional)</param>
+	/// <param name="paging">Cursor-based paging options; pass null for the first page.</param>
 	/// <param name="userAgent">userAgent parameter.</param>
 	/// <param name="cancellationToken">cancellationToken parameter.</param>
 	/// <returns>Task of ComponentStatisticsRead</returns>
@@ -38,10 +38,10 @@ public interface IStatistics
 		[AliasAs("componentType")] string componentType,
 		[AliasAs("statId")] string statId,
 		[Query] StatisticsTimeRange timeRange,
+		[Query] PagingOptions paging,
 		[AliasAs("filter[componentId]")] string filter_componentId = null,
 		[AliasAs("filter[parentDevice]")] string filter_parentDevice = null,
 		[AliasAs("tenants")] string tenants = null,
-		[Query] PagingOptions paging = null,
 		CancellationToken? cancellationToken = null
 	);
 
@@ -57,17 +57,17 @@ public interface IStatistics
 	/// <param name="filter_deviceType">Filter by device type. (optional)</param>
 	/// <param name="filter_deviceId">Filter by device ID (optional)</param>
 	/// <param name="tenants">Comma delimited list of tenant IDs to request info from. (optional)</param>
-	/// <param name="paging">Cursor-based paging options. (optional)</param>
+	/// <param name="paging">Cursor-based paging options; pass null for the first page.</param>
 	/// <param name="cancellationToken">cancellationToken parameter.</param>
 	/// <returns>Task of DeviceAvailabilityStatisticsRead</returns>
 	[Get("/v1/stat/deviceAvailability/{statId}")]
 	Task<DeviceAvailabilityStatisticsRead> ReadDeviceAvailabilityStatistics(
 		[AliasAs("statId")] string statId,
 		[Query] StatisticsTimeRange timeRange,
+		[Query] PagingOptions paging,
 		[AliasAs("filter[deviceType]")] string filter_deviceType = null,
 		[AliasAs("filter[deviceId]")] string filter_deviceId = null,
 		[AliasAs("tenants")] string tenants = null,
-		[Query] PagingOptions paging = null,
 		CancellationToken? cancellationToken = null
 	);
 
@@ -83,17 +83,17 @@ public interface IStatistics
 	/// <param name="filter_deviceType">Filter by device type. (optional)</param>
 	/// <param name="filter_deviceId">Filter by device ID (optional)</param>
 	/// <param name="tenants">Comma delimited list of tenant IDs to request info from. (optional)</param>
-	/// <param name="paging">Cursor-based paging options. (optional)</param>
+	/// <param name="paging">Cursor-based paging options; pass null for the first page.</param>
 	/// <param name="cancellationToken">cancellationToken parameter.</param>
 	/// <returns>Task of DeviceStatisticsRead</returns>
 	[Get("/v1/stat/device/{statId}")]
 	Task<DeviceStatisticsRead> ReadDeviceStatistics(
 		[AliasAs("statId")] string statId,
 		[Query] StatisticsTimeRange timeRange,
+		[Query] PagingOptions paging,
 		[AliasAs("filter[deviceType]")] string filter_deviceType = null,
 		[AliasAs("filter[deviceId]")] string filter_deviceId = null,
 		[AliasAs("tenants")] string tenants = null,
-		[Query] PagingOptions paging = null,
 		CancellationToken? cancellationToken = null
 	);
 
@@ -110,18 +110,18 @@ public interface IStatistics
 	/// <param name="filter_interfaceId">Filter by interface ID. (optional)</param>
 	/// <param name="filter_parentDevice">Filter by the entity's parent device ID. (optional)</param>
 	/// <param name="tenants">Comma delimited list of tenant IDs to request info from. (optional)</param>
-	/// <param name="paging">Cursor-based paging options. (optional)</param>
+	/// <param name="paging">Cursor-based paging options; pass null for the first page.</param>
 	/// <param name="cancellationToken">cancellationToken parameter.</param>
 	/// <returns>Task of InterfaceStatisticsRead</returns>
 	[Get("/v1/stat/interface/{statId}")]
 	Task<InterfaceStatisticsRead> ReadInterfaceStatistics(
 		[AliasAs("statId")] string statId,
 		[Query] StatisticsTimeRange timeRange,
+		[Query] PagingOptions paging,
 		[AliasAs("filter[interfaceType]")] string filter_interfaceType = null,
 		[AliasAs("filter[interfaceId]")] string filter_interfaceId = null,
 		[AliasAs("filter[parentDevice]")] string filter_parentDevice = null,
 		[AliasAs("tenants")] string tenants = null,
-		[Query] PagingOptions paging = null,
 		CancellationToken? cancellationToken = null
 	);
 
@@ -137,17 +137,17 @@ public interface IStatistics
 	/// <param name="filter_deviceType">Filter by device type. (optional)</param>
 	/// <param name="filter_oid">Filter by OID (optional)</param>
 	/// <param name="tenants">Comma delimited list of tenant IDs to request info from. (optional)</param>
-	/// <param name="paging">Cursor-based paging options. (optional)</param>
+	/// <param name="paging">Cursor-based paging options; pass null for the first page.</param>
 	/// <param name="cancellationToken">cancellationToken parameter.</param>
 	/// <returns>Task of DeviceOidMonitorRead</returns>
 	[Get("/v1/stat/oid/{statId}")]
 	Task<DeviceOidMonitorRead> ReadOidStatistics(
 		[AliasAs("statId")] string statId,
+		[Query] PagingOptions paging,
 		[AliasAs("filter[deviceId]")] string filter_deviceId = null,
 		[AliasAs("filter[deviceType]")] string filter_deviceType = null,
 		[AliasAs("filter[oid]")] string filter_oid = null,
 		[AliasAs("tenants")] string tenants = null,
-		[Query] PagingOptions paging = null,
 		CancellationToken? cancellationToken = null
 	);
 
@@ -162,7 +162,7 @@ public interface IStatistics
 	/// <param name="timeRange">The time range and reporting interval to query.</param>
 	/// <param name="filter_serviceId">Filter by service ID (optional)</param>
 	/// <param name="tenants">Comma delimited list of tenant IDs to request info from. (optional)</param>
-	/// <param name="paging">Cursor-based paging options. (optional)</param>
+	/// <param name="paging">Cursor-based paging options; pass null for the first page.</param>
 	/// <param name="userAgent">userAgent parameter.</param>
 	/// <param name="cancellationToken">cancellationToken parameter.</param>
 	/// <returns>Task of ServiceStatisticsRead</returns>
@@ -171,9 +171,9 @@ public interface IStatistics
 		[Header("UserAgent")] string userAgent,
 		[AliasAs("statId")] string statId,
 		[Query] StatisticsTimeRange timeRange,
+		[Query] PagingOptions paging,
 		[AliasAs("filter[serviceId]")] string filter_serviceId = null,
 		[AliasAs("tenants")] string tenants = null,
-		[Query] PagingOptions paging = null,
 		CancellationToken? cancellationToken = null
 	);
 }

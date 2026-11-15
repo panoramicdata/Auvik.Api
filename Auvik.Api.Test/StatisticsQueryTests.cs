@@ -38,11 +38,11 @@ public class StatisticsQueryTests
 		await api.ReadDeviceStatistics(
 			"cpuUtilization",
 			new StatisticsTimeRange { FromTime = "2024-01-01T00:00:00Z", Interval = "hour" },
+			new PagingOptions { First = 10, After = "abc" },
 			filter_deviceType: "switch",
-			paging: new PagingOptions { First = 10, After = "abc" },
 			cancellationToken: TestContext.Current.CancellationToken);
 
 		handler.RequestUri.Should().Be(
-			"/v1/stat/device/cpuUtilization?filter[fromTime]=2024-01-01T00:00:00Z&filter[interval]=hour&filter[deviceType]=switch&page[first]=10&page[after]=abc");
+			"/v1/stat/device/cpuUtilization?filter[fromTime]=2024-01-01T00:00:00Z&filter[interval]=hour&page[first]=10&page[after]=abc&filter[deviceType]=switch");
 	}
 }
