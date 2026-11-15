@@ -2,7 +2,6 @@
 
 using Auvik.Api.Data;
 using Refit;
-using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -42,7 +41,7 @@ public interface IStatistics
 		[AliasAs("filter[componentId]")] string filter_componentId = null,
 		[AliasAs("filter[parentDevice]")] string filter_parentDevice = null,
 		[AliasAs("tenants")] string tenants = null,
-		[Query, Optional] PagingOptions paging,
+		[Query] PagingOptions paging = null,
 		CancellationToken? cancellationToken = null
 	);
 
@@ -68,7 +67,7 @@ public interface IStatistics
 		[AliasAs("filter[deviceType]")] string filter_deviceType = null,
 		[AliasAs("filter[deviceId]")] string filter_deviceId = null,
 		[AliasAs("tenants")] string tenants = null,
-		[Query, Optional] PagingOptions paging,
+		[Query] PagingOptions paging = null,
 		CancellationToken? cancellationToken = null
 	);
 
@@ -94,7 +93,7 @@ public interface IStatistics
 		[AliasAs("filter[deviceType]")] string filter_deviceType = null,
 		[AliasAs("filter[deviceId]")] string filter_deviceId = null,
 		[AliasAs("tenants")] string tenants = null,
-		[Query, Optional] PagingOptions paging,
+		[Query] PagingOptions paging = null,
 		CancellationToken? cancellationToken = null
 	);
 
@@ -122,7 +121,7 @@ public interface IStatistics
 		[AliasAs("filter[interfaceId]")] string filter_interfaceId = null,
 		[AliasAs("filter[parentDevice]")] string filter_parentDevice = null,
 		[AliasAs("tenants")] string tenants = null,
-		[Query, Optional] PagingOptions paging,
+		[Query] PagingOptions paging = null,
 		CancellationToken? cancellationToken = null
 	);
 
@@ -148,7 +147,7 @@ public interface IStatistics
 		[AliasAs("filter[deviceType]")] string filter_deviceType = null,
 		[AliasAs("filter[oid]")] string filter_oid = null,
 		[AliasAs("tenants")] string tenants = null,
-		[Query, Optional] PagingOptions paging,
+		[Query] PagingOptions paging = null,
 		CancellationToken? cancellationToken = null
 	);
 
@@ -174,7 +173,7 @@ public interface IStatistics
 		[Query] StatisticsTimeRange timeRange,
 		[AliasAs("filter[serviceId]")] string filter_serviceId = null,
 		[AliasAs("tenants")] string tenants = null,
-		[Query, Optional] PagingOptions paging,
+		[Query] PagingOptions paging = null,
 		CancellationToken? cancellationToken = null
 	);
 }
